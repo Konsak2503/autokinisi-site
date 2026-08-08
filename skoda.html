@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ŠKODA | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
+  <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sk-green: #4ba82e;
+      --sk-dark-green: #1d5016;
+      --sk-black: #1a1a1a;
+      --sk-white: #ffffff;
+      --sk-light: #f5f5f5;
+      --sk-mid: #e8e8e8;
+      --sk-gray: #6b6b6b;
+      --sk-emerald: #00543a;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Source Sans 3', sans-serif; background:var(--sk-white); color:var(--sk-black); }
+
+    .sk-nav {
+      position: fixed; top:0; left:0; right:0; z-index:300;
+      background: var(--sk-black);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      border-bottom: 2px solid var(--sk-green);
+    }
+    .sk-nav-left { display:flex; align-items:center; gap:0; }
+    .sk-back {
+      display: flex; align-items:center; gap:8px;
+      color: rgba(255,255,255,0.6); font-size:13px; text-decoration:none;
+      padding-right:20px; margin-right:20px;
+      border-right:1px solid rgba(255,255,255,0.12);
+      transition:color 0.2s;
+    }
+    .sk-back:hover { color:white; }
+    .sk-logo {
+      font-family:'Source Sans 3',sans-serif;
+      font-size: 20px; font-weight:700; letter-spacing:0.12em;
+      text-transform:uppercase; color:white;
+    }
+    .sk-logo span { color:var(--sk-green); }
+    .sk-nav-links { display:flex; gap:0; }
+    .sk-nav-links a {
+      color:rgba(255,255,255,0.6); font-size:13px; font-weight:600;
+      text-decoration:none; padding:0 18px; height:64px;
+      display:flex; align-items:center;
+      border-bottom:2px solid transparent; margin-bottom:-2px;
+      transition:color 0.2s, border-color 0.2s;
+    }
+    .sk-nav-links a:hover { color:white; border-color:var(--sk-green); }
+    .sk-nav-cta {
+      background:var(--sk-green); color:white;
+      font-size:13px; font-weight:700; padding:10px 22px;
+      text-decoration:none; transition:background 0.2s;
+    }
+    .sk-nav-cta:hover { background:#5bc235; }
+
+    .sk-hero {
+      margin-top: 64px;
+      position:relative; height:92vh; min-height:560px;
+      overflow:hidden; display:flex; align-items:center;
+      background: #0d1a0d;
+    }
+    .sk-hero-bg {
+      position:absolute; inset:0;
+      background:linear-gradient(120deg, #0a1a0a 0%, #112811 35%, #1a4020 65%, #235c28 100%);
+    }
+    .sk-hero-bg::before {
+      content:'';
+      position:absolute; right:0; bottom:0;
+      width:55%; height:100%;
+      background:linear-gradient(135deg, transparent 30%, rgba(75,168,46,0.08) 60%, rgba(75,168,46,0.15) 100%);
+      clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .sk-hero-bg::after {
+      content:'';
+      position:absolute; right:10%; top:20%;
+      width:420px; height:420px;
+      border:1px solid rgba(75,168,46,0.15);
+      border-radius:50%;
+      box-shadow: 0 0 0 60px rgba(75,168,46,0.04), 0 0 0 120px rgba(75,168,46,0.03);
+    }
+    .sk-hero-inner {
+      position:relative; z-index:2; padding:0 56px; max-width:640px;
+      animation:fadeUp 0.9s ease both;
+    }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    .sk-hero-badge {
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--sk-green); margin-bottom:20px;
+    }
+    .sk-hero-badge::before { content:''; width:28px; height:2px; background:var(--sk-green); }
+    .sk-hero-h1 {
+      font-size:clamp(52px,8vw,96px); font-weight:700; line-height:0.9;
+      color:white; margin-bottom:24px; letter-spacing:-0.02em;
+    }
+    .sk-hero-h1 em { font-style:italic; color:var(--sk-green); }
+    .sk-hero-sub {
+      font-size:16px; font-weight:300; color:rgba(255,255,255,0.65);
+      line-height:1.65; max-width:460px; margin-bottom:40px;
+    }
+    .sk-hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+    .btn-sk-green {
+      background:var(--sk-green); color:white;
+      font-size:14px; font-weight:700; padding:14px 28px;
+      text-decoration:none; transition:background 0.2s;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn-sk-green:hover { background:#5bc235; }
+    .btn-sk-outline {
+      border:1.5px solid rgba(255,255,255,0.4); color:white;
+      font-size:14px; font-weight:600; padding:13px 28px;
+      text-decoration:none; transition:all 0.2s;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn-sk-outline:hover { border-color:white; background:rgba(255,255,255,0.07); }
+
+    .kosmocar-note {
+      position:absolute; bottom:32px; right:48px;
+      background:rgba(0,0,0,0.5); backdrop-filter:blur(8px);
+      border:1px solid rgba(75,168,46,0.3); padding:12px 20px;
+      color:rgba(255,255,255,0.55); font-size:11px; letter-spacing:0.06em;
+    }
+    .kosmocar-note strong { color:var(--sk-green); }
+
+    .sk-section { padding:72px 48px; }
+    .sk-sec-header {
+      display:flex; align-items:flex-end; justify-content:space-between;
+      margin-bottom:40px; padding-bottom:16px;
+      border-bottom:2px solid var(--sk-green);
+    }
+    .sk-sec-title { font-size:28px; font-weight:700; color:var(--sk-black); }
+    .sk-sec-link {
+      font-size:13px; font-weight:700; color:var(--sk-green);
+      text-decoration:none; display:flex; align-items:center; gap:6px;
+    }
+    .sk-sec-link:hover { text-decoration:underline; }
+
+    .sk-models-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    }
+    .sk-model-card {
+      background:var(--sk-black); overflow:hidden;
+      text-decoration:none; color:inherit;
+      display:flex; flex-direction:column;
+      border-bottom:3px solid transparent;
+      transition:border-color 0.2s;
+    }
+    .sk-model-card:hover { border-color:var(--sk-green); }
+    .sk-model-img {
+      aspect-ratio:16/9; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .sk-model-img-bg {
+      position:absolute; inset:0;
+      transition:transform 0.5s ease;
+    }
+    .sk-model-card:hover .sk-model-img-bg { transform:scale(1.04); }
+    .sk-model-img-label {
+      position:relative; z-index:1;
+      font-size:13px; font-weight:700; letter-spacing:0.1em;
+      text-transform:uppercase; color:rgba(255,255,255,0.4);
+    }
+    .bg-octavia { background:linear-gradient(135deg,#0f2a12,#1a4a20,#256030); }
+    .bg-kodiaq  { background:linear-gradient(135deg,#1a1a1a,#252525,#1f3520); }
+    .bg-karoq   { background:linear-gradient(135deg,#0e2210,#1c3c1e,#2a5228); }
+    .bg-fabia   { background:linear-gradient(135deg,#121e13,#1e3520,#285030); }
+    .bg-kamiq   { background:linear-gradient(135deg,#101810,#1c2e1e,#264024); }
+    .bg-superb  { background:linear-gradient(135deg,#0a0f0a,#141f14,#1e3020); }
+
+    .sk-model-info { padding:22px 24px 28px; background:var(--sk-black); }
+    .sk-model-type {
+      font-size:10px; font-weight:700; letter-spacing:0.18em;
+      text-transform:uppercase; color:var(--sk-green); margin-bottom:8px;
+    }
+    .sk-model-name { font-size:24px; font-weight:700; color:white; margin-bottom:8px; }
+    .sk-model-desc { font-size:13px; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.55; margin-bottom:18px; }
+    .sk-model-cta {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:12px; font-weight:700; letter-spacing:0.06em;
+      color:var(--sk-green); text-decoration:none;
+    }
+    .sk-model-cta:hover { text-decoration:underline; }
+    .sk-model-cta::after { content:'→'; }
+
+    .sk-split {
+      display:grid; grid-template-columns:1fr 1fr;
+      background:var(--sk-light);
+    }
+    .sk-split-img {
+      min-height:440px;
+      background-image:url('service-9.jpg');
+      background-size:cover;
+      background-position:center;
+      position:relative; overflow:hidden;
+    }
+    .sk-split-img::after {
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(0,0,0,0.1) 0%,rgba(30,90,30,0.15) 100%);
+    }
+    .sk-split-text { padding:72px 56px; display:flex; flex-direction:column; justify-content:center; }
+    .sk-split-badge {
+      font-size:11px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase;
+      color:var(--sk-green); margin-bottom:14px;
+    }
+    .sk-split-h2 {
+      font-size:clamp(32px,3.5vw,48px); font-weight:700; line-height:1.05;
+      color:var(--sk-black); margin-bottom:20px; letter-spacing:-0.01em;
+    }
+    .sk-green-line { width:40px; height:3px; background:var(--sk-green); margin-bottom:24px; }
+    .sk-split-text p { font-size:15px; font-weight:300; line-height:1.72; color:#333; margin-bottom:14px; }
+    .sk-split-text p strong { font-weight:700; color:var(--sk-black); }
+    .sk-split-text .btn-sk-green { margin-top:12px; width:fit-content; }
+
+    .sk-cta-banner {
+      background:var(--sk-dark-green);
+      padding:72px 48px;
+      display:grid; grid-template-columns:1fr auto;
+      align-items:center; gap:40px;
+    }
+    .sk-cta-banner h2 {
+      font-size:clamp(28px,3.5vw,44px); font-weight:700;
+      color:white; line-height:1.1; margin-bottom:12px;
+    }
+    .sk-cta-banner p { font-size:15px; font-weight:300; color:rgba(255,255,255,0.65); }
+    .sk-cta-btns { display:flex; flex-direction:column; gap:10px; min-width:220px; }
+
+    .sk-services { background:white; padding:72px 48px; }
+    .sk-services-title { font-size:22px; font-weight:700; color:var(--sk-black); margin-bottom:32px; }
+    .sk-srv-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+    .sk-srv {
+      padding:32px 24px; background:var(--sk-light);
+      border-top:3px solid transparent; transition:border-color 0.2s, background 0.2s;
+    }
+    .sk-srv:hover { border-color:var(--sk-green); background:white; }
+    .sk-srv-icon { font-size:28px; margin-bottom:14px; }
+    .sk-srv-title { font-size:15px; font-weight:700; color:var(--sk-black); margin-bottom:8px; }
+    .sk-srv-desc { font-size:13px; font-weight:300; color:var(--sk-gray); line-height:1.5; }
+
+    .sk-footer {
+      background:var(--sk-black); padding:40px 48px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:20px;
+      border-top:3px solid var(--sk-green);
+    }
+    .sk-footer-brand { font-size:17px; font-weight:700; color:white; }
+    .sk-footer-brand span { color:var(--sk-green); }
+    .sk-footer-copy { font-size:12px; color:rgba(255,255,255,0.35); text-align:center; line-height:1.6; }
+    .sk-footer-back {
+      font-size:13px; font-weight:600; color:rgba(255,255,255,0.55);
+      text-decoration:none; transition:color 0.2s;
+    }
+    .sk-footer-back:hover { color:white; }
+
+    .fade{opacity:0;transform:translateY(16px);transition:opacity 0.6s,transform 0.6s;}
+    .fade.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:900px){
+      .sk-nav{padding:0 16px;} .sk-nav-links{display:none;}
+      .sk-hero-inner{padding:0 20px;} .kosmocar-note{display:none;}
+      .sk-section,.sk-services,.sk-cta-banner{padding:48px 20px;}
+      .sk-models-grid,.sk-srv-grid{grid-template-columns:1fr;}
+      .sk-split{grid-template-columns:1fr;}
+      .sk-split-img{min-height:240px;}
+      .sk-split-text{padding:48px 24px;}
+      .sk-cta-banner{grid-template-columns:1fr;}
+      .sk-footer{padding:32px 20px;flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sk-nav">
+  <div class="sk-nav-left">
+    <a href="index.html" class="sk-back">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
+      Αρχική
+    </a>
+    <div class="sk-logo">ŠKODA <span>Κιλκίς</span></div>
+  </div>
+  <div class="sk-nav-links">
+    <a href="#models">Μοντέλα</a>
+    <a href="#split">Ο Αντιπρόσωπός μας</a>
+    <a href="#services">Υπηρεσίες</a>
+    <a href="https://www.skoda.gr" target="_blank">skoda.gr ↗</a>
+  </div>
+  <a href="index.html#contact" class="sk-nav-cta">Επικοινωνία</a>
+</nav>
+
+<!-- HERO -->
+<section class="sk-hero">
+  <div class="sk-hero-bg"></div>
+  <div class="sk-hero-inner">
+    <div class="sk-hero-badge">Εξουσιοδ. Συνεργείο · Kosmocar A.E. · Κιλκίς</div>
+    <h1 class="sk-hero-h1">ŠKODA.<br><em>Simply</em><br>Clever.</h1>
+    <p class="sk-hero-sub">Επίσημο εξουσιοδοτημένο συνεργείο ŠKODA στο Κιλκίς από το 2017, μέσω της Kosmocar A.E. Αξιοπιστία, καινοτομία και η πλήρης γκάμα μοντέλων.</p>
+    <div class="sk-hero-btns">
+      <a href="#models" class="btn-sk-green">Δείτε τα μοντέλα</a>
+      <a href="https://www.skoda.gr" target="_blank" class="btn-sk-outline">skoda.gr ↗</a>
+    </div>
+  </div>
+  <div class="kosmocar-note">Επίσημος εισαγωγέας: <strong>Kosmocar A.E.</strong></div>
+</section>
+
+<!-- MODELS -->
+<section class="sk-section" id="models" style="background:#111;">
+  <div class="sk-sec-header" style="border-color:rgba(75,168,46,0.4);">
+    <h2 class="sk-sec-title" style="color:white;">Μοντέλα ŠKODA</h2>
+    <a href="https://www.skoda.gr/models/range" target="_blank" class="sk-sec-link">Όλα τα μοντέλα στο skoda.gr</a>
+  </div>
+  <div class="sk-models-grid fade">
+
+    <a href="https://www.skoda.gr/models/octavia/octavia" target="_blank" class="sk-model-card">
+      <div class="sk-model-img"><div class="sk-model-img-bg bg-octavia"></div><span class="sk-model-img-label">Octavia</span></div>
+      <div class="sk-model-info">
+        <div class="sk-model-type">Sedan · Combi · Hybrid</div>
+        <div class="sk-model-name">Octavia</div>
+        <div class="sk-model-desc">Η σημαία της ŠKODA. Εξαιρετικός χώρος, απόλυτη αξιοπιστία και κορυφαία σχέση ποιότητας-τιμής.</div>
+        <span class="sk-model-cta">Ανακαλύψτε το</span>
+      </div>
+    </a>
+
+    <a href="https://www.skoda.gr/models/kodiaq/kodiaq" target="_blank" class="sk-model-card">
+      <div class="sk-model-img"><div class="sk-model-img-bg bg-kodiaq"></div><span class="sk-model-img-label">Kodiaq</span></div>
+      <div class="sk-model-info">
+        <div class="sk-model-type">Large SUV · 7 Θέσεις · Hybrid</div>
+        <div class="sk-model-name">Kodiaq</div>
+        <div class="sk-model-desc">Το μεγάλο SUV της γκάμας. Επιβλητική παρουσία, 7 θέσεις και plug-in hybrid τεχνολογία.</div>
+        <span class="sk-model-cta">Ανακαλύψτε το</span>
+      </div>
+    </a>
+
+    <a href="https://www.skoda.gr/models/karoq/karoq" target="_blank" class="sk-model-card">
+      <div class="sk-model-img"><div class="sk-model-img-bg bg-karoq"></div><span class="sk-model-img-label">Karoq</span></div>
+      <div class="sk-model-info">
+        <div class="sk-model-type">Compact SUV</div>
+        <div class="sk-model-name">Karoq</div>
+        <div class="sk-model-desc">Δυναμικό compact SUV με εξαιρετική ευελιξία και πλούσιο εξοπλισμό ασφαλείας.</div>
+        <span class="sk-model-cta">Ανακαλύψτε το</span>
+      </div>
+    </a>
+
+    <a href="https://www.skoda.gr/models/new-fabia/new-fabia" target="_blank" class="sk-model-card">
+      <div class="sk-model-img"><div class="sk-model-img-bg bg-fabia"></div><span class="sk-model-img-label">Fabia</span></div>
+      <div class="sk-model-info">
+        <div class="sk-model-type">City Car</div>
+        <div class="sk-model-name">Fabia</div>
+        <div class="sk-model-desc">Έξυπνο city car με μεγάλο εσωτερικό, οικονομία καυσίμου και σύγχρονο εξοπλισμό.</div>
+        <span class="sk-model-cta">Ανακαλύψτε το</span>
+      </div>
+    </a>
+
+    <a href="https://www.skoda.gr/models/kamiq/kamiq" target="_blank" class="sk-model-card">
+      <div class="sk-model-img"><div class="sk-model-img-bg bg-kamiq"></div><span class="sk-model-img-label">Kamiq</span></div>
+      <div class="sk-model-info">
+        <div class="sk-model-type">Urban Crossover</div>
+        <div class="sk-model-name">Kamiq</div>
+        <div class="sk-model-desc">Αστικό crossover με σπορ χαρακτήρα — ιδανικό για πόλη και εκτός αυτής.</div>
+        <span class="sk-model-cta">Ανακαλύψτε το</span>
+      </div>
+    </a>
+
+    <a href="https://www.skoda.gr/models/superb/superb" target="_blank" class="sk-model-card">
+      <div class="sk-model-img"><div class="sk-model-img-bg bg-superb"></div><span class="sk-model-img-label">Superb</span></div>
+      <div class="sk-model-info">
+        <div class="sk-model-type">Executive · Hybrid</div>
+        <div class="sk-model-name">Superb</div>
+        <div class="sk-model-desc">Η κορυφή της γκάμας. Executive κομψότητα με plug-in hybrid τεχνολογία και ασυναγώνιστο χώρο.</div>
+        <span class="sk-model-cta">Ανακαλύψτε το</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- DEALER SPLIT -->
+<div class="sk-split" id="split">
+  <div class="sk-split-img"></div>
+  <div class="sk-split-text fade">
+    <div class="sk-split-badge">Εξουσιοδ. Συνεργείο ŠKODA · Από το 2017</div>
+    <h2 class="sk-split-h2">Αυτοκίνηση Μ.Ε.Π.Ε.<br>το ŠKODA σας<br>στο Κιλκίς</h2>
+    <div class="sk-green-line"></div>
+    <p>Από το <strong>2017</strong>, η <strong>Kosmocar A.E.</strong> — επίσημος εισαγωγέας ŠKODA στην Ελλάδα — μας ορίζει εξουσιοδοτημένο συνεργείο για τη μάρκα.</p>
+    <p>Στην έκθεσή μας στο Κιλκίς μπορείτε να δείτε όλη τη γκάμα ŠKODA από κοντά και να κλείσετε ραντεβού για test drive.</p>
+    <p>Το εξουσιοδοτημένο συνεργείο μας αναλαμβάνει κάθε εργασία service και επισκευής με <strong>γνήσια ανταλλακτικά ŠKODA</strong>.</p>
+    <a href="index.html#contact" class="btn-sk-green">Κλείστε Ραντεβού →</a>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="sk-cta-banner">
+  <div>
+    <h2>Ανακαλύψτε την ŠKODA<br>στο Κιλκίς</h2>
+    <p>Επισκεφθείτε την έκθεσή μας ή μάθετε περισσότερα στο επίσημο site της ŠKODA Ελλάδος.</p>
+  </div>
+  <div class="sk-cta-btns">
+    <a href="https://www.skoda.gr" target="_blank" class="btn-sk-green">skoda.gr →</a>
+    <a href="index.html#contact" class="btn-sk-outline" style="border-color:rgba(255,255,255,0.3)">Επικοινωνία</a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sk-services" id="services">
+  <h2 class="sk-services-title">Υπηρεσίες ŠKODA</h2>
+  <div class="sk-srv-grid fade">
+    <div class="sk-srv">
+      <div class="sk-srv-icon">✅</div>
+      <div class="sk-srv-title">Εξουσ. Συνεργείο</div>
+      <div class="sk-srv-desc">Πιστοποιημένοι τεχνικοί ŠKODA, γνήσια ανταλλακτικά, εγγύηση εργοστασίου.</div>
+    </div>
+    <div class="sk-srv">
+      <div class="sk-srv-icon">🚗</div>
+      <div class="sk-srv-title">Test Drive</div>
+      <div class="sk-srv-desc">Κλείστε ραντεβού και οδηγήστε το ŠKODA της επιλογής σας χωρίς δέσμευση.</div>
+    </div>
+    <div class="sk-srv">
+      <div class="sk-srv-icon">💳</div>
+      <div class="sk-srv-title">Χρηματοδότηση</div>
+      <div class="sk-srv-desc">Ευέλικτα πλάνα χρηματοδότησης σε συνεργασία με Kosmocar A.E.</div>
+    </div>
+    <div class="sk-srv">
+      <div class="sk-srv-icon">🔄</div>
+      <div class="sk-srv-title">Ανταλλαγή</div>
+      <div class="sk-srv-desc">Αξιολόγηση και ανταλλαγή του παλιού σας αυτοκινήτου στην καλύτερη τιμή.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="sk-footer">
+  <div class="sk-footer-brand"><span>ŠKODA</span> · Αυτοκίνηση Μ.Ε.Π.Ε.</div>
+  <div class="sk-footer-copy">© 2025 Σακαρίδης Κωνσταντίνος Μ.Ε.Π.Ε. · Δυτική Περιφερειακή Οδός, Κιλκίς</div>
+  <a href="index.html" class="sk-footer-back">← Επιστροφή στην Αρχική</a>
+</footer>
+
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

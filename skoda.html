@@ -4,102 +4,122 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ŠKODA | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--sk-green:#31694b;--sk-green-bright:#3d7d5a;--sk-dark-green:#0e3a2f;--sk-black:#101010;--sk-white:#fff;--sk-light:#f5f5f3;--sk-mid:#e6e5e0;--sk-gray:#6b6b6b;}
+:root{
+--sk-green:#31694b;
+--sk-green-dark:#0e3a2f;
+--sk-mint:#78faae;
+--sk-black:#161718;
+--sk-white:#fff;
+--sk-border:#d8d8d8;
+--sk-gray:#78797a;
+--sk-light:#f1f1f1;
+}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Source Sans 3',sans-serif;background:var(--sk-white);color:var(--sk-black);}
+body{font-family:Helvetica,Arial,system-ui,-apple-system,sans-serif;background:var(--sk-white);color:var(--sk-black);}
+a{color:inherit;}
 
-.sk-nav{position:fixed;top:0;left:0;right:0;z-index:300;background:#fff;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid var(--sk-mid);}
+/* NAV */
+.sk-nav{position:fixed;top:0;left:0;right:0;z-index:300;background:#fff;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid var(--sk-border);}
 .sk-nav-left{display:flex;align-items:center;gap:0;}
-.sk-back{display:flex;align-items:center;gap:8px;color:var(--sk-gray);font-size:13px;text-decoration:none;padding-right:20px;margin-right:20px;border-right:1px solid var(--sk-mid);transition:color .2s;}
+.sk-back{display:flex;align-items:center;gap:6px;color:var(--sk-gray);font-size:12.5px;text-decoration:none;padding-right:18px;margin-right:18px;border-right:1px solid var(--sk-border);transition:color .2s;}
 .sk-back:hover{color:var(--sk-black);}
-.sk-logo{font-size:20px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:var(--sk-black);}
-.sk-logo span{color:var(--sk-gray);font-weight:400;font-size:13px;letter-spacing:0.04em;margin-left:8px;text-transform:none;}
-.sk-nav-links{display:flex;gap:0;}
-.sk-nav-links a{color:var(--sk-black);font-size:13px;font-weight:600;text-decoration:none;padding:0 16px;height:64px;display:flex;align-items:center;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;}
+.sk-logo{font-size:19px;font-weight:700;letter-spacing:0.01em;color:var(--sk-black);}
+.sk-logo span{color:var(--sk-gray);font-weight:400;font-size:12.5px;margin-left:8px;}
+.sk-nav-links{display:flex;gap:2px;height:100%;}
+.sk-nav-links a{color:var(--sk-black);font-size:13px;font-weight:500;text-decoration:none;padding:0 14px;height:60px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
 .sk-nav-links a:hover{color:var(--sk-green);border-color:var(--sk-green);}
-.sk-nav-cta{background:var(--sk-green);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;}
-.sk-nav-cta:hover{background:#265440;transform:translateY(-1px);}
+.sk-nav-cta{background:var(--sk-green);color:#fff;font-size:13px;font-weight:600;padding:9px 20px;border-radius:1000px;text-decoration:none;transition:background .2s;}
+.sk-nav-cta:hover{background:var(--sk-green-dark);}
 
-.sk-announce{margin-top:64px;background:var(--sk-dark-green);color:#fff;padding:11px 48px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;}
-.sk-announce a{background:rgba(255,255,255,0.12);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:6px 16px;border-radius:999px;}
-.sk-announce a:hover{background:rgba(255,255,255,0.2);}
-
-.sk-hero{position:relative;min-height:440px;overflow:hidden;display:flex;align-items:center;background:linear-gradient(120deg,#eef1ec 0%,#e2e8dc 100%);}
-.sk-hero-inner{position:relative;z-index:2;padding:56px 56px;max-width:640px;animation:fadeUp .9s ease both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-.sk-hero-badge{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--sk-dark-green);background:rgba(49,105,75,0.12);padding:6px 14px;border-radius:999px;margin-bottom:20px;}
-.sk-hero-h1{font-size:clamp(36px,5.4vw,58px);font-weight:800;line-height:1.05;color:var(--sk-black);margin-bottom:18px;letter-spacing:-0.01em;}
-.sk-hero-sub{font-size:15.5px;color:#3a3a3a;line-height:1.65;max-width:460px;margin-bottom:30px;}
-.sk-hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-sk-green{background:var(--sk-green);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;display:inline-flex;align-items:center;gap:8px;}
-.btn-sk-green:hover{background:#265440;transform:translateY(-1px);}
-.btn-sk-outline{border:1.5px solid var(--sk-black);color:var(--sk-black);font-size:14px;font-weight:600;padding:13px 26px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+/* HERO */
+.sk-hero{margin-top:60px;position:relative;min-height:520px;display:flex;align-items:center;background:linear-gradient(120deg,#eef1ec 0%,#dde6da 100%);overflow:hidden;}
+.sk-hero-inner{position:relative;z-index:2;padding:60px;max-width:620px;}
+.sk-hero-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sk-green-dark);background:rgba(49,105,75,0.12);padding:6px 14px;border-radius:1000px;margin-bottom:20px;}
+.sk-hero-h1{font-size:clamp(34px,5vw,54px);font-weight:700;line-height:1.06;color:var(--sk-black);margin-bottom:16px;}
+.sk-hero-sub{font-size:15px;color:#3a3a3a;line-height:1.6;max-width:460px;margin-bottom:28px;}
+.sk-hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-sk-green{background:var(--sk-green);color:#fff;font-size:14px;font-weight:600;padding:13px 26px;border-radius:1000px;text-decoration:none;transition:background .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-sk-green:hover{background:var(--sk-green-dark);}
+.btn-sk-outline{border:1.5px solid var(--sk-black);color:var(--sk-black);font-size:14px;font-weight:500;padding:12px 24px;border-radius:1000px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
 .btn-sk-outline:hover{background:var(--sk-black);color:#fff;}
 
-.sk-section{padding:56px 48px;}
-.sk-sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;}
-.sk-sec-title{font-size:24px;font-weight:800;color:var(--sk-black);}
-.sk-sec-link{font-size:13px;font-weight:700;color:var(--sk-dark-green);text-decoration:none;}
+/* MODEL FILTER TABS */
+.sk-section{padding:52px 40px;}
+.sk-sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.sk-sec-title{font-size:23px;font-weight:700;color:var(--sk-black);}
+.sk-sec-link{font-size:13px;font-weight:600;color:var(--sk-green-dark);text-decoration:none;}
 .sk-sec-link:hover{text-decoration:underline;}
+.sk-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.sk-filter-pill{background:var(--sk-light);border:1px solid var(--sk-border);color:var(--sk-black);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:1000px;cursor:pointer;transition:all .2s;}
+.sk-filter-pill:hover{border-color:var(--sk-black);}
+.sk-filter-pill.active{background:var(--sk-black);color:#fff;border-color:var(--sk-black);}
 
-.sk-models-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.sk-model-card{background:#fff;border:1px solid var(--sk-mid);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s;}
-.sk-model-card:hover{box-shadow:0 10px 24px rgba(0,0,0,0.08);transform:translateY(-3px);}
-.sk-model-badge-row{padding:14px 16px 0;}
-.sk-model-badge{display:inline-block;background:var(--sk-black);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.08em;padding:4px 10px;border-radius:999px;text-transform:uppercase;}
-.sk-model-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#eef1ea,#dfe5d8);margin:10px 16px 0;border-radius:6px;}
-.sk-model-img-label{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--sk-gray);}
-.sk-model-name{font-size:16px;font-weight:800;color:var(--sk-black);padding:12px 16px 2px;}
-.sk-model-type{font-size:12px;color:var(--sk-gray);padding:0 16px 16px;}
-.sk-more-wrap{text-align:center;margin-top:28px;}
+/* MODELS GRID */
+.sk-models-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.sk-model-card{background:#fff;border:1px solid var(--sk-border);border-radius:4px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s;display:block;}
+.sk-model-card:hover{box-shadow:0 10px 24px rgba(0,0,0,0.09);transform:translateY(-3px);}
+.sk-model-card[data-cat]{}
+.sk-model-badge-row{padding:12px 14px 0;display:flex;gap:6px;}
+.sk-model-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.06em;padding:4px 9px;border-radius:1000px;text-transform:uppercase;}
+.sk-model-badge.electric{background:var(--sk-mint);color:var(--sk-green-dark);}
+.sk-model-badge.hybrid{background:var(--sk-black);color:#fff;}
+.sk-model-badge.suv{background:var(--sk-border);color:var(--sk-black);}
+.sk-model-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#eef1ea,#dfe5d8);margin:8px 14px 0;border-radius:3px;}
+.sk-model-img-label{font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--sk-gray);}
+.sk-model-name{font-size:15.5px;font-weight:700;color:var(--sk-black);padding:12px 14px 2px;}
+.sk-model-type{font-size:11.5px;color:var(--sk-gray);padding:0 14px 14px;}
+.sk-more-wrap{text-align:center;margin-top:26px;}
 
-.sk-feature-banner{position:relative;min-height:340px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#1a2a1c,#2f4a32);overflow:hidden;margin:0;}
+/* FEATURE BANNER */
+.sk-feature-banner{position:relative;min-height:320px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#1a2a1c,#2f4a32);text-decoration:none;}
 .sk-feature-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent 55%);}
-.sk-feature-text{position:relative;z-index:2;padding:40px 48px;color:#fff;}
-.sk-feature-text h3{font-size:28px;font-weight:800;margin-bottom:6px;}
-.sk-feature-text p{font-size:14.5px;color:rgba(255,255,255,0.8);}
+.sk-feature-text{position:relative;z-index:2;padding:38px 40px;color:#fff;}
+.sk-feature-text h3{font-size:26px;font-weight:700;margin-bottom:6px;}
+.sk-feature-text p{font-size:14px;color:rgba(255,255,255,0.8);}
 
+/* SPLIT */
 .sk-split{display:grid;grid-template-columns:1fr 1fr;background:#fff;}
-.sk-split-img{min-height:400px;background-image:url('service-9.jpg');background-size:cover;background-position:center;}
-.sk-split-text{padding:56px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--sk-light);}
-.sk-split-badge{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--sk-dark-green);margin-bottom:12px;}
-.sk-split-h2{font-size:clamp(26px,3vw,36px);font-weight:800;line-height:1.1;color:var(--sk-black);margin-bottom:16px;}
-.sk-split-text p{font-size:14.5px;line-height:1.68;color:#333;margin-bottom:12px;}
+.sk-split-img{min-height:380px;background:linear-gradient(160deg,#dfe5d8,#c8d2c0);display:flex;align-items:center;justify-content:center;color:var(--sk-gray);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
+.sk-split-text{padding:52px;display:flex;flex-direction:column;justify-content:center;background:var(--sk-light);}
+.sk-split-badge{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sk-green-dark);margin-bottom:10px;}
+.sk-split-h2{font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1.15;color:var(--sk-black);margin-bottom:14px;}
+.sk-split-text p{font-size:14px;line-height:1.65;color:#333;margin-bottom:10px;}
 .sk-split-text p strong{font-weight:700;color:var(--sk-black);}
-.sk-split-text .btn-sk-green{margin-top:10px;width:fit-content;}
+.sk-split-text .btn-sk-green{margin-top:8px;width:fit-content;}
 
-.sk-cta-banner{background:var(--sk-dark-green);padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;}
-.sk-cta-banner h2{font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px;}
-.sk-cta-banner p{font-size:14.5px;color:rgba(255,255,255,0.7);}
-.sk-cta-btns{display:flex;flex-direction:column;gap:10px;min-width:210px;}
+/* CTA BANNER */
+.sk-cta-banner{background:var(--sk-green-dark);padding:52px 40px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px;}
+.sk-cta-banner h2{font-size:clamp(22px,3vw,32px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px;}
+.sk-cta-banner p{font-size:14px;color:rgba(255,255,255,0.7);}
+.sk-cta-btns{display:flex;flex-direction:column;gap:10px;min-width:200px;}
 
-.sk-services{background:#fff;padding:56px 48px;}
-.sk-services-title{font-size:20px;font-weight:800;color:var(--sk-black);margin-bottom:26px;}
-.sk-srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.sk-srv{padding:24px 20px;background:var(--sk-light);border-radius:10px;}
-.sk-srv-icon{font-size:22px;margin-bottom:12px;}
-.sk-srv-title{font-size:14px;font-weight:700;color:var(--sk-black);margin-bottom:6px;}
-.sk-srv-desc{font-size:12.5px;color:var(--sk-gray);line-height:1.5;}
+/* SERVICES */
+.sk-services{background:#fff;padding:52px 40px;}
+.sk-services-title{font-size:19px;font-weight:700;color:var(--sk-black);margin-bottom:24px;}
+.sk-srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.sk-srv{padding:22px 18px;background:var(--sk-light);border-radius:4px;}
+.sk-srv-icon{font-size:20px;margin-bottom:10px;}
+.sk-srv-title{font-size:13.5px;font-weight:700;color:var(--sk-black);margin-bottom:5px;}
+.sk-srv-desc{font-size:12px;color:var(--sk-gray);line-height:1.5;}
 
-.sk-footer{background:#fff;padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:3px solid var(--sk-green);}
-.sk-footer-brand{font-size:15px;font-weight:800;color:var(--sk-black);}
+/* FOOTER */
+.sk-footer{background:#fff;padding:30px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;border-top:3px solid var(--sk-green);}
+.sk-footer-brand{font-size:14px;font-weight:700;color:var(--sk-black);}
 .sk-footer-brand span{color:var(--sk-green);}
-.sk-footer-copy{font-size:12px;color:var(--sk-gray);text-align:center;line-height:1.6;}
-.sk-footer-back{font-size:13px;font-weight:600;color:var(--sk-gray);text-decoration:none;}
+.sk-footer-copy{font-size:11.5px;color:var(--sk-gray);text-align:center;line-height:1.6;}
+.sk-footer-back{font-size:12.5px;font-weight:600;color:var(--sk-gray);text-decoration:none;}
 .sk-footer-back:hover{color:var(--sk-black);}
 
-.fade{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;}
+.fade{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s;}
 .fade.visible{opacity:1;transform:translateY(0);}
 
 @media(max-width:900px){
 .sk-nav{padding:0 16px;}.sk-nav-links{display:none;}
-.sk-announce{padding:10px 16px;font-size:12px;}
 .sk-hero-inner{padding:40px 20px;}
 .sk-section,.sk-services,.sk-cta-banner{padding:36px 20px;}
-.sk-models-row,.sk-srv-grid{grid-template-columns:1fr 1fr;}
+.sk-models-grid,.sk-srv-grid{grid-template-columns:1fr 1fr;}
 .sk-split{grid-template-columns:1fr;}
 .sk-split-img{min-height:200px;}
 .sk-split-text{padding:36px 24px;}
@@ -112,61 +132,91 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--sk-white);color:var
 
 <nav class="sk-nav">
 <div class="sk-nav-left">
-<a href="index.html" class="sk-back"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>Αρχική</a>
+<a href="index.html" class="sk-back"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>Αρχική</a>
 <div class="sk-logo">ŠKODA<span>Κιλκίς</span></div>
 </div>
 <div class="sk-nav-links">
 <a href="#models">Μοντέλα</a>
-<a href="#split">Ο Αντιπρόσωπός μας</a>
 <a href="#services">Υπηρεσίες</a>
+<a href="#dealer">Ο Αντιπρόσωπός μας</a>
 <a href="https://www.skoda.gr" target="_blank">skoda.gr ↗</a>
 </div>
 <a href="index.html#contact" class="sk-nav-cta">Επικοινωνία</a>
 </nav>
 
-<div class="sk-announce">
-<span>Εξουσιοδοτημένο Συνεργείο ŠKODA · Kosmocar A.E. · Από το 2017</span>
-<a href="index.html#contact">Κλείστε ραντεβού</a>
-</div>
-
 <section class="sk-hero">
 <div class="sk-hero-inner">
-<div class="sk-hero-badge">Kosmocar A.E. · Κιλκίς</div>
+<div class="sk-hero-badge">Kosmocar A.E. · Εξουσ. Συνεργείο από το 2017</div>
 <h1 class="sk-hero-h1">ŠKODA.<br>Simply Clever.</h1>
-<p class="sk-hero-sub">Επίσημο εξουσιοδοτημένο συνεργείο ŠKODA στο Κιλκίς από το 2017, μέσω της Kosmocar A.E.</p>
+<p class="sk-hero-sub">Η Αυτοκίνηση Μ.Ε.Π.Ε. είναι το εξουσιοδοτημένο συνεργείο ŠKODA στο Κιλκίς, μέσω της Kosmocar A.E. — γνήσια ανταλλακτικά και εξειδικευμένοι τεχνικοί.</p>
 <div class="sk-hero-btns">
 <a href="#models" class="btn-sk-green">Δείτε τα μοντέλα</a>
-<a href="https://www.skoda.gr" target="_blank" class="btn-sk-outline">skoda.gr ↗</a>
+<a href="index.html#contact" class="btn-sk-outline">Κλείστε ραντεβού</a>
 </div>
 </div>
 </section>
 
 <section class="sk-section" id="models">
 <div class="sk-sec-header">
-<h2 class="sk-sec-title">Μοντέλα ŠKODA</h2>
+<h2 class="sk-sec-title">Η Γκάμα ŠKODA</h2>
 <a href="https://www.skoda.gr/models/range" target="_blank" class="sk-sec-link">Όλα τα μοντέλα στο skoda.gr →</a>
 </div>
-<div class="sk-models-row fade">
-<a href="https://www.skoda.gr/models/octavia/octavia" target="_blank" class="sk-model-card">
-<div class="sk-model-badge-row"><span class="sk-model-badge">Hybrid</span></div>
+<div class="sk-filter-row">
+<button class="sk-filter-pill active" data-filter="all">Όλα</button>
+<button class="sk-filter-pill" data-filter="electric">Ηλεκτρικά</button>
+<button class="sk-filter-pill" data-filter="hybrid">Hybrid</button>
+<button class="sk-filter-pill" data-filter="suv">SUV</button>
+<button class="sk-filter-pill" data-filter="city">City Car</button>
+</div>
+<div class="sk-models-grid fade">
+<a href="https://www.skoda.gr/models/elroq" target="_blank" class="sk-model-card" data-cat="electric suv">
+<div class="sk-model-badge-row"><span class="sk-model-badge electric">Ηλεκτρικό</span></div>
+<div class="sk-model-img"><span class="sk-model-img-label">Elroq</span></div>
+<div class="sk-model-name">Elroq</div>
+<div class="sk-model-type">Ηλεκτρικό Compact SUV</div>
+</a>
+<a href="https://www.skoda.gr/models/enyaq" target="_blank" class="sk-model-card" data-cat="electric suv">
+<div class="sk-model-badge-row"><span class="sk-model-badge electric">Ηλεκτρικό</span></div>
+<div class="sk-model-img"><span class="sk-model-img-label">Enyaq</span></div>
+<div class="sk-model-name">Enyaq</div>
+<div class="sk-model-type">Ηλεκτρικό SUV · και Coupé</div>
+</a>
+<a href="https://www.skoda.gr/models/octavia" target="_blank" class="sk-model-card" data-cat="hybrid">
+<div class="sk-model-badge-row"><span class="sk-model-badge hybrid">Hybrid</span></div>
 <div class="sk-model-img"><span class="sk-model-img-label">Octavia</span></div>
 <div class="sk-model-name">Octavia</div>
-<div class="sk-model-type">Sedan · Combi</div>
+<div class="sk-model-type">Sedan · Combi · Hybrid</div>
 </a>
-<a href="https://www.skoda.gr/models/kodiaq/kodiaq" target="_blank" class="sk-model-card">
-<div class="sk-model-badge-row"><span class="sk-model-badge">Hybrid</span></div>
+<a href="https://www.skoda.gr/models/superb" target="_blank" class="sk-model-card" data-cat="hybrid">
+<div class="sk-model-badge-row"><span class="sk-model-badge hybrid">Hybrid</span></div>
+<div class="sk-model-img"><span class="sk-model-img-label">Superb</span></div>
+<div class="sk-model-name">Superb</div>
+<div class="sk-model-type">Business · Hybrid</div>
+</a>
+<a href="https://www.skoda.gr/models/kodiaq" target="_blank" class="sk-model-card" data-cat="suv hybrid">
+<div class="sk-model-badge-row"><span class="sk-model-badge suv">SUV</span></div>
 <div class="sk-model-img"><span class="sk-model-img-label">Kodiaq</span></div>
 <div class="sk-model-name">Kodiaq</div>
-<div class="sk-model-type">Large SUV · 7 Θέσεις</div>
+<div class="sk-model-type">Large SUV · 7 Θέσεις · Hybrid/PHEV</div>
 </a>
-<a href="https://www.skoda.gr/models/karoq/karoq" target="_blank" class="sk-model-card">
-<div class="sk-model-badge-row"><span class="sk-model-badge">SUV</span></div>
+<a href="https://www.skoda.gr/models/karoq" target="_blank" class="sk-model-card" data-cat="suv">
+<div class="sk-model-badge-row"><span class="sk-model-badge suv">SUV</span></div>
 <div class="sk-model-img"><span class="sk-model-img-label">Karoq</span></div>
 <div class="sk-model-name">Karoq</div>
 <div class="sk-model-type">Compact SUV</div>
 </a>
-<a href="https://www.skoda.gr/models/new-fabia/new-fabia" target="_blank" class="sk-model-card">
-<div class="sk-model-badge-row"><span class="sk-model-badge">City Car</span></div>
+<a href="https://www.skoda.gr/models/kamiq" target="_blank" class="sk-model-card" data-cat="suv city">
+<div class="sk-model-badge-row"><span class="sk-model-badge suv">SUV</span></div>
+<div class="sk-model-img"><span class="sk-model-img-label">Kamiq</span></div>
+<div class="sk-model-name">Kamiq</div>
+<div class="sk-model-type">Compact Crossover</div>
+</a>
+<a href="https://www.skoda.gr/models/scala" target="_blank" class="sk-model-card" data-cat="city">
+<div class="sk-model-img"><span class="sk-model-img-label">Scala</span></div>
+<div class="sk-model-name">Scala</div>
+<div class="sk-model-type">Hatchback</div>
+</a>
+<a href="https://www.skoda.gr/models/fabia" target="_blank" class="sk-model-card" data-cat="city">
 <div class="sk-model-img"><span class="sk-model-img-label">Fabia</span></div>
 <div class="sk-model-name">Fabia</div>
 <div class="sk-model-type">City Car</div>
@@ -175,12 +225,12 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--sk-white);color:var
 <div class="sk-more-wrap"><a href="https://www.skoda.gr/models/range" target="_blank" class="btn-sk-outline">Προβολή όλων των μοντέλων</a></div>
 </section>
 
-<a href="index.html#contact" class="sk-feature-banner" style="text-decoration:none;display:flex;">
+<a href="index.html#contact" class="sk-feature-banner">
 <div class="sk-feature-text"><h3>Έκθεση · Αυτοκίνηση Κιλκίς</h3><p>Δείτε όλη τη γκάμα ŠKODA από κοντά — Δυτική Περιφερειακή Οδός, Κιλκίς</p></div>
 </a>
 
-<div class="sk-split" id="split">
-<div class="sk-split-img"></div>
+<div class="sk-split" id="dealer">
+<div class="sk-split-img">Αυτοκίνηση Μ.Ε.Π.Ε.</div>
 <div class="sk-split-text fade">
 <div class="sk-split-badge">Εξουσιοδ. Συνεργείο ŠKODA · Από το 2017</div>
 <h2 class="sk-split-h2">Αυτοκίνηση Μ.Ε.Π.Ε.<br>το ŠKODA σας στο Κιλκίς</h2>
@@ -217,6 +267,18 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--sk-white);color:var
 <script>
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+const pills=document.querySelectorAll('.sk-filter-pill');
+const cards=document.querySelectorAll('.sk-model-card');
+pills.forEach(p=>p.addEventListener('click',()=>{
+pills.forEach(x=>x.classList.remove('active'));
+p.classList.add('active');
+const f=p.dataset.filter;
+cards.forEach(c=>{
+const cats=(c.dataset.cat||'').split(' ');
+c.style.display=(f==='all'||cats.includes(f))?'':'none';
+});
+}));
 </script>
 </body>
 </html>

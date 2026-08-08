@@ -1,432 +1,243 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chery | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ch-red: #c8102e;
-      --ch-black: #101010;
-      --ch-white: #ffffff;
-      --ch-light: #f4f3f1;
-      --ch-mid: #e6e4df;
-      --ch-gray: #6b6b6b;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { font-family:'Source Sans 3', sans-serif; background:var(--ch-white); color:var(--ch-black); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chery | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ch-red:#c8102e;--ch-gold:#a9812f;--ch-black:#101010;--ch-white:#fff;--ch-cream:#ede9e1;--ch-mid:#ddd7c9;--ch-gray:#6b6b6b;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--ch-white);color:var(--ch-black);}
 
-    /* ── NAV — light/neutral like chery.gr ── */
-    .ch-nav {
-      position:fixed; top:0; left:0; right:0; z-index:300;
-      background:var(--ch-light);
-      height:68px; display:flex; align-items:center;
-      justify-content:space-between; padding:0 48px;
-      border-bottom:1px solid var(--ch-mid);
-    }
-    .ch-nav-left { display:flex; align-items:center; gap:0; }
-    .ch-back {
-      display:flex; align-items:center; gap:8px;
-      color:var(--ch-gray); font-size:13px; text-decoration:none;
-      padding-right:20px; margin-right:20px;
-      border-right:1px solid var(--ch-mid);
-      transition:color 0.2s;
-    }
-    .ch-back:hover { color:var(--ch-black); }
-    .ch-logo {
-      font-size:20px; font-weight:800; letter-spacing:0.06em;
-      text-transform:uppercase; color:var(--ch-black);
-    }
-    .ch-logo span { color:var(--ch-gray); font-weight:400; font-size:14px; letter-spacing:0.04em; margin-left:8px; text-transform:none; }
-    .ch-nav-menu { display:flex; gap:0; }
-    .ch-nav-menu a {
-      color:var(--ch-black); font-size:13px; font-weight:600;
-      text-decoration:none; padding:0 18px; height:68px;
-      display:flex; align-items:center; gap:6px;
-      border-bottom:2px solid transparent; margin-bottom:-1px;
-      transition:color 0.2s, border-color 0.2s;
-      white-space:nowrap;
-    }
-    .ch-nav-menu a:hover { color:var(--ch-red); border-color:var(--ch-red); }
-    .ch-nav-cta {
-      background:var(--ch-black); color:white;
-      font-size:13px; font-weight:700;
-      padding:11px 24px; border-radius:999px;
-      text-decoration:none; transition:background 0.2s, transform 0.2s;
-    }
-    .ch-nav-cta:hover { background:#2a2a2a; transform: translateY(-1px); }
+.ch-nav{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--ch-cream);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid var(--ch-mid);}
+.ch-nav-left{display:flex;align-items:center;gap:0;}
+.ch-back{display:flex;align-items:center;gap:8px;color:var(--ch-gray);font-size:13px;text-decoration:none;padding-right:20px;margin-right:20px;border-right:1px solid var(--ch-mid);transition:color .2s;}
+.ch-back:hover{color:var(--ch-black);}
+.ch-logo{font-size:19px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--ch-black);}
+.ch-logo span{color:var(--ch-gray);font-weight:400;font-size:13px;letter-spacing:0.04em;margin-left:8px;text-transform:none;}
+.ch-nav-menu{display:flex;gap:0;}
+.ch-nav-menu a{color:var(--ch-black);font-size:13px;font-weight:600;text-decoration:none;padding:0 16px;height:64px;display:flex;align-items:center;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;white-space:nowrap;}
+.ch-nav-menu a:hover{color:var(--ch-red);border-color:var(--ch-red);}
+.ch-nav-cta{background:var(--ch-black);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;}
+.ch-nav-cta:hover{background:#2a2a2a;transform:translateY(-1px);}
 
-    /* ── HERO — light neutral, real-photo feel ── */
-    .ch-hero {
-      margin-top:68px; position:relative;
-      min-height:560px;
-      overflow:hidden; display:flex; align-items:center;
-      background: linear-gradient(120deg, #eeece7 0%, #e3e0d8 100%);
-    }
-    .ch-hero-inner {
-      position:relative; z-index:2; padding:64px 56px; max-width:640px;
-      animation:heroIn 0.9s ease both;
-    }
-    @keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    .ch-hero-tag {
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
-      color:var(--ch-red); background: rgba(200,16,46,0.08);
-      padding:6px 14px; border-radius:999px;
-      margin-bottom:20px;
-    }
-    .ch-hero-h1 {
-      font-size:clamp(42px,7vw,76px); font-weight:800; line-height:1.0;
-      letter-spacing:-0.01em;
-      color:var(--ch-black); margin-bottom:20px;
-    }
-    .ch-hero-tagline {
-      font-size:16px; font-weight:400; color:#3a3a3a;
-      line-height:1.65; max-width:480px; margin-bottom:36px;
-    }
-    .ch-hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
-    .btn-ch-black {
-      background:var(--ch-black); color:white;
-      font-size:14px; font-weight:700;
-      padding:15px 30px; border-radius:999px; text-decoration:none; transition:background 0.2s, transform 0.2s;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn-ch-black:hover { background:#2a2a2a; transform: translateY(-1px); }
-    .btn-ch-outline {
-      border:1.5px solid var(--ch-black); color:var(--ch-black);
-      font-size:14px; font-weight:600;
-      padding:14px 28px; border-radius:999px; text-decoration:none; transition:all 0.2s;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn-ch-outline:hover { background:var(--ch-black); color:white; }
-    .ch-hero-stats {
-      display:flex; gap:36px; margin-top:44px;
-    }
-    .ch-stat { }
-    .ch-stat-n { font-size:28px; font-weight:800; color:var(--ch-black); line-height:1; }
-    .ch-stat-n span { color:var(--ch-red); }
-    .ch-stat-l { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ch-gray); margin-top:4px; }
+.ch-hero{margin-top:64px;position:relative;min-height:440px;overflow:hidden;display:flex;align-items:center;background:linear-gradient(120deg,#f2efe8 0%,#e6e0d2 100%);}
+.ch-hero-inner{position:relative;z-index:2;padding:56px 56px;max-width:640px;animation:heroIn .9s ease both;}
+@keyframes heroIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.ch-hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ch-red);background:rgba(200,16,46,0.08);padding:6px 14px;border-radius:999px;margin-bottom:18px;}
+.ch-hero-h1{font-size:clamp(36px,6vw,64px);font-weight:800;line-height:1.02;letter-spacing:-0.01em;color:var(--ch-black);margin-bottom:18px;}
+.ch-hero-tagline{font-size:15.5px;color:#3a3a3a;line-height:1.65;max-width:480px;margin-bottom:30px;}
+.ch-hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-ch-black{background:var(--ch-black);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-ch-black:hover{background:#2a2a2a;transform:translateY(-1px);}
+.btn-ch-outline{border:1.5px solid var(--ch-black);color:var(--ch-black);font-size:14px;font-weight:600;padding:13px 26px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-ch-outline:hover{background:var(--ch-black);color:#fff;}
+.btn-ch-gold{background:var(--ch-gold);color:#fff;font-size:13px;font-weight:700;letter-spacing:0.04em;padding:13px 26px;border-radius:999px;text-decoration:none;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-ch-gold:hover{background:#8f6d27;}
+nav[class="ch-hero-stats"]{}
+.ch-hero-stats{display:flex;gap:32px;margin-top:36px;}
+.ch-stat-n{font-size:24px;font-weight:800;color:var(--ch-black);line-height:1;}
+.ch-stat-n span{color:var(--ch-red);}
+.ch-stat-l{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ch-gray);margin-top:4px;}
 
-    /* ── SPANOS BAR ── */
-    .ch-spanos-bar {
-      background:var(--ch-light);
-      border-top:1px solid var(--ch-mid);
-      border-bottom:1px solid var(--ch-mid);
-      padding:14px 56px;
-      display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; gap: 8px;
-    }
-    .ch-spanos-text { font-size:13px; color:#444; }
-    .ch-spanos-text strong { color:var(--ch-red); }
-    .ch-spanos-link {
-      font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-      color:var(--ch-black); text-decoration:none;
-    }
-    .ch-spanos-link:hover { text-decoration:underline; }
+.ch-spanos-bar{background:var(--ch-cream);border-top:1px solid var(--ch-mid);border-bottom:1px solid var(--ch-mid);padding:12px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.ch-spanos-text{font-size:13px;color:#444;}
+.ch-spanos-text strong{color:var(--ch-red);}
+.ch-spanos-link{font-size:12px;font-weight:700;letter-spacing:0.04em;color:var(--ch-black);text-decoration:none;}
+.ch-spanos-link:hover{text-decoration:underline;}
 
-    /* ── MODELS ── */
-    .ch-section { padding:64px 48px; }
-    .ch-sec-header {
-      display:flex; align-items:flex-end; justify-content:space-between;
-      margin-bottom:40px;
-    }
-    .ch-sec-title {
-      font-size:28px; font-weight:800;
-      color:var(--ch-black); letter-spacing:-0.01em;
-    }
-    .ch-sec-title span { color:var(--ch-red); }
-    .ch-sec-link {
-      font-size:13px; font-weight:600; color:var(--ch-black);
-      text-decoration:none; display:flex; align-items:center; gap:6px;
-    }
-    .ch-sec-link:hover { text-decoration:underline; }
+.ch-section{padding:56px 48px;}
+.ch-sec-header{margin-bottom:32px;}
+.ch-sec-title{font-size:26px;font-weight:800;color:var(--ch-black);letter-spacing:-0.01em;}
+.ch-sec-title span{color:var(--ch-red);}
 
-    .ch-models-list { display:flex; flex-direction:column; gap:20px; }
-    .ch-model-row {
-      display:grid; grid-template-columns:1.2fr 1fr;
-      background:var(--ch-light);
-      border-radius: 16px;
-      text-decoration:none; color:inherit;
-      overflow:hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .ch-model-row:hover { box-shadow: 0 14px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .ch-model-row:nth-child(even) { grid-template-columns:1fr 1.2fr; }
-    .ch-model-row:nth-child(even) .ch-model-img { order:2; }
-    .ch-model-row:nth-child(even) .ch-model-text { order:1; }
-    .ch-model-img {
-      min-height:280px; display:flex; align-items:center; justify-content:center;
-      position:relative; overflow:hidden;
-    }
-    .ch-model-img-inner { position:absolute; inset:0; }
-    .ch-model-img-label {
-      position:relative; z-index:1;
-      font-size:14px; font-weight:600;
-      letter-spacing:0.1em; text-transform:uppercase;
-      color:rgba(255,255,255,0.85);
-    }
-    .bg-tiggo4 { background:linear-gradient(135deg,#d8d3c8,#c3bcac,#a89f8b); }
-    .bg-tiggo7 { background:linear-gradient(135deg,#cfd0c9,#b4b6ac,#989b8e); }
-    .bg-tiggo8 { background:linear-gradient(135deg,#c7c9c0,#a9ac9f,#8c9081); }
+.ch-models-wrap{display:grid;grid-template-columns:160px 1fr;gap:40px;}
+.ch-model-sidebar{display:flex;flex-direction:column;gap:4px;position:sticky;top:88px;align-self:start;}
+.ch-model-sidebar a{font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ch-gold);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--ch-mid);transition:color .2s;}
+.ch-model-sidebar a:hover{color:var(--ch-black);}
 
-    .ch-model-text {
-      padding:44px 40px; display:flex; flex-direction:column; justify-content:center;
-    }
-    .ch-model-badge {
-      display:inline-block; margin-bottom:14px;
-      font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
-      color:var(--ch-red); background: rgba(200,16,46,0.08);
-      padding:5px 12px; border-radius: 999px; width:fit-content;
-    }
-    .ch-model-name {
-      font-size:clamp(32px,3.6vw,48px); font-weight:800;
-      color:var(--ch-black); line-height:1.0; margin-bottom:6px; letter-spacing:-0.01em;
-    }
-    .ch-model-subname {
-      font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-      color:var(--ch-red); margin-bottom:18px;
-    }
-    .ch-model-desc {
-      font-size:14px; font-weight:400; color:#444;
-      line-height:1.65; margin-bottom:24px; max-width:360px;
-    }
-    .ch-model-features { display:flex; gap:18px; margin-bottom:26px; flex-wrap:wrap; }
-    .ch-model-feat {
-      font-size:12px; font-weight:600; letter-spacing:0.02em;
-      color:#555; display:flex; align-items:center; gap:6px;
-    }
-    .ch-model-feat::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--ch-red); flex-shrink:0; }
-    .ch-td-btn {
-      display:inline-flex; align-items:center; gap:8px;
-      background:var(--ch-black); color:white;
-      font-size:13px; font-weight:700;
-      padding:12px 24px; border-radius:999px; width:fit-content; text-decoration:none;
-      transition:background 0.2s;
-    }
-    .ch-td-btn:hover { background:#2a2a2a; }
+.ch-model-cards{display:flex;flex-direction:column;gap:20px;}
+.ch-model-card{display:grid;grid-template-columns:1fr 1.3fr;background:var(--ch-cream);border-radius:14px;overflow:hidden;scroll-margin-top:88px;}
+.ch-model-img{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#e4ddc9,#d2c8ac);min-height:220px;}
+.ch-model-img-label{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.28);}
+.ch-model-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;}
+.ch-model-badge{display:inline-block;margin-bottom:12px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ch-red);background:rgba(200,16,46,0.08);padding:5px 12px;border-radius:999px;width:fit-content;}
+.ch-model-name{font-size:28px;font-weight:800;color:var(--ch-black);line-height:1;margin-bottom:6px;}
+.ch-model-subname{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ch-gray);margin-bottom:16px;}
+.ch-model-desc{font-size:14px;color:#444;line-height:1.6;margin-bottom:20px;max-width:400px;}
+.ch-model-features{display:flex;gap:16px;margin-bottom:22px;flex-wrap:wrap;}
+.ch-model-feat{font-size:12px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+.ch-model-feat::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ch-red);flex-shrink:0;}
 
-    /* ── DEALER ── */
-    .ch-dealer { background:var(--ch-light); padding:64px 48px; }
-    .ch-dealer-inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-    .ch-dealer-img {
-      min-height:380px; border-radius: 16px;
-      background:linear-gradient(135deg,#d8d3c8,#c3bcac,#a89f8b);
-      display:flex; align-items:center; justify-content:center;
-      font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-      color:rgba(0,0,0,0.28);
-    }
-    .ch-dealer-badge {
-      font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
-      color:var(--ch-red); margin-bottom:16px;
-    }
-    .ch-dealer-h2 {
-      font-size:clamp(28px,3.2vw,40px); font-weight:800;
-      color:var(--ch-black); line-height:1.1; margin-bottom:18px; letter-spacing:-0.01em;
-    }
-    .ch-dealer-text p { font-size:15px; font-weight:400; color:#3a3a3a; line-height:1.7; margin-bottom:12px; }
-    .ch-dealer-text p strong { color:var(--ch-black); font-weight:700; }
-    .ch-dealer-feats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:26px 0; }
-    .ch-dfeat { background:white; border-radius: 12px; padding:16px 18px; }
-    .ch-dfeat-title { font-size:13px; font-weight:700; color:var(--ch-black); margin-bottom:4px; }
-    .ch-dfeat-sub { font-size:12px; font-weight:400; color:var(--ch-gray); line-height:1.4; }
-    .ch-dealer-btns { display:flex; gap:12px; flex-wrap:wrap; }
+.ch-lifestyle{position:relative;min-height:380px;display:flex;align-items:center;background:linear-gradient(135deg,#2a2620,#4a4436);overflow:hidden;}
+.ch-lifestyle::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.15));}
+.ch-lifestyle-text{position:relative;z-index:2;padding:56px;color:#fff;max-width:560px;}
+.ch-lifestyle-text h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;text-transform:uppercase;line-height:1.15;margin-bottom:12px;}
+.ch-lifestyle-text p{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:24px;color:rgba(255,255,255,0.85);}
 
-    /* ── FOOTER ── */
-    .ch-footer {
-      background:var(--ch-white); padding:36px 56px;
-      border-top:2px solid var(--ch-red);
-      display:flex; align-items:center; justify-content:space-between;
-      flex-wrap:wrap; gap:20px;
-    }
-    .ch-footer-brand {
-      font-size:16px; font-weight:800;
-      letter-spacing:0.06em; color:var(--ch-black);
-    }
-    .ch-footer-brand span { color:var(--ch-red); }
-    .ch-footer-copy { font-size:12px; color:var(--ch-gray); text-align:center; line-height:1.6; }
-    .ch-footer-back { font-size:13px; font-weight:600; color:var(--ch-gray); text-decoration:none; transition:color 0.2s; }
-    .ch-footer-back:hover { color:var(--ch-black); }
+.ch-dealer{background:var(--ch-cream);padding:56px 48px;}
+.ch-dealer-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.ch-dealer-img{min-height:340px;border-radius:14px;background:linear-gradient(135deg,#e4ddc9,#c9bfa0);}
+.ch-dealer-badge{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ch-red);margin-bottom:14px;}
+.ch-dealer-h2{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--ch-black);line-height:1.1;margin-bottom:16px;}
+.ch-dealer-text p{font-size:14.5px;color:#3a3a3a;line-height:1.68;margin-bottom:12px;}
+.ch-dealer-text p strong{color:var(--ch-black);font-weight:700;}
+.ch-dealer-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0;}
+.ch-dfeat{background:#fff;border-radius:10px;padding:14px 16px;}
+.ch-dfeat-title{font-size:13px;font-weight:700;color:var(--ch-black);margin-bottom:2px;}
+.ch-dfeat-sub{font-size:11.5px;color:var(--ch-gray);line-height:1.4;}
 
-    .fade{opacity:0;transform:translateY(16px);transition:opacity 0.65s,transform 0.65s;}
-    .fade.visible{opacity:1;transform:translateY(0);}
+.ch-footer{background:#fff;padding:32px 56px;border-top:2px solid var(--ch-red);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.ch-footer-brand{font-size:15px;font-weight:800;letter-spacing:0.06em;color:var(--ch-black);}
+.ch-footer-brand span{color:var(--ch-red);}
+.ch-footer-copy{font-size:12px;color:var(--ch-gray);text-align:center;line-height:1.6;}
+.ch-footer-back{font-size:13px;font-weight:600;color:var(--ch-gray);text-decoration:none;}
+.ch-footer-back:hover{color:var(--ch-black);}
 
-    @media(max-width:900px){
-      .ch-nav{padding:0 16px;} .ch-nav-menu{display:none;}
-      .ch-hero-inner{padding:48px 20px;} .ch-hero-stats{flex-wrap:wrap; gap:20px;}
-      .ch-section,.ch-dealer{padding:40px 20px;}
-      .ch-spanos-bar{padding:12px 20px;flex-direction:column;gap:8px;text-align:center;}
-      .ch-model-row,.ch-model-row:nth-child(even){grid-template-columns:1fr;}
-      .ch-model-row:nth-child(even) .ch-model-img{order:0;}
-      .ch-model-row:nth-child(even) .ch-model-text{order:0;}
-      .ch-model-img{min-height:200px;}
-      .ch-model-text{padding:28px 24px;}
-      .ch-dealer-inner{grid-template-columns:1fr;}
-      .ch-dealer-img{min-height:200px;}
-      .ch-dealer-feats{grid-template-columns:1fr;}
-      .ch-footer{padding:28px 20px;flex-direction:column;text-align:center;}
-    }
-  </style>
+.fade{opacity:0;transform:translateY(16px);transition:opacity .65s,transform .65s;}
+.fade.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+.ch-nav{padding:0 16px;}.ch-nav-menu{display:none;}
+.ch-hero-inner{padding:40px 20px;}.ch-hero-stats{flex-wrap:wrap;gap:18px;}
+.ch-section,.ch-dealer{padding:36px 20px;}
+.ch-spanos-bar{padding:12px 20px;flex-direction:column;text-align:center;}
+.ch-models-wrap{grid-template-columns:1fr;}
+.ch-model-sidebar{position:static;flex-direction:row;overflow-x:auto;}
+.ch-model-card{grid-template-columns:1fr;}
+.ch-model-img{min-height:180px;}
+.ch-model-body{padding:24px;}
+.ch-lifestyle-text{padding:40px 24px;}
+.ch-dealer-inner{grid-template-columns:1fr;}
+.ch-dealer-img{min-height:200px;}
+.ch-dealer-feats{grid-template-columns:1fr;}
+.ch-footer{padding:24px 20px;flex-direction:column;text-align:center;}
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="ch-nav">
-  <div class="ch-nav-left">
-    <a href="index.html" class="ch-back">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
-      Αρχική
-    </a>
-    <div class="ch-logo">CHERY<span>Κιλκίς</span></div>
-  </div>
-  <div class="ch-nav-menu">
-    <a href="#models">Μοντέλα</a>
-    <a href="#dealer">Ο Αντιπρόσωπός μας</a>
-    <a href="https://www.chery.gr" target="_blank">chery.gr ↗</a>
-  </div>
-  <a href="index.html#contact" class="ch-nav-cta">Test Drive</a>
+<div class="ch-nav-left">
+<a href="index.html" class="ch-back"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>Αρχική</a>
+<div class="ch-logo">CHERY<span>Κιλκίς</span></div>
+</div>
+<div class="ch-nav-menu">
+<a href="#models">Μοντέλα</a>
+<a href="#dealer">Ο Αντιπρόσωπός μας</a>
+<a href="https://www.chery.gr" target="_blank">chery.gr ↗</a>
+</div>
+<a href="index.html#contact" class="ch-nav-cta">Test Drive</a>
 </nav>
 
-<!-- HERO -->
 <section class="ch-hero">
-  <div class="ch-hero-inner">
-    <div class="ch-hero-tag">Επίσημος Επισκευαστής · Spanos A.E. · Κιλκίς</div>
-    <h1 class="ch-hero-h1">CHERY.<br>A Better Journey.</h1>
-    <p class="ch-hero-tagline">Η Νο.1 κινεζική αυτοκινητοβιομηχανία σε εξαγωγές είναι τώρα στο Κιλκίς. Επίσημος επισκευαστής μέσω Spanos A.E. — Tiggo 4, 7 & 8 διαθέσιμα για test drive.</p>
-    <div class="ch-hero-btns">
-      <a href="#models" class="btn-ch-black">Δείτε τα μοντέλα</a>
-      <a href="https://www.chery.gr" target="_blank" class="btn-ch-outline">chery.gr ↗</a>
-    </div>
-    <div class="ch-hero-stats">
-      <div class="ch-stat"><div class="ch-stat-n">80<span>+</span></div><div class="ch-stat-l">Χώρες</div></div>
-      <div class="ch-stat"><div class="ch-stat-n">2.6<span>M</span></div><div class="ch-stat-l">Πωλήσεις 2024</div></div>
-      <div class="ch-stat"><div class="ch-stat-n">7<span>Y</span></div><div class="ch-stat-l">Εγγύηση</div></div>
-    </div>
-  </div>
+<div class="ch-hero-inner">
+<div class="ch-hero-tag">Επίσημος Επισκευαστής · Spanos A.E. · Κιλκίς</div>
+<h1 class="ch-hero-h1">CHERY.<br>A Better Journey.</h1>
+<p class="ch-hero-tagline">Η Νο.1 κινεζική αυτοκινητοβιομηχανία σε εξαγωγές είναι τώρα στο Κιλκίς. Tiggo 4, 7 & 8 διαθέσιμα για test drive.</p>
+<div class="ch-hero-btns">
+<a href="#models" class="btn-ch-black">Δείτε τα μοντέλα</a>
+<a href="https://www.chery.gr" target="_blank" class="btn-ch-outline">chery.gr ↗</a>
+</div>
+<div class="ch-hero-stats">
+<div><div class="ch-stat-n">80<span>+</span></div><div class="ch-stat-l">Χώρες</div></div>
+<div><div class="ch-stat-n">2.6<span>M</span></div><div class="ch-stat-l">Πωλήσεις 2024</div></div>
+<div><div class="ch-stat-n">7<span>Y</span></div><div class="ch-stat-l">Εγγύηση</div></div>
+</div>
+</div>
 </section>
 
-<!-- SPANOS BAR -->
 <div class="ch-spanos-bar">
-  <span class="ch-spanos-text">Επίσημος εισαγωγέας Chery στην Ελλάδα: <strong>Spanos A.E.</strong> — Εγγύηση <strong>7 ετών</strong> ή 150.000 χλμ.</span>
-  <a href="https://www.chery.gr" target="_blank" class="ch-spanos-link">Επίσκεψη chery.gr →</a>
+<span class="ch-spanos-text">Επίσημος εισαγωγέας Chery στην Ελλάδα: <strong>Spanos A.E.</strong> — Εγγύηση <strong>7 ετών</strong> ή 150.000 χλμ.</span>
+<a href="https://www.chery.gr" target="_blank" class="ch-spanos-link">Επίσκεψη chery.gr →</a>
 </div>
 
-<!-- MODELS -->
 <section class="ch-section" id="models">
-  <div class="ch-sec-header fade">
-    <h2 class="ch-sec-title">Μοντέλα <span>Chery</span></h2>
-    <a href="https://www.chery.gr" target="_blank" class="ch-sec-link">Όλα τα μοντέλα στο chery.gr →</a>
-  </div>
-  <div class="ch-models-list fade">
-
-    <!-- TIGGO 4 -->
-    <div class="ch-model-row">
-      <div class="ch-model-img">
-        <div class="ch-model-img-inner bg-tiggo4"></div>
-        <span class="ch-model-img-label">Tiggo 4</span>
-      </div>
-      <div class="ch-model-text">
-        <div class="ch-model-badge">Compact SUV · Hybrid</div>
-        <div class="ch-model-name">Tiggo 4</div>
-        <div class="ch-model-subname">Hybrid — Compact SUV</div>
-        <p class="ch-model-desc">Το πιο προσιτό SUV της γκάμας Chery. Υβριδική τεχνολογία, σύγχρονο σχεδιασμό και πλούσιο εξοπλισμό για την καθημερινότητά σας.</p>
-        <div class="ch-model-features">
-          <span class="ch-model-feat">Hybrid Κινητήρας</span>
-          <span class="ch-model-feat">ADAS Safety</span>
-          <span class="ch-model-feat">7 Χρόνια Εγγύηση</span>
-        </div>
-        <a href="index.html#contact" class="ch-td-btn">Κλείστε Test Drive →</a>
-      </div>
-    </div>
-
-    <!-- TIGGO 7 -->
-    <div class="ch-model-row">
-      <div class="ch-model-img">
-        <div class="ch-model-img-inner bg-tiggo7"></div>
-        <span class="ch-model-img-label">Tiggo 7</span>
-      </div>
-      <div class="ch-model-text">
-        <div class="ch-model-badge">Bestseller · SUV Επιδόσεων</div>
-        <div class="ch-model-name">Tiggo 7</div>
-        <div class="ch-model-subname">Plug-In Hybrid Available</div>
-        <p class="ch-model-desc">Το πιο δημοφιλές μοντέλο Chery. Εντυπωσιακός εξωτερικός σχεδιασμός, μεγάλο εσωτερικό, προηγμένο infotainment και νέα Plug-In Hybrid έκδοση.</p>
-        <div class="ch-model-features">
-          <span class="ch-model-feat">Plug-In Hybrid</span>
-          <span class="ch-model-feat">360° Κάμερα</span>
-          <span class="ch-model-feat">Panoramic Roof</span>
-        </div>
-        <a href="index.html#contact" class="ch-td-btn">Κλείστε Test Drive →</a>
-      </div>
-    </div>
-
-    <!-- TIGGO 8 -->
-    <div class="ch-model-row">
-      <div class="ch-model-img">
-        <div class="ch-model-img-inner bg-tiggo8"></div>
-        <span class="ch-model-img-label">Tiggo 8</span>
-      </div>
-      <div class="ch-model-text">
-        <div class="ch-model-badge">Flagship · 7 Θέσεις</div>
-        <div class="ch-model-name">Tiggo 8</div>
-        <div class="ch-model-subname">Plug-In Hybrid Available</div>
-        <p class="ch-model-desc">Το κορυφαίο μοντέλο Chery. Επιβλητικές διαστάσεις, 7 θέσεις, premium εσωτερικό και νέα CSH Super Hybrid τεχνολογία. Ανταγωνίζεται premium ευρωπαϊκές μάρκες.</p>
-        <div class="ch-model-features">
-          <span class="ch-model-feat">7 Θέσεις</span>
-          <span class="ch-model-feat">CSH Super Hybrid</span>
-          <span class="ch-model-feat">5★ NCAP</span>
-        </div>
-        <a href="index.html#contact" class="ch-td-btn">Κλείστε Test Drive →</a>
-      </div>
-    </div>
-
-  </div>
+<div class="ch-sec-header fade">
+<h2 class="ch-sec-title">Μοντέλα <span>Chery</span></h2>
+</div>
+<div class="ch-models-wrap fade">
+<div class="ch-model-sidebar">
+<a href="#tiggo4">Tiggo 4</a>
+<a href="#tiggo7">Tiggo 7</a>
+<a href="#tiggo8">Tiggo 8</a>
+</div>
+<div class="ch-model-cards">
+<div class="ch-model-card" id="tiggo4">
+<div class="ch-model-img"><span class="ch-model-img-label">Tiggo 4</span></div>
+<div class="ch-model-body">
+<div class="ch-model-badge">Compact SUV · Hybrid</div>
+<div class="ch-model-name">Tiggo 4</div>
+<div class="ch-model-subname">Hybrid — Compact SUV</div>
+<p class="ch-model-desc">Το πιο προσιτό SUV της γκάμας Chery. Υβριδική τεχνολογία, σύγχρονο σχεδιασμό και πλούσιο εξοπλισμό.</p>
+<div class="ch-model-features"><span class="ch-model-feat">Hybrid Κινητήρας</span><span class="ch-model-feat">ADAS Safety</span><span class="ch-model-feat">7 Χρόνια Εγγύηση</span></div>
+<a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+</div>
+</div>
+<div class="ch-model-card" id="tiggo7">
+<div class="ch-model-img"><span class="ch-model-img-label">Tiggo 7</span></div>
+<div class="ch-model-body">
+<div class="ch-model-badge">Bestseller · SUV Επιδόσεων</div>
+<div class="ch-model-name">Tiggo 7</div>
+<div class="ch-model-subname">Plug-In Hybrid Available</div>
+<p class="ch-model-desc">Το πιο δημοφιλές μοντέλο Chery. Εντυπωσιακός σχεδιασμός, μεγάλο εσωτερικό, προηγμένο infotainment.</p>
+<div class="ch-model-features"><span class="ch-model-feat">Plug-In Hybrid</span><span class="ch-model-feat">360° Κάμερα</span><span class="ch-model-feat">Panoramic Roof</span></div>
+<a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+</div>
+</div>
+<div class="ch-model-card" id="tiggo8">
+<div class="ch-model-img"><span class="ch-model-img-label">Tiggo 8</span></div>
+<div class="ch-model-body">
+<div class="ch-model-badge">Flagship · 7 Θέσεις</div>
+<div class="ch-model-name">Tiggo 8</div>
+<div class="ch-model-subname">Plug-In Hybrid Available</div>
+<p class="ch-model-desc">Το κορυφαίο μοντέλο Chery. 7 θέσεις, premium εσωτερικό και CSH Super Hybrid τεχνολογία.</p>
+<div class="ch-model-features"><span class="ch-model-feat">7 Θέσεις</span><span class="ch-model-feat">CSH Super Hybrid</span><span class="ch-model-feat">5★ NCAP</span></div>
+<a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- DEALER -->
+<div class="ch-lifestyle">
+<div class="ch-lifestyle-text">
+<h2>Θέλετε να μάθετε περισσότερα;</h2>
+<p>Κλείστε ένα test drive</p>
+<a href="index.html#contact" class="btn-ch-gold">Επικοινωνήστε μαζί μας</a>
+</div>
+</div>
+
 <section class="ch-dealer" id="dealer">
-  <div class="ch-dealer-inner fade">
-    <div class="ch-dealer-img">[ Φωτογραφία Έκθεσης ]</div>
-    <div class="ch-dealer-text">
-      <div class="ch-dealer-badge">Επίσημος Επισκευαστής · Κιλκίς</div>
-      <h2 class="ch-dealer-h2">Αυτοκίνηση Μ.Ε.Π.Ε.<br>Chery Κιλκίς</h2>
-      <p>Η <strong>Αυτοκίνηση Μ.Ε.Π.Ε.</strong> είναι ο επίσημος επισκευαστής Chery στο Κιλκίς μέσω της <strong>Spanos A.E.</strong>, αποκλειστικού εισαγωγέα Chery στην Ελλάδα.</p>
-      <p>Στην έκθεσή μας μπορείτε να δείτε τα μοντέλα <strong>Tiggo 4, 7 & 8</strong> από κοντά και να τα οδηγήσετε με ραντεβού.</p>
-      <div class="ch-dealer-feats">
-        <div class="ch-dfeat">
-          <div class="ch-dfeat-title">Test Drive</div>
-          <div class="ch-dfeat-sub">Με ραντεβού, για όλα τα μοντέλα</div>
-        </div>
-        <div class="ch-dfeat">
-          <div class="ch-dfeat-title">Επίσ. Επισκευαστής</div>
-          <div class="ch-dfeat-sub">Εξουσιοδοτημένος από Spanos A.E.</div>
-        </div>
-        <div class="ch-dfeat">
-          <div class="ch-dfeat-title">7 Χρόνια Εγγύηση</div>
-          <div class="ch-dfeat-sub">Ή 150.000 χλμ. σε κάθε μοντέλο</div>
-        </div>
-        <div class="ch-dfeat">
-          <div class="ch-dfeat-title">After-Sales</div>
-          <div class="ch-dfeat-sub">Πλήρες service & επισκευές Chery</div>
-        </div>
-      </div>
-      <div class="ch-dealer-btns">
-        <a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive</a>
-        <a href="https://www.chery.gr/epikoinonia" target="_blank" class="btn-ch-outline">chery.gr →</a>
-      </div>
-    </div>
-  </div>
+<div class="ch-dealer-inner fade">
+<div class="ch-dealer-img"></div>
+<div class="ch-dealer-text">
+<div class="ch-dealer-badge">Επίσημος Επισκευαστής · Κιλκίς</div>
+<h2 class="ch-dealer-h2">Αυτοκίνηση Μ.Ε.Π.Ε.<br>Chery Κιλκίς</h2>
+<p>Η <strong>Αυτοκίνηση Μ.Ε.Π.Ε.</strong> είναι ο επίσημος επισκευαστής Chery στο Κιλκίς μέσω της <strong>Spanos A.E.</strong></p>
+<p>Στην έκθεσή μας μπορείτε να δείτε τα μοντέλα <strong>Tiggo 4, 7 & 8</strong> από κοντά.</p>
+<div class="ch-dealer-feats">
+<div class="ch-dfeat"><div class="ch-dfeat-title">Test Drive</div><div class="ch-dfeat-sub">Με ραντεβού</div></div>
+<div class="ch-dfeat"><div class="ch-dfeat-title">7 Χρόνια Εγγύηση</div><div class="ch-dfeat-sub">Ή 150.000 χλμ.</div></div>
+<div class="ch-dfeat"><div class="ch-dfeat-title">Επίσ. Επισκευαστής</div><div class="ch-dfeat-sub">Spanos A.E.</div></div>
+<div class="ch-dfeat"><div class="ch-dfeat-title">After-Sales</div><div class="ch-dfeat-sub">Πλήρες service</div></div>
+</div>
+<a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive</a>
+</div>
+</div>
 </section>
 
-<!-- FOOTER -->
 <footer class="ch-footer">
-  <div class="ch-footer-brand"><span>CHERY</span> · Αυτοκίνηση Μ.Ε.Π.Ε.</div>
-  <div class="ch-footer-copy">© 2025 Σακαρίδης Κωνσταντίνος Μ.Ε.Π.Ε. · Δυτική Περιφερειακή Οδός, Κιλκίς</div>
-  <a href="index.html" class="ch-footer-back">← Επιστροφή στην Αρχική</a>
+<div class="ch-footer-brand"><span>CHERY</span> · Αυτοκίνηση Μ.Ε.Π.Ε.</div>
+<div class="ch-footer-copy">© 2025 Σακαρίδης Κωνσταντίνος Μ.Ε.Π.Ε. · Δυτική Περιφερειακή Οδός, Κιλκίς</div>
+<a href="index.html" class="ch-footer-back">← Επιστροφή στην Αρχική</a>
 </footer>
 
 <script>
-  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.08});
-  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.08});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>

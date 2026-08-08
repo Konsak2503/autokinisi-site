@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Αυτοκίνηση Μ.Ε.Π.Ε. | VW – ŠKODA – Chery | Κιλκίς</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:#0a0a0a; --white:#f5f4f0; --mid:#161616; --card:#1a1a1a;
+      --accent:#c8a84b; --accent2:#e2bc5a; --steel:#6b7280;
+      --light-bg:#f0ede8; --border:rgba(255,255,255,0.07);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:rgba(10,10,10,0.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,168,75,0.15);}
+    .nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--white);}
+    .nav-logo span{color:var(--accent);}
+    .nav-links{display:flex;gap:6px;list-style:none;}
+    .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,244,240,0.6);text-decoration:none;padding:8px 14px;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover{color:var(--white);border-color:var(--border);}
+    .vw-link:hover{color:#6db3ff!important;border-color:rgba(77,159,255,0.35)!important;}
+    .skoda-link:hover{color:#7ed957!important;border-color:rgba(111,207,74,0.35)!important;}
+    .chery-link:hover{color:#ff7070!important;border-color:rgba(255,107,107,0.35)!important;}
+
+    .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background-image:url('building.jpg');background-size:cover;background-position:center 40%;animation:zoomIn 14s ease-out forwards;}
+    @keyframes zoomIn{from{transform:scale(1.06)}to{transform:scale(1.00)}}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.05) 0%,rgba(10,10,10,0.05) 25%,rgba(10,10,10,0.65) 68%,rgba(10,10,10,0.97) 100%);}
+    .hero-content{position:relative;z-index:2;padding:0 56px 80px;animation:fadeUp 1s 0.3s both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+    .hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(64px,10vw,118px);font-weight:900;line-height:0.88;text-transform:uppercase;margin-bottom:22px;}
+    .hero-title em{font-style:normal;color:var(--accent);}
+    .hero-sub{font-size:16px;font-weight:300;color:rgba(245,244,240,0.72);max-width:480px;line-height:1.65;margin-bottom:36px;}
+    .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:15px 32px;transition:background 0.2s,gap 0.2s;}
+    .cta-btn:hover{background:var(--accent2);gap:16px;}
+
+    .ticker{background:var(--accent);overflow:hidden;padding:10px 0;}
+    .ticker-inner{display:flex;gap:60px;animation:tick 28s linear infinite;white-space:nowrap;}
+    @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .ti{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--black);}
+    .td{color:rgba(0,0,0,0.3);}
+
+    .about{background:var(--light-bg);color:var(--black);}
+    .about-inner{display:grid;grid-template-columns:1fr 1fr;min-height:580px;}
+    .about-img{overflow:hidden;}
+    .about-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s;}
+    .about-img:hover img{transform:scale(1.04);}
+    .about-text{padding:80px 72px;display:flex;flex-direction:column;justify-content:center;}
+    .slabel{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+    .stitle{font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,4.5vw,60px);font-weight:900;line-height:0.95;text-transform:uppercase;margin-bottom:24px;}
+    .gline{width:44px;height:3px;background:var(--accent);margin-bottom:28px;}
+    .about-text p{font-size:15.5px;font-weight:300;line-height:1.78;color:#2a2a2a;margin-bottom:14px;}
+    .about-text p strong{font-weight:600;color:#111;}
+    .stats-row{display:flex;gap:40px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.1);}
+    .stat-n{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;line-height:1;color:var(--black);}
+    .stat-n sup{font-size:22px;color:var(--accent);}
+    .stat-l{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);margin-top:4px;}
+
+    .tl-section{background:var(--mid);padding:100px 56px;}
+    .tl-section .slabel{color:var(--accent);}
+    .tl-section .stitle{color:var(--white);margin-bottom:60px;}
+    .timeline{position:relative;max-width:860px;}
+    .timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:0;width:1px;background:rgba(200,168,75,0.2);}
+    .tl-item{display:flex;gap:44px;margin-bottom:44px;}
+    .tl-dot{width:13px;height:13px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:4px;position:relative;z-index:1;}
+    .tl-year{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.12em;margin-bottom:8px;}
+    .tl-text{font-size:15px;font-weight:300;line-height:1.72;color:rgba(245,244,240,0.72);}
+    .tl-text strong{color:var(--white);font-weight:600;}
+
+    .brands-sec{background:var(--black);padding:100px 56px;}
+    .brands-sec .slabel{color:var(--accent);text-align:center;}
+    .brands-sec .stitle{color:var(--white);text-align:center;margin-bottom:60px;}
+    .brands-sec .stitle span{color:var(--accent);}
+    .brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1200px;margin:0 auto;}
+    .bcard{position:relative;overflow:hidden;text-decoration:none;display:block;aspect-ratio:3/4;}
+    .bbg{position:absolute;inset:0;transition:transform 0.6s;}
+    .bcard:hover .bbg{transform:scale(1.07);}
+    .bg-vw{background:linear-gradient(155deg,#001030,#001e50 50%,#0030a0);}
+    .bg-sk{background:linear-gradient(155deg,#0d2a0d,#1e5a1e 50%,#3a9e20);}
+    .bg-ch{background:linear-gradient(155deg,#3a0010,#7a0018 50%,#c8102e);}
+    .boverlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.05) 60%);}
+    .bicon{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);width:88px;height:88px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:white;transition:transform 0.4s,opacity 0.4s;}
+    .bcard:hover .bicon{transform:translate(-50%,-68%);opacity:0.55;}
+    .binfo{position:absolute;bottom:0;left:0;right:0;padding:32px 28px;}
+    .bname{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;text-transform:uppercase;color:white;margin-bottom:4px;}
+    .bsub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);margin-bottom:18px;}
+    .bcta{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:white;opacity:0;transform:translateY(8px);transition:opacity 0.3s,transform 0.3s;}
+    .bcard:hover .bcta{opacity:1;transform:translateY(0);}
+
+    .services-sec{background:var(--light-bg);color:var(--black);padding:100px 56px;}
+    .services-sec .slabel{color:var(--accent);}
+    .services-sec .stitle{color:var(--black);margin-bottom:52px;}
+    .srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+    .srv-card{background:white;padding:40px 28px;border-bottom:3px solid transparent;transition:border-color 0.2s,transform 0.2s;}
+    .srv-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+    .srv-icon{font-size:30px;margin-bottom:14px;}
+    .srv-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:#111;margin-bottom:8px;}
+    .srv-desc{font-size:14px;font-weight:300;line-height:1.65;color:#555;}
+
+    .contact-sec{background:var(--mid);padding:80px 56px;}
+    .ctitle{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--accent);margin-bottom:40px;}
+
+    /* Gallery section */
+    .gallery-sec{background:var(--black);padding:100px 56px;}
+    .gallery-sec .slabel{color:var(--accent);text-align:center;}
+    .gallery-sec .stitle{color:var(--white);text-align:center;margin-bottom:56px;}
+    .gallery-sec .stitle span{color:var(--accent);}
+
+    /* Paintshop section — bold hero feature + sleek grid */
+    .paint-sec{background:#0a0a0a;padding:0;position:relative;overflow:hidden;}
+    .paint-hero{position:relative;min-height:560px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+    .paint-hero-img{position:relative;overflow:hidden;}
+    .paint-hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
+    .paint-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,rgba(10,10,10,0.95) 100%);}
+    .paint-hero-text{padding:80px 72px;background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 100%);display:flex;flex-direction:column;justify-content:center;position:relative;}
+    .paint-hero-text::before{content:'';position:absolute;top:0;left:0;width:4px;height:80px;background:var(--accent);}
+    .paint-badge{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+    .paint-badge::before{content:'';width:24px;height:1px;background:var(--accent);}
+    .paint-new-tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#0a0a0a;background:var(--accent);padding:3px 10px;margin-left:10px;}
+    .paint-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(42px,5vw,68px);font-weight:900;line-height:0.95;text-transform:uppercase;color:white;margin-bottom:24px;letter-spacing:-0.01em;}
+    .paint-title em{font-style:normal;color:var(--accent);}
+    .paint-text p{font-size:15.5px;font-weight:300;line-height:1.72;color:rgba(255,255,255,0.68);margin-bottom:14px;}
+    .paint-text p strong{color:white;font-weight:600;}
+    .paint-specs{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:28px;}
+    .paint-spec{background:rgba(255,255,255,0.04);border-left:2px solid var(--accent);padding:16px 20px;}
+    .paint-spec-name{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:2px;}
+    .paint-spec-sub{font-size:12px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.4;}
+
+    .paint-grid-wrap{padding:80px 56px 100px;background:#0a0a0a;}
+    .paint-sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;padding-bottom:18px;border-bottom:1px solid rgba(200,168,75,0.2);}
+    .paint-sec-head h3{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;color:white;letter-spacing:0.02em;}
+    .paint-sec-head h3 span{color:var(--accent);}
+    .paint-sec-insurance{font-size:12px;font-weight:500;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;}
+    .paint-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:4px;}
+    .paint-item{position:relative;overflow:hidden;}
+    .paint-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease;}
+    .paint-item:hover img{transform:scale(1.05);}
+    .paint-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent 55%);opacity:0.7;transition:opacity 0.3s;pointer-events:none;}
+    .paint-item:hover::after{opacity:0.15;}
+    .paint-item-label{position:absolute;bottom:14px;left:16px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:white;z-index:2;opacity:0;transform:translateY(6px);transition:opacity 0.3s,transform 0.3s;}
+    .paint-item:hover .paint-item-label{opacity:1;transform:translateY(0);}
+    .pt-wide{grid-column:span 2;}
+    .pt-tall{grid-row:span 2;}
+
+    /* Mixing room sub-section */
+    .mixing-wrap{background:linear-gradient(180deg,#0a0a0a 0%,#140f0a 100%);padding:80px 56px 100px;border-top:1px solid rgba(200,168,75,0.15);}
+    .mixing-hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;margin-bottom:44px;align-items:center;}
+    .mixing-hero-left{}
+    .mixing-sublabel{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+    .mixing-sublabel::before{content:'';width:20px;height:1px;background:var(--accent);}
+    .mixing-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:900;line-height:0.95;text-transform:uppercase;color:white;margin-bottom:20px;letter-spacing:-0.01em;}
+    .mixing-title span{color:var(--accent);}
+    .mixing-desc p{font-size:15px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+    .mixing-desc p strong{color:white;font-weight:600;}
+    .mixing-partners{display:flex;gap:2px;margin-top:24px;}
+    .mixing-partner{background:rgba(255,255,255,0.04);border:1px solid rgba(200,168,75,0.25);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:white;}
+    .mixing-partner span{color:var(--accent);font-weight:500;display:block;font-size:10px;letter-spacing:0.14em;margin-top:2px;}
+
+    .mixing-hero-right{position:relative;}
+    .mixing-hero-right img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+
+    .mixing-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:4px;}
+    .mixing-item{position:relative;overflow:hidden;}
+    .mixing-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
+    .mixing-item:hover img{transform:scale(1.06);}
+    .mixing-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent 55%);opacity:0.7;transition:opacity 0.3s;pointer-events:none;}
+    .mixing-item:hover::after{opacity:0.15;}
+    .mixing-item-label{position:absolute;bottom:12px;left:14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:white;z-index:2;opacity:0;transform:translateY(6px);transition:opacity 0.3s,transform 0.3s;}
+    .mixing-item:hover .mixing-item-label{opacity:1;transform:translateY(0);}
+    .mx-wide{grid-column:span 2;}
+
+    /* Parts section — feature split + grid */
+    .parts-sec{background:var(--light-bg);color:var(--black);padding:100px 56px;}
+    .parts-sec .slabel{color:var(--accent);}
+    .parts-sec .stitle{color:var(--black);}
+    .parts-feature{display:grid;grid-template-columns:1.1fr 1fr;gap:0;margin-bottom:40px;background:#111;overflow:hidden;}
+    .parts-feature-img{min-height:440px;position:relative;overflow:hidden;}
+    .parts-feature-img img{width:100%;height:100%;object-fit:cover;display:block;}
+    .parts-feature-text{padding:60px 56px;color:white;display:flex;flex-direction:column;justify-content:center;}
+    .parts-feature-text .slabel{color:var(--accent);margin-bottom:14px;}
+    .parts-feature-text h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,3.5vw,48px);font-weight:900;line-height:1;text-transform:uppercase;color:white;margin-bottom:20px;}
+    .parts-feature-text .gline{background:var(--accent);}
+    .parts-feature-text p{font-size:15px;font-weight:300;line-height:1.72;color:rgba(255,255,255,0.7);margin-bottom:14px;}
+    .parts-feature-text p strong{color:white;font-weight:600;}
+    .parts-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:24px;}
+    .parts-hl{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:16px 18px;}
+    .parts-hl-n{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:var(--accent);line-height:1;}
+    .parts-hl-l{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:4px;}
+
+    .parts-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:4px;}
+    .parts-item{position:relative;overflow:hidden;}
+    .parts-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
+    .parts-item:hover img{transform:scale(1.06);}
+    .parts-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent 60%);opacity:0.7;transition:opacity 0.3s;pointer-events:none;}
+    .parts-item:hover::after{opacity:0.2;}
+    .parts-item-label{position:absolute;bottom:12px;left:14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:white;z-index:2;opacity:0;transform:translateY(6px);transition:opacity 0.3s,transform 0.3s;}
+    .parts-item:hover .parts-item-label{opacity:1;transform:translateY(0);}
+    .p-wide{grid-column:span 2;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:4px;max-width:1400px;margin:0 auto;}
+    .gitem{position:relative;overflow:hidden;cursor:pointer;}
+    .gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;filter:brightness(0.85);}
+    .gitem:hover img{transform:scale(1.06);filter:brightness(1);}
+    .gitem::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent 50%);opacity:0.7;transition:opacity 0.3s;}
+    .gitem:hover::after{opacity:0;}
+    .gitem-label{position:absolute;bottom:14px;left:16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:white;z-index:2;opacity:0;transform:translateY(6px);transition:opacity 0.3s,transform 0.3s;}
+    .gitem:hover .gitem-label{opacity:1;transform:translateY(0);}
+    .g-wide{grid-column:span 2;}
+    .g-tall{grid-row:span 2;}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:960px;}
+    .ccard{background:var(--card);padding:40px 32px;border-top:2px solid var(--border);transition:border-color 0.2s;}
+    .ccard:hover{border-color:var(--accent);}
+    .cicon{font-size:22px;margin-bottom:12px;}
+    .clbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--steel);margin-bottom:8px;}
+    .cval{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:600;color:var(--white);line-height:1.4;}
+    .cval a{color:var(--white);text-decoration:none;transition:color 0.2s;}
+    .cval a:hover{color:var(--accent);}
+
+    footer{background:var(--black);border-top:1px solid var(--border);padding:44px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+    .flogo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:0.06em;}
+    .flogo span{color:var(--accent);}
+    .fcopy{font-size:12px;color:var(--steel);text-align:center;line-height:1.7;}
+    .fbrands{display:flex;gap:12px;}
+    .ftag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--border);color:var(--steel);}
+
+    .fade{opacity:0;transform:translateY(20px);transition:opacity 0.7s,transform 0.7s;}
+    .fade.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:900px){
+      nav{padding:14px 20px;} .nav-links{display:none;}
+      .hero-content{padding:0 20px 56px;}
+      .about-inner{grid-template-columns:1fr;} .about-img{height:280px;} .about-text{padding:48px 24px;}
+      .tl-section,.brands-sec,.services-sec,.contact-sec,.gallery-sec,.parts-sec{padding:64px 20px;}
+      .paint-hero{grid-template-columns:1fr;}
+      .paint-hero-img{min-height:220px;}
+      .paint-hero-text{padding:48px 24px;}
+      .paint-grid-wrap{padding:48px 20px 64px;}
+      .paint-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px;}
+      .pt-wide{grid-column:span 2;}
+      .pt-tall{grid-row:span 1;}
+      .paint-specs{grid-template-columns:1fr;}
+      .mixing-wrap{padding:48px 20px 64px;}
+      .mixing-hero{grid-template-columns:1fr;gap:24px;}
+      .mixing-hero-right img{aspect-ratio:4/3;}
+      .mixing-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px;}
+      .mx-wide{grid-column:span 2;}
+      .mixing-partners{flex-direction:column;}
+      .brands-grid,.srv-grid,.contact-grid{grid-template-columns:1fr;}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px;}
+      .g-wide{grid-column:span 2;}
+      .g-tall{grid-row:span 1;}
+      .parts-feature{grid-template-columns:1fr;}
+      .parts-feature-img{min-height:240px;}
+      .parts-feature-text{padding:40px 24px;}
+      .parts-highlights{grid-template-columns:1fr 1fr 1fr;}
+      .parts-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px;}
+      .p-wide{grid-column:span 2;}
+      .bcard{aspect-ratio:16/9;}
+      footer{padding:32px 20px;flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>Αυτο</span>κίνηση</a>
+  <ul class="nav-links">
+    <li><a href="#about">Η Εταιρεία</a></li>
+    <li><a href="#brands">Μάρκες</a></li>
+    <li><a href="#services">Υπηρεσίες</a></li>
+    <li><a href="#gallery">Συνεργείο</a></li>
+    <li><a href="#parts">Ανταλλακτικά</a></li>
+    <li><a href="#paintshop">Φανοβαφείο</a></li>
+    <li><a href="#contact">Επικοινωνία</a></li>
+    <li><a href="volkswagen.html" class="vw-link">VW</a></li>
+    <li><a href="skoda.html" class="skoda-link">ŠKODA</a></li>
+    <li><a href="chery.html" class="chery-link">Chery</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Εξουσιοδοτημένη Αντιπροσωπεία · Κιλκίς · Από το 1999</p>
+    <h1 class="hero-title">Αυτο<br><em>κίνηση</em></h1>
+    <p class="hero-sub">25 χρόνια εμπιστοσύνης. Επίσημοι αντιπρόσωποι Volkswagen, ŠKODA και Chery στο Κιλκίς.</p>
+    <a href="#about" class="cta-btn">Η ιστορία μας →</a>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">Volkswagen</span><span class="td">·</span><span class="ti">ŠKODA</span><span class="td">·</span><span class="ti">Chery</span><span class="td">·</span><span class="ti">Εξουσιοδοτημένο Συνεργείο</span><span class="td">·</span><span class="ti">Υπερσύγχρονο Φανοβαφείο</span><span class="td">·</span><span class="ti">Κιλκίς από το 1999</span><span class="td">·</span>
+    <span class="ti">Volkswagen</span><span class="td">·</span><span class="ti">ŠKODA</span><span class="td">·</span><span class="ti">Chery</span><span class="td">·</span><span class="ti">Εξουσιοδοτημένο Συνεργείο</span><span class="td">·</span><span class="ti">Υπερσύγχρονο Φανοβαφείο</span><span class="td">·</span><span class="ti">Κιλκίς από το 1999</span><span class="td">·</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img"><img src="building.jpg" alt="Αυτοκίνηση ΕΠΕ Κιλκίς"></div>
+    <div class="about-text fade">
+      <p class="slabel">Ποιοι είμαστε</p>
+      <h2 class="stitle">25 Χρόνια<br>στο πλευρό σας</h2>
+      <div class="gline"></div>
+      <p>Η <strong>Αυτοκίνηση Μονοπρόσωπη Ε.Π.Ε.</strong> ιδρύθηκε τον <strong>Αύγουστο του 1999</strong> από τον <strong>Κωνσταντίνο Σακαρίδη</strong>. Ξεκινήσαμε σε ενοικιαζόμενο κατάστημα στην <strong>οδό 21ης Ιουνίου 12</strong> στο Κιλκίς, ως επίσημη αντιπροσωπεία Volkswagen.</p>
+      <p>Τον <strong>Οκτώβριο του 2003</strong> μεταφερθήκαμε στο ιδιόκτητο κτίριο <strong>1.250 τ.μ.</strong> στη Δυτική Περιφερειακή Οδό, με σύγχρονη έκθεση και εξουσιοδοτημένο συνεργείο. Το <strong>2017</strong> προστέθηκε η ŠKODA μέσω <strong>Kosmocar A.E.</strong> και σήμερα εκπροσωπούμε επίσης την <strong>Chery</strong> μέσω <strong>Spanos A.E.</strong></p>
+      <p>Από τον <strong>Νοέμβριο 2025</strong> λειτουργεί στις εγκαταστάσεις μας υπερσύγχρονο <strong>φανοβαφείο</strong> — για όλες τις μάρκες, σε συνεργασία με όλες τις ασφαλιστικές.</p>
+      <div class="stats-row">
+        <div><div class="stat-n">25<sup>+</sup></div><div class="stat-l">Χρόνια</div></div>
+        <div><div class="stat-n">3</div><div class="stat-l">Μάρκες</div></div>
+        <div><div class="stat-n">1250<sup>τμ</sup></div><div class="stat-l">Εγκαταστάσεις</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tl-section">
+  <p class="slabel">Χρονολόγιο</p>
+  <h2 class="stitle">Η πορεία μας<br>μέσα στον χρόνο</h2>
+  <div class="timeline fade">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div><div class="tl-year">1999</div><p class="tl-text">Ίδρυση από τον <strong>Κωνσταντίνο Σακαρίδη</strong> τον Αύγουστο. Έναρξη λειτουργίας τον Νοέμβριο σε ενοικιαζόμενο κατάστημα στην <strong>οδό 21ης Ιουνίου 12, Κιλκίς</strong>, ως επίσημη αντιπροσωπεία Volkswagen.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div><div class="tl-year">2003</div><p class="tl-text">Μεταφορά σε ολοκαίνουργιο <strong>ιδιόκτητο κτίριο 1.250 τ.μ.</strong> στη <strong>Δυτική Περιφερειακή Οδό Κιλκίς</strong>. Σύγχρονη έκθεση και εξουσιοδοτημένο συνεργείο Volkswagen.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div><div class="tl-year">2017</div><p class="tl-text">Η <strong>Kosmocar A.E.</strong>, επίσημος εισαγωγέας ŠKODA, μας ορίζει <strong>Εξουσιοδοτημένο Συνεργείο ŠKODA</strong>. Τα μοντέλα ŠKODA εμπλουτίζουν την έκθεσή μας.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div><div class="tl-year">2024</div><p class="tl-text">Νέα συνεργασία με την <strong>Spanos A.E.</strong> ως επίσημος επισκευαστής <strong>Chery</strong>. Στην έκθεσή μας: <strong>Tiggo 4, Tiggo 7 & Tiggo 8</strong> — διαθέσιμα και για test drive με ραντεβού.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--accent2);box-shadow:0 0 14px rgba(200,168,75,0.5)"></div>
+      <div><div class="tl-year">2025</div><p class="tl-text">Από τον <strong>Νοέμβριο 2025</strong> λειτουργεί υπερσύγχρονο <strong>φανοβαφείο</strong> σε νέο κτίριο. Εξυπηρετεί <strong>όλες τις μάρκες</strong>, σε συνεργασία με <strong>όλες τις ασφαλιστικές εταιρείες</strong>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="brands-sec" id="brands">
+  <p class="slabel">Επίσημες Αντιπροσωπείες</p>
+  <h2 class="stitle">Επιλέξτε <span>τη μάρκα</span> σας</h2>
+  <div class="brands-grid fade">
+    <a href="volkswagen.html" class="bcard">
+      <div class="bbg bg-vw"></div><div class="boverlay"></div>
+      <div class="bicon">VW</div>
+      <div class="binfo"><div class="bname">Volkswagen</div><div class="bsub">Επίσημος Αντιπρόσωπος & Συνεργείο</div><div class="bcta">Δείτε τη γκάμα →</div></div>
+    </a>
+    <a href="skoda.html" class="bcard">
+      <div class="bbg bg-sk"></div><div class="boverlay"></div>
+      <div class="bicon">Š</div>
+      <div class="binfo"><div class="bname">ŠKODA</div><div class="bsub">Εξουσιοδοτημένο Συνεργείο · Kosmocar</div><div class="bcta">Δείτε τη γκάμα →</div></div>
+    </a>
+    <a href="chery.html" class="bcard">
+      <div class="bbg bg-ch"></div><div class="boverlay"></div>
+      <div class="bicon" style="font-size:20px">CHERY</div>
+      <div class="binfo"><div class="bname">Chery</div><div class="bsub">Επίσημος Επισκευαστής · Spanos A.E.</div><div class="bcta">Δείτε τη γκάμα →</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="services-sec" id="services">
+  <p class="slabel">Τι προσφέρουμε</p>
+  <h2 class="stitle">Υπηρεσίες</h2>
+  <div class="srv-grid fade">
+    <div class="srv-card"><div class="srv-icon">🚗</div><div class="srv-name">Έκθεση & Πωλήσεις</div><div class="srv-desc">Νέα αυτοκίνητα VW, ŠKODA, Chery. Test drive με ραντεβού για όλα τα μοντέλα.</div></div>
+    <div class="srv-card"><div class="srv-icon">🔧</div><div class="srv-name">Εξουσιοδοτημένο Συνεργείο</div><div class="srv-desc">Service & επισκευές VW και ŠKODA με εκπαιδευμένο προσωπικό και γνήσια ανταλλακτικά.</div></div>
+    <div class="srv-card"><div class="srv-icon">🎨</div><div class="srv-name">Φανοβαφείο</div><div class="srv-desc">Υπερσύγχρονο φανοβαφείο (από Νοέμβριο 2025) για όλες τις μάρκες, σε συνεργασία με όλες τις ασφαλιστικές.</div></div>
+    <div class="srv-card"><div class="srv-icon">📋</div><div class="srv-name">Ανταλλαγή & Χρηματοδότηση</div><div class="srv-desc">Αξιολόγηση μεταχειρισμένου, ανταλλαγή και λύσεις χρηματοδότησης για κάθε ανάγκη.</div></div>
+  </div>
+</section>
+
+<section class="gallery-sec" id="gallery">
+  <p class="slabel">Οι εγκαταστάσεις μας</p>
+  <h2 class="stitle">Μια ματιά <span>στο συνεργείο</span></h2>
+  <div class="gallery-grid fade">
+    <div class="gitem g-wide g-tall">
+      <img src="service-1.jpg" alt="Συνεργείο — κεντρικός χώρος">
+      <div class="gitem-label">Κεντρικός χώρος · Service</div>
+    </div>
+    <div class="gitem">
+      <img src="service-2.jpg" alt="Τμήμα ανταλλακτικών">
+      <div class="gitem-label">Τμήμα Ανταλλακτικών</div>
+    </div>
+    <div class="gitem">
+      <img src="service-10.jpg" alt="Express Service">
+      <div class="gitem-label">Express Service</div>
+    </div>
+    <div class="gitem">
+      <img src="service-7.jpg" alt="Τμήμα ανταλλακτικών με ζάντες">
+      <div class="gitem-label">Ανταλλακτικά & Ζάντες</div>
+    </div>
+    <div class="gitem g-wide">
+      <img src="service-6.jpg" alt="Express Service — γενική άποψη">
+      <div class="gitem-label">Express Service · Γενική άποψη</div>
+    </div>
+    <div class="gitem">
+      <img src="service-5.jpg" alt="Διθέσιες ράμπες ανύψωσης">
+      <div class="gitem-label">Ράμπες Ανύψωσης</div>
+    </div>
+    <div class="gitem">
+      <img src="service-9.jpg" alt="Εξοπλισμός αεριοκίνησης Landirenzo και ŠKODA">
+      <div class="gitem-label">Αεριοκίνηση · ŠKODA</div>
+    </div>
+    <div class="gitem">
+      <img src="service-4.jpg" alt="Εξοπλισμός ŠKODA">
+      <div class="gitem-label">Εξοπλισμός & Διαγνωστικά</div>
+    </div>
+    <div class="gitem g-wide">
+      <img src="service-8.jpg" alt="Χώρος πρέσας και ελαστικών">
+      <div class="gitem-label">Χώρος Πρέσας & Ελαστικών</div>
+    </div>
+    <div class="gitem">
+      <img src="service-3.jpg" alt="Χώρος επισκευών">
+      <div class="gitem-label">Χώρος Επισκευών</div>
+    </div>
+  </div>
+</section>
+
+<section class="parts-sec" id="parts">
+  <p class="slabel">Τμήμα Ανταλλακτικών</p>
+  <h2 class="stitle">Γνήσια ανταλλακτικά<br>μεγάλο απόθεμα</h2>
+
+  <div class="parts-feature fade">
+    <div class="parts-feature-img">
+      <img src="parts-office.jpg" alt="Γραφείο τμήματος ανταλλακτικών — ETKA VW Parts Information">
+    </div>
+    <div class="parts-feature-text">
+      <p class="slabel">Επίσημο Γραφείο Ανταλλακτικών</p>
+      <h3>ETKA · VW Parts<br>Information System</h3>
+      <div class="gline gline-gold"></div>
+      <p>Διαθέτουμε <strong>επίσημο γραφείο ανταλλακτικών</strong> εξοπλισμένο με το σύστημα <strong>ETKA της Volkswagen</strong>, για άμεση και ακριβή αναζήτηση κάθε ανταλλακτικού.</p>
+      <p>Με <strong>International Service Training certification</strong>, εξυπηρετούμε πελάτες VW, ŠKODA και Audi με γνήσια ανταλλακτικά απευθείας από το κατασκευαστή.</p>
+      <div class="parts-highlights">
+        <div class="parts-hl">
+          <div class="parts-hl-n">5</div>
+          <div class="parts-hl-l">Οργανωμένοι Διάδρομοι</div>
+        </div>
+        <div class="parts-hl">
+          <div class="parts-hl-n">1000<sup style="font-size:14px">+</sup></div>
+          <div class="parts-hl-l">Κωδικοί σε Απόθεμα</div>
+        </div>
+        <div class="parts-hl">
+          <div class="parts-hl-n">100<sup style="font-size:14px">%</sup></div>
+          <div class="parts-hl-l">Γνήσια VAG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parts-grid fade">
+    <div class="parts-item p-wide">
+      <img src="parts-1.jpg" alt="Ανταλλακτικά — Διάδρομοι 1 & 2">
+      <div class="parts-item-label">Διάδρομοι 1 & 2 · Γενικά ανταλλακτικά</div>
+    </div>
+    <div class="parts-item">
+      <img src="parts-3.jpg" alt="Μεγάλο απόθεμα σε κουτιά">
+      <div class="parts-item-label">Απόθεμα σε κουτιά</div>
+    </div>
+    <div class="parts-item">
+      <img src="parts-4.jpg" alt="Διάδρομος 4 — Spark Plugs VW/Audi/NGK">
+      <div class="parts-item-label">Διάδρομος 4 · Μπουζί VW / Audi</div>
+    </div>
+    <div class="parts-item">
+      <img src="parts-2.jpg" alt="Διάδρομοι παραλαβής">
+      <div class="parts-item-label">Διάδρομοι ανταλλακτικών</div>
+    </div>
+    <div class="parts-item">
+      <img src="parts-5.jpg" alt="Προφυλακτήρες αποθηκευμένοι">
+      <div class="parts-item-label">Προφυλακτήρες</div>
+    </div>
+    <div class="parts-item p-wide">
+      <img src="parts-7.jpg" alt="Εργαλεία και ειδικοί εξοπλισμοί VAG">
+      <div class="parts-item-label">Ειδικά Εργαλεία VAG</div>
+    </div>
+    <div class="parts-item">
+      <img src="parts-6.jpg" alt="Διάδρομος 5 — Μεγάλα εξαρτήματα">
+      <div class="parts-item-label">Διάδρομος 5 · Μεγάλα εξαρτήματα</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINTSHOP — Ο πιο νέος μας χώρος -->
+<section class="paint-sec" id="paintshop">
+
+  <!-- HERO -->
+  <div class="paint-hero">
+    <div class="paint-hero-img">
+      <img src="paint-4.jpg" alt="FEA Spray Booth — Θάλαμος βαφής">
+    </div>
+    <div class="paint-hero-text">
+      <div class="paint-badge">Φανοβαφείο<span class="paint-new-tag">Νοέμβριος 2025</span></div>
+      <h1 class="paint-title">Υπερσύγχρονο<br><em>Φανοβαφείο</em></h1>
+      <div class="paint-text">
+        <p>Από τον <strong>Νοέμβριο 2025</strong>, λειτουργεί στις εγκαταστάσεις μας ο πιο σύγχρονος χώρος φανοποιίας στην περιοχή του Κιλκίς, σε <strong>νέο κτίριο</strong> που κατασκευάσαμε.</p>
+        <p>Εξοπλισμένο με <strong>θάλαμο βαφής FEA</strong> (Made in Greece), ηλεκτρονικό σύστημα ευθυγράμμισης σασί <strong>Car-O-Liner Speed3t</strong> και πλήρη γκάμα εργαλείων. Εξυπηρετούμε <strong>όλες τις μάρκες</strong> αυτοκινήτων.</p>
+      </div>
+      <div class="paint-specs">
+        <div class="paint-spec">
+          <div class="paint-spec-name">FEA Spray Booth</div>
+          <div class="paint-spec-sub">Επαγγελματικός θάλαμος βαφής</div>
+        </div>
+        <div class="paint-spec">
+          <div class="paint-spec-name">Car-O-Liner Speed3t</div>
+          <div class="paint-spec-sub">Σύστημα ευθυγράμμισης</div>
+        </div>
+        <div class="paint-spec">
+          <div class="paint-spec-name">Πιστοποιημένο</div>
+          <div class="paint-spec-sub">Υπηρ. Ανάπτυξης & Επενδύσεων ΕΣΠΑ</div>
+        </div>
+        <div class="paint-spec">
+          <div class="paint-spec-name">Όλες οι ασφαλιστικές</div>
+          <div class="paint-spec-sub">Πλήρης συνεργασία</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="paint-grid-wrap">
+    <div class="paint-sec-head">
+      <h3>Οι εγκαταστάσεις <span>του φανοβαφείου</span></h3>
+      <div class="paint-sec-insurance">★ Συνεργασία με όλες τις ασφαλιστικές</div>
+    </div>
+    <div class="paint-grid fade">
+      <div class="paint-item pt-wide pt-tall">
+        <img src="paint-3.jpg" alt="Γενική άποψη του φανοβαφείου">
+        <div class="paint-item-label">Γενική άποψη · 250+ τ.μ.</div>
+      </div>
+      <div class="paint-item">
+        <img src="paint-1.jpg" alt="FEA Spray Booth">
+        <div class="paint-item-label">FEA Spray Booth</div>
+      </div>
+      <div class="paint-item">
+        <img src="paint-5.jpg" alt="Σταθμός εργαλείων και ηλεκτροκόλλησης">
+        <div class="paint-item-label">Σταθμός εργαλείων</div>
+      </div>
+      <div class="paint-item pt-wide">
+        <img src="paint-6.jpg" alt="Car-O-Liner Speed3t — Σύστημα ευθυγράμμισης σασί">
+        <div class="paint-item-label">Car-O-Liner Speed3t · Ευθυγράμμιση</div>
+      </div>
+      <div class="paint-item">
+        <img src="paint-2.jpg" alt="Χώρος προετοιμασίας και εξοπλισμού">
+        <div class="paint-item-label">Χώρος προετοιμασίας</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIXING ROOM SUB-SECTION -->
+  <div class="mixing-wrap">
+    <div class="mixing-hero">
+      <div class="mixing-hero-left">
+        <div class="mixing-sublabel">Mixing Room · Εργαστήριο Χρωμάτων</div>
+        <h3 class="mixing-title">Ακρίβεια στο<br><span>γραμμάριο</span>.<br>Ταίριασμα<br>τέλειο.</h3>
+        <div class="mixing-desc">
+          <p>Ο ειδικά διαμορφωμένος χώρος <strong>mixing room</strong> είναι καρδιά του φανοβαφείου μας. Εδώ ετοιμάζονται από έμπειρο προσωπικό τα χρώματα που θα βάψουν το αυτοκίνητό σας.</p>
+          <p>Χρησιμοποιούμε το κορυφαίο σύστημα <strong>Sikkens Autowave MM 2.0</strong> της <strong>AkzoNobel</strong>, με ψηφιακή ζυγαριά ακριβείας <strong>Sartorius PMA Evolution</strong> και την cloud πλατφόρμα <strong>MIXIT</strong>, για τέλειο χρωματικό ταίριασμα σε κάθε μάρκα και απόχρωση.</p>
+        </div>
+        <div class="mixing-partners">
+          <div class="mixing-partner">Sikkens<span>AkzoNobel</span></div>
+          <div class="mixing-partner">Autowave MM<span>Formula System</span></div>
+          <div class="mixing-partner">Sartorius<span>Ψηφιακή ακρίβεια</span></div>
+        </div>
+      </div>
+      <div class="mixing-hero-right">
+        <img src="mixing-1.jpg" alt="Mixing room — Γενική άποψη">
+      </div>
+    </div>
+
+    <div class="mixing-grid fade">
+      <div class="mixing-item">
+        <img src="mixing-2.jpg" alt="Ερμάρια Sikkens Autowave MM">
+        <div class="mixing-item-label">Sikkens Autowave MM</div>
+      </div>
+      <div class="mixing-item mx-wide">
+        <img src="mixing-5.jpg" alt="MIXIT Cloud · Ψηφιακή συνταγή VW Black Pearl + Sartorius ζυγαριά">
+        <div class="mixing-item-label">MIXIT Cloud · VW Black Pearl · Sartorius</div>
+      </div>
+      <div class="mixing-item">
+        <img src="mixing-4.jpg" alt="Χρωματικοί κώδικες — Autowave MM">
+        <div class="mixing-item-label">100+ χρωματικοί κώδικες</div>
+      </div>
+      <div class="mixing-item">
+        <img src="mixing-3.jpg" alt="Sikkens Autoclear LV Superior · Activator · Hardener">
+        <div class="mixing-item-label">Sikkens Autoclear LV Superior</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="contact-sec" id="contact">
+  <p class="ctitle">Βρείτε μας</p>
+  <div class="contact-grid fade">
+    <div class="ccard"><div class="cicon">📍</div><div class="clbl">Διεύθυνση</div><div class="cval">Δυτική Περιφερειακή Οδός<br>Κιλκίς</div></div>
+    <div class="ccard"><div class="cicon">🗺️</div><div class="clbl">Google My Business</div><div class="cval"><a href="https://maps.google.com/?q=Σακαρίδης+Κωνσταντίνος+Αυτοκίνηση+Κιλκίς" target="_blank">Χάρτης Google →</a></div></div>
+    <div class="ccard"><div class="cicon">🌐</div><div class="clbl">Ιστοσελίδα</div><div class="cval"><a href="http://www.vwkilkis.gr">www.vwkilkis.gr</a></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo"><span>Αυτο</span>κίνηση Μ.Ε.Π.Ε.</div>
+  <div class="fcopy">© 2025 Σακαρίδης Κωνσταντίνος Μονοπρόσωπη Ε.Π.Ε.<br>Δυτική Περιφερειακή Οδός, Κιλκίς</div>
+  <div class="fbrands"><span class="ftag">VW</span><span class="ftag">ŠKODA</span><span class="ftag">Chery</span></div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

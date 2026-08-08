@@ -70,11 +70,12 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 /* BRAND SHOWROOM */
 .brand-card{position:relative;display:block;overflow:hidden;border-radius:1rem;min-height:440px;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);text-decoration:none;transition:border-color .4s ease;}
 .brand-card:hover{border-color:rgba(200,168,75,.4);}
-.brand-photo{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(88%) contrast(1.1) brightness(.75);transition:filter .6s cubic-bezier(.2,.7,.2,1);}
-.brand-card:hover .brand-photo{filter:grayscale(15%) contrast(1.05) brightness(.95);}
-.brand-duotone{position:absolute;inset:0;mix-blend-mode:color;opacity:.62;transition:opacity .6s cubic-bezier(.2,.7,.2,1);}
-.brand-card:hover .brand-duotone{opacity:.18;}
-.brand-badge{position:absolute;right:24px;top:24px;width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-tech);font-weight:700;font-size:15px;background:rgba(10,10,10,.4);opacity:.78;transition:all .4s cubic-bezier(.2,.7,.2,1);}
+.brand-photo{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(55%) contrast(1.05) brightness(.92);transition:filter .6s cubic-bezier(.2,.7,.2,1);}
+.brand-card:hover .brand-photo{filter:grayscale(5%) contrast(1.02) brightness(1.02);}
+.brand-duotone{position:absolute;inset:0;mix-blend-mode:color;opacity:.38;transition:opacity .6s cubic-bezier(.2,.7,.2,1);}
+.brand-card:hover .brand-duotone{opacity:.1;}
+.brand-badge{position:absolute;right:24px;top:24px;width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-tech);font-weight:700;font-size:15px;background:rgba(10,10,10,.4);opacity:.78;transition:all .4s cubic-bezier(.2,.7,.2,1);overflow:hidden;}
+.brand-badge img{width:60%;height:60%;object-fit:contain;}
 .brand-card:hover .brand-badge{opacity:1;transform:scale(1.08);}
 .brand-cta-underline{position:absolute;left:50%;bottom:-4px;width:100%;height:1px;background:var(--gold);transform:translateX(-50%) scaleX(0);transition:transform .4s cubic-bezier(.2,.7,.2,1);}
 .brand-card:hover .brand-cta-underline{transform:translateX(-50%) scaleX(1);}
@@ -243,7 +244,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     <a href="volkswagen.html" class="brand-card reveal">
       <div class="brand-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TC1402_T-Roc_driving_on_road_sun_in_background.webp')"></div>
       <div class="brand-duotone" style="background-color:#14335c"></div>
-      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.1) 75%,rgba(10,10,10,.28) 100%)"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.32) 45%,rgba(10,10,10,.03) 75%,rgba(10,10,10,.1) 100%)"></div>
       <div class="brand-badge">VW</div>
       <div class="absolute inset-x-0 bottom-0 p-7">
         <h3 class="mb-1 leading-tight font-voice" style="font-size:30px;color:var(--ivory)">Volkswagen</h3>
@@ -255,7 +256,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     <a href="skoda.html" class="brand-card reveal" style="transition-delay:140ms">
       <div class="brand-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/Skoda%20Fabia%20%26%20Kamiq.jpg')"></div>
       <div class="brand-duotone" style="background-color:#1f4d34"></div>
-      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.1) 75%,rgba(10,10,10,.28) 100%)"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.32) 45%,rgba(10,10,10,.03) 75%,rgba(10,10,10,.1) 100%)"></div>
       <div class="brand-badge">SK</div>
       <div class="absolute inset-x-0 bottom-0 p-7">
         <h3 class="mb-1 leading-tight font-voice" style="font-size:30px;color:var(--ivory)">SKODA</h3>
@@ -267,7 +268,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     <a href="chery.html" class="brand-card reveal" style="transition-delay:280ms">
       <div class="brand-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%207%20front.jpg')"></div>
       <div class="brand-duotone" style="background-color:#3a3d42"></div>
-      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.1) 75%,rgba(10,10,10,.28) 100%)"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.32) 45%,rgba(10,10,10,.03) 75%,rgba(10,10,10,.1) 100%)"></div>
       <div class="brand-badge">CH</div>
       <div class="absolute inset-x-0 bottom-0 p-7">
         <h3 class="mb-1 leading-tight font-voice" style="font-size:30px;color:var(--ivory)">Chery</h3>

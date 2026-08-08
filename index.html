@@ -157,9 +157,9 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     </div>
 
     <div class="flex flex-wrap items-center gap-4 reveal is-visible" style="transition-delay:720ms">
-      <button class="mag-btn btn-gold font-tech font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full" data-magnetic>
+      <a href="#about" class="mag-btn btn-gold font-tech font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full inline-block" data-magnetic>
         <span class="shine"></span><span class="relative">Η ιστορία μας →</span>
-      </button>
+      </a>
       <a href="#contact" class="mag-btn btn-ghost font-tech font-semibold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full inline-block" data-magnetic>
         <span class="shine"></span><span class="relative">Επικοινωνία</span>
       </a>
@@ -218,7 +218,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 
     <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:260ms">
       <div class="bento-inner flex flex-col justify-center p-7 h-full">
-        <div class="leading-none font-tech font-black" style="font-size:56px;color:var(--ivory)"><span data-counter="25">0</span><span style="color:var(--gold)">+</span></div>
+        <div class="leading-none font-tech font-black" style="font-size:56px;color:var(--ivory)"><span data-counter="25">25</span><span style="color:var(--gold)">+</span></div>
         <div class="mt-2 text-[11px] uppercase tracking-[0.18em] font-tech" style="color:var(--ivory-dim)">Χρόνια Εμπιστοσύνης</div>
       </div>
     </div>
@@ -253,7 +253,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     </a>
 
     <a href="skoda.html" class="brand-card reveal" style="transition-delay:140ms">
-      <div class="brand-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/Skoda%20Kamiq.jpg')"></div>
+      <div class="brand-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/Skoda%20Fabia%20%26%20Kamiq.jpg')"></div>
       <div class="brand-duotone" style="background-color:#1f4d34"></div>
       <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.1) 75%,rgba(10,10,10,.28) 100%)"></div>
       <div class="brand-badge">SK</div>
@@ -429,27 +429,45 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => revealObs.observe(el));
 
-// Count-up 25+
+// Count-up 25+ (hardcoded fallback "25" is already in the markup;
+// this only re-animates 0 -> 25 for effect once the card scrolls into view)
 const counterEl = document.querySelector('[data-counter]');
 if (counterEl) {
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const target = parseInt(counterEl.dataset.counter, 10);
-        const duration = 1100;
-        const start = performance.now();
-        function tick(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          counterEl.textContent = Math.round(eased * target);
-          if (progress < 1) requestAnimationFrame(tick);
+  const target = parseInt(counterEl.dataset.counter, 10);
+  const runCountUp = () => {
+    const duration = 1100;
+    const start = performance.now();
+    counterEl.textContent = '0';
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counterEl.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+      else counterEl.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          runCountUp();
+          counterObs.disconnect();
         }
-        requestAnimationFrame(tick);
-        counterObs.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-  counterObs.observe(counterEl);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    counterObs.observe(counterEl);
+
+    // Safety net: if the observer never fires (e.g. element already
+    // in view on load but before observe() attaches), force the
+    // correct value after a short delay so it never gets stuck at 0.
+    setTimeout(() => {
+      if (counterEl.textContent === '0') counterEl.textContent = String(target);
+    }, 2500);
+  }
+  // If IntersectionObserver isn't supported at all, the hardcoded
+  // "25" already in the markup stands as the fallback — no action needed.
 }
 
 // Hero parallax

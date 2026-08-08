@@ -1,556 +1,256 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Volkswagen | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --vw-black: #0a0a0a;
-      --vw-navy: #0a1e3d;
-      --vw-white: #ffffff;
-      --vw-dark: #1a1a1a;
-      --vw-gray: #6a767d;
-      --vw-light-gray: #f5f5f5;
-      --vw-mid-gray: #e4e4e4;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Source Sans 3', sans-serif; background: var(--vw-white); color: var(--vw-dark); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volkswagen | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--vw-black:#0a0a0a;--vw-navy:#0a1e3d;--vw-white:#fff;--vw-dark:#1a1a1a;--vw-gray:#6a767d;--vw-light-gray:#f6f6f6;--vw-mid-gray:#e2e2e2;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var(--vw-dark);}
 
-    .top-bar {
-      background: var(--vw-black);
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 300;
-    }
-    .top-bar-left { display: flex; align-items: center; gap: 8px; }
-    .back-link {
-      display: flex; align-items: center; gap: 8px;
-      color: rgba(255,255,255,0.65); text-decoration: none;
-      font-size: 13px; font-weight: 400;
-      transition: color 0.2s;
-      border-right: 1px solid rgba(255,255,255,0.15);
-      padding-right: 16px; margin-right: 8px;
-    }
-    .back-link:hover { color: white; }
-    .back-link svg { width: 14px; height: 14px; }
-    .vw-wordmark {
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.02em;
-      color: white;
-    }
-    .top-nav-links { display: flex; align-items: center; gap: 28px; }
-    .top-nav-link {
-      color: rgba(255,255,255,0.75);
-      font-size: 13px;
-      font-weight: 400;
-      text-decoration: none;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-    .top-nav-link:hover { color: white; }
-    .top-nav-cta {
-      background: white;
-      color: var(--vw-black);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-      white-space: nowrap;
-    }
-    .top-nav-cta:hover { background: var(--vw-mid-gray); transform: translateY(-1px); }
+.top-bar{background:var(--vw-black);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;position:fixed;top:0;left:0;right:0;z-index:300;}
+.top-bar-left{display:flex;align-items:center;gap:8px;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;border-right:1px solid rgba(255,255,255,0.15);padding-right:16px;margin-right:8px;transition:color 0.2s;}
+.back-link:hover{color:#fff;}
+.back-link svg{width:14px;height:14px;}
+.vw-wordmark{font-weight:700;font-size:15px;letter-spacing:0.02em;color:#fff;}
+.top-nav-links{display:flex;align-items:center;gap:28px;}
+.top-nav-link{color:rgba(255,255,255,0.75);font-size:13px;text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+.top-nav-link:hover{color:#fff;}
+.top-nav-cta{background:#fff;color:var(--vw-black);font-size:13px;font-weight:600;padding:10px 22px;border-radius:999px;text-decoration:none;transition:background 0.2s,transform 0.2s;white-space:nowrap;}
+.top-nav-cta:hover{background:var(--vw-mid-gray);transform:translateY(-1px);}
 
-    .hero {
-      margin-top: 64px;
-      position: relative;
-      height: calc(100vh - 64px);
-      min-height: 560px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      background: var(--vw-black);
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 70% 30%, #1c1c1c 0%, #0a0a0a 60%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      padding: 0 48px 72px;
-      max-width: 720px;
-      animation: heroFadeIn 0.9s ease 0.2s both;
-    }
-    @keyframes heroFadeIn {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      color: rgba(255,255,255,0.55);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font-size: clamp(44px, 6.5vw, 84px);
-      font-weight: 700;
-      line-height: 1.03;
-      color: white;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-    .hero-title .thin { font-weight: 300; color: rgba(255,255,255,0.85); }
-    .hero-sub {
-      font-size: 17px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.68);
-      line-height: 1.6;
-      margin-bottom: 36px;
-      max-width: 520px;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-pill-white {
-      background: white;
-      color: var(--vw-black);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 15px 30px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn-pill-white:hover { background: var(--vw-mid-gray); transform: translateY(-1px); }
-    .btn-pill-outline {
-      border: 1.5px solid rgba(255,255,255,0.4);
-      color: white;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 14px 28px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn-pill-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+.hero{margin-top:64px;position:relative;height:calc(100vh - 64px);min-height:520px;overflow:hidden;display:flex;align-items:flex-end;background:var(--vw-black);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,#1c1c1c 0%,#0a0a0a 60%);}
+.hero-content{position:relative;z-index:10;padding:0 48px 64px;max-width:720px;animation:heroFadeIn .9s ease .2s both;}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{display:inline-block;color:rgba(255,255,255,0.55);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
+.hero-title{font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.05;color:#fff;margin-bottom:18px;letter-spacing:-0.02em;}
+.hero-title .thin{font-weight:300;color:rgba(255,255,255,0.85);}
+.hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,0.68);line-height:1.6;margin-bottom:32px;max-width:500px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-pill-white{background:#fff;color:var(--vw-black);font-size:14px;font-weight:600;padding:15px 30px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-pill-white:hover{background:var(--vw-mid-gray);transform:translateY(-1px);}
+.btn-pill-outline{border:1.5px solid rgba(255,255,255,0.4);color:#fff;font-size:14px;font-weight:500;padding:14px 28px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:10px;}
+.btn-pill-outline:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
 
-    .util-bar {
-      background: var(--vw-white);
-      border-bottom: 1px solid var(--vw-mid-gray);
-      padding: 14px 48px;
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--vw-dark);
-    }
-    .util-bar a { color: var(--vw-dark); text-decoration: none; }
-    .util-bar a:hover { text-decoration: underline; }
+.util-bar{background:var(--vw-white);border-bottom:1px solid var(--vw-mid-gray);padding:13px 48px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;}
+.util-bar a{color:var(--vw-dark);text-decoration:none;}
+.util-bar a:hover{text-decoration:underline;}
 
-    .section { padding: 72px 48px; }
-    .section-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 40px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--vw-mid-gray);
-    }
-    .section-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--vw-black);
-      letter-spacing: -0.01em;
-    }
-    .section-link {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--vw-black);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .section-link:hover { text-decoration: underline; }
+.centered-head{text-align:center;padding:64px 48px 8px;}
+.centered-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:300;color:#444;letter-spacing:-0.01em;}
+.centered-head h2 strong{font-weight:700;color:var(--vw-black);}
 
-    .models-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .model-card {
-      background: white;
-      border: 1px solid var(--vw-mid-gray);
-      overflow: hidden;
-      transition: box-shadow 0.25s, transform 0.25s;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-    }
-    .model-card:hover {
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-      transform: translateY(-3px);
-    }
-    .model-card-img {
-      background: linear-gradient(180deg, #f2f2f2 0%, #e6e6e6 100%);
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .model-placeholder-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--vw-gray);
-    }
-    .model-card-body {
-      padding: 22px 24px 26px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .model-card-type {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--vw-gray);
-      margin-bottom: 6px;
-    }
-    .model-card-name {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--vw-black);
-      margin-bottom: 8px;
-    }
-    .model-card-desc {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--vw-dark);
-      line-height: 1.55;
-      flex: 1;
-      margin-bottom: 20px;
-    }
-    .model-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--vw-black);
-      text-decoration: none;
-    }
-    .model-card-cta::after { content: '→'; }
-    .model-card-cta:hover { text-decoration: underline; }
+.section{padding:40px 48px 72px;}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;}
+.section-link{font-size:13px;font-weight:600;color:var(--vw-black);text-decoration:none;display:flex;align-items:center;gap:6px;}
+.section-link:hover{text-decoration:underline;}
 
-    .dealer-section {
-      background: var(--vw-navy);
-      padding: 72px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .dealer-text h2 {
-      font-size: 32px;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .dealer-text p {
-      font-size: 15px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.65;
-      margin-bottom: 12px;
-    }
-    .dealer-text p strong { color: white; font-weight: 600; }
-    .dealer-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 32px;
-    }
-    .dealer-feat {
-      background: rgba(255,255,255,0.06);
-      padding: 20px;
-      transition: background 0.2s;
-    }
-    .dealer-feat:hover { background: rgba(255,255,255,0.1); }
-    .dealer-feat-icon { font-size: 20px; margin-bottom: 10px; }
-    .dealer-feat-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 4px; }
-    .dealer-feat-sub { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.4; }
-    .dealer-actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+.models-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--vw-mid-gray);border:1px solid var(--vw-mid-gray);}
+.model-card{background:#fff;text-decoration:none;color:inherit;display:flex;flex-direction:column;padding:24px 24px 28px;position:relative;transition:box-shadow .2s;}
+.model-card:hover{box-shadow:0 12px 28px rgba(0,0,0,0.08);z-index:2;}
+.model-badge{position:absolute;top:20px;left:20px;background:#6b4fd6;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.04em;padding:4px 12px;border-radius:999px;}
+.model-card-img{background:linear-gradient(180deg,#f6f6f6 0%,#ececec 100%);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;margin-bottom:18px;border-radius:4px;}
+.model-placeholder-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--vw-gray);}
+.model-card-name{font-size:19px;font-weight:700;color:var(--vw-black);margin-bottom:4px;}
+.model-card-type{font-size:13px;font-weight:400;color:var(--vw-gray);margin-bottom:14px;}
+.model-card-desc{font-size:13.5px;font-weight:300;color:#444;line-height:1.55;flex:1;margin-bottom:16px;}
+.model-card-cta{font-size:13px;font-weight:700;color:var(--vw-black);text-decoration:underline;}
 
-    .photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2px; height: 360px; }
-    .photo-box { background: var(--vw-light-gray); position: relative; overflow: hidden; }
-    .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .photo-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: rgba(10,10,10,0.75); color: white;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 10px 16px;
-    }
+/* alternating split feature sections */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:440px;}
+.split-photo{background:var(--vw-light-gray);position:relative;overflow:hidden;}
+.split-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.split-panel{background:var(--vw-navy);padding:64px 64px;display:flex;flex-direction:column;justify-content:center;}
+.split-panel h2{font-size:clamp(26px,3vw,36px);font-weight:300;color:rgba(255,255,255,0.85);line-height:1.25;margin-bottom:18px;}
+.split-panel h2 strong{font-weight:700;color:#fff;}
+.split-panel p{font-size:14.5px;font-weight:300;color:rgba(255,255,255,0.68);line-height:1.7;margin-bottom:12px;max-width:440px;}
+.split-panel p strong{color:#fff;font-weight:600;}
+.split-link{color:#fff;font-size:14px;font-weight:600;text-decoration:underline;margin-top:14px;display:inline-block;width:fit-content;}
+.split-reverse .split-photo{order:2;}
+.split-reverse .split-panel{order:1;background:var(--vw-black);}
 
-    .services-strip { background: var(--vw-light-gray); padding: 56px 48px; }
-    .services-title { font-size: 22px; font-weight: 700; color: var(--vw-black); margin-bottom: 32px; }
-    .services-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-    .service-item {
-      background: white; padding: 28px 24px;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .service-item:hover { border-bottom-color: var(--vw-black); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .service-item-icon { font-size: 26px; margin-bottom: 14px; }
-    .service-item-title { font-size: 15px; font-weight: 700; color: var(--vw-black); margin-bottom: 8px; }
-    .service-item-desc { font-size: 13px; font-weight: 300; color: var(--vw-gray); line-height: 1.5; }
+.photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2px;height:320px;background:var(--vw-mid-gray);}
+.photo-box{background:var(--vw-light-gray);position:relative;overflow:hidden;}
+.photo-box img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-label{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,0.72);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.05em;padding:10px 16px;}
 
-    .page-footer {
-      background: var(--vw-black); padding: 40px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 20px;
-    }
-    .footer-logo-text { font-size: 14px; font-weight: 700; color: white; letter-spacing: 0.06em; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6; }
-    .footer-back { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
-    .footer-back:hover { color: white; }
+.services-strip{background:var(--vw-light-gray);padding:64px 48px;}
+.services-title{font-size:22px;font-weight:700;color:var(--vw-black);margin-bottom:28px;}
+.services-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--vw-mid-gray);border:1px solid var(--vw-mid-gray);}
+.service-item{background:#fff;padding:26px 22px;}
+.service-item-icon{font-size:24px;margin-bottom:12px;}
+.service-item-title{font-size:14.5px;font-weight:700;color:var(--vw-black);margin-bottom:6px;}
+.service-item-desc{font-size:13px;font-weight:300;color:var(--vw-gray);line-height:1.5;}
 
-    .fade { opacity:0; transform:translateY(16px); transition:opacity 0.6s, transform 0.6s; }
-    .fade.visible { opacity:1; transform:translateY(0); }
+.page-footer{background:var(--vw-black);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-logo-text{font-size:14px;font-weight:700;color:#fff;letter-spacing:0.06em;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.4);text-align:center;line-height:1.6;}
+.footer-back{font-size:13px;font-weight:600;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;}
+.footer-back:hover{color:#fff;}
 
-    @media (max-width: 900px) {
-      .top-bar { padding: 0 16px; }
-      .top-nav-links { display: none; }
-      .util-bar { display: none; }
-      .hero-content { padding: 0 20px 56px; }
-      .section, .dealer-section, .services-strip, .page-footer { padding: 48px 20px; }
-      .models-grid, .services-row { grid-template-columns: 1fr; }
-      .dealer-section { grid-template-columns: 1fr; gap: 40px; }
-      .dealer-features { grid-template-columns: 1fr; }
-      .photo-strip { grid-template-columns: 1fr; height: auto; }
-      .photo-box { height: 200px; }
-      .page-footer { flex-direction: column; text-align: center; }
-    }
-  </style>
+.fade{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;}
+.fade.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+.top-bar{padding:0 16px;}.top-nav-links{display:none;}.util-bar{display:none;}
+.hero-content{padding:0 20px 48px;}
+.centered-head{padding:40px 20px 4px;}
+.section,.services-strip,.page-footer{padding:40px 20px;}
+.models-grid,.services-row{grid-template-columns:1fr;}
+.split,.split-reverse{grid-template-columns:1fr;}
+.split-reverse .split-photo,.split-reverse .split-panel{order:0;}
+.split-photo{min-height:220px;}
+.split-panel{padding:40px 24px;}
+.photo-strip{grid-template-columns:1fr;height:auto;}
+.photo-box{height:200px;}
+.page-footer{flex-direction:column;text-align:center;}
+}
+</style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
-  <div class="top-bar-left">
-    <a href="index.html" class="back-link">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
-      Αρχική
-    </a>
-    <span class="vw-wordmark">Volkswagen</span>
-  </div>
-  <div class="top-nav-links">
-    <a href="#models" class="top-nav-link">Μοντέλα</a>
-    <a href="#services" class="top-nav-link">Service</a>
-    <a href="https://www.volkswagen.gr/el.html" target="_blank" class="top-nav-link">volkswagen.gr ↗</a>
-    <a href="index.html#contact" class="top-nav-cta">Επικοινωνία</a>
-  </div>
+<div class="top-bar-left">
+<a href="index.html" class="back-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>Αρχική</a>
+<span class="vw-wordmark">Volkswagen</span>
+</div>
+<div class="top-nav-links">
+<a href="#models" class="top-nav-link">Μοντέλα</a>
+<a href="#services" class="top-nav-link">Service</a>
+<a href="https://www.volkswagen.gr/el.html" target="_blank" class="top-nav-link">volkswagen.gr ↗</a>
+<a href="index.html#contact" class="top-nav-cta">Επικοινωνία</a>
+</div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Επίσημη Αντιπροσωπεία · Κιλκίς · Από το 1999</span>
-    <h1 class="hero-title">Volkswagen<br><span class="thin">στο Κιλκίς</span></h1>
-    <p class="hero-sub">Επίσημοι αντιπρόσωποι Volkswagen για πάνω από 25 χρόνια. Νέα αυτοκίνητα, εξουσιοδοτημένο συνεργείο και γνήσια ανταλλακτικά VW.</p>
-    <div class="hero-actions">
-      <a href="#models" class="btn-pill-white">Δείτε τα μοντέλα →</a>
-      <a href="https://www.volkswagen.gr/el.html" target="_blank" class="btn-pill-outline">volkswagen.gr ↗</a>
-    </div>
-  </div>
+<div class="hero-bg"></div>
+<div class="hero-content">
+<span class="hero-eyebrow">Επίσημη Αντιπροσωπεία · Κιλκίς · Από το 1999</span>
+<h1 class="hero-title">Volkswagen<br><span class="thin">στο Κιλκίς</span></h1>
+<p class="hero-sub">Επίσημοι αντιπρόσωποι Volkswagen για πάνω από 25 χρόνια. Νέα αυτοκίνητα, εξουσιοδοτημένο συνεργείο και γνήσια ανταλλακτικά VW.</p>
+<div class="hero-actions">
+<a href="#models" class="btn-pill-white">Δείτε τα μοντέλα →</a>
+<a href="https://www.volkswagen.gr/el.html" target="_blank" class="btn-pill-outline">volkswagen.gr ↗</a>
+</div>
+</div>
 </section>
 
-<!-- UTILITY BAR -->
 <div class="util-bar">
-  <a href="index.html#contact">📍 Δείτε το κατάστημα</a>
-  <a href="index.html#contact">🔧 Κλείστε ραντεβού για service</a>
-  <a href="index.html#contact">🚗 Κλείστε Test Drive</a>
-  <a href="index.html#contact">💬 Ζητήστε Προσφορά</a>
+<a href="index.html#contact">📍 Δείτε το κατάστημα</a>
+<a href="index.html#contact">🔧 Κλείστε ραντεβού για service</a>
+<a href="index.html#contact">🚗 Κλείστε Test Drive</a>
+<a href="index.html#contact">💬 Ζητήστε Προσφορά</a>
 </div>
 
-<!-- MODELS -->
+<div class="centered-head fade">
+<h2>Διαθέσιμα <strong>Μοντέλα</strong></h2>
+</div>
 <section class="section" id="models">
-  <div class="section-header fade">
-    <h2 class="section-title">Μοντέλα Volkswagen</h2>
-    <a href="https://www.volkswagen.gr/el/models.html" target="_blank" class="section-link">Όλα τα μοντέλα στο volkswagen.gr →</a>
-  </div>
-  <div class="models-grid fade">
-    <a href="https://www.volkswagen.gr/el/models/golf.html" target="_blank" class="model-card">
-      <div class="model-card-img"><span class="model-placeholder-label">Golf</span></div>
-      <div class="model-card-body">
-        <div class="model-card-type">Hatchback · eHybrid</div>
-        <div class="model-card-name">Golf</div>
-        <div class="model-card-desc">Το εμβληματικό hatchback της VW με προηγμένη τεχνολογία, εκλεπτυσμένο εσωτερικό και νέα eHybrid έκδοση.</div>
-        <span class="model-card-cta">Μάθετε περισσότερα</span>
-      </div>
-    </a>
-    <a href="https://www.volkswagen.gr/el/models/tiguan.html" target="_blank" class="model-card">
-      <div class="model-card-img"><span class="model-placeholder-label">Tiguan</span></div>
-      <div class="model-card-body">
-        <div class="model-card-type">Compact SUV · eHybrid</div>
-        <div class="model-card-name">Tiguan</div>
-        <div class="model-card-desc">Το δημοφιλέστερο SUV της VW. Εξαιρετικός χώρος, premium εξοπλισμός και plug-in hybrid τεχνολογία.</div>
-        <span class="model-card-cta">Μάθετε περισσότερα</span>
-      </div>
-    </a>
-    <a href="https://www.volkswagen.gr/el/models/t-roc.html" target="_blank" class="model-card">
-      <div class="model-card-img"><span class="model-placeholder-label">T-Roc</span></div>
-      <div class="model-card-body">
-        <div class="model-card-type">Crossover SUV</div>
-        <div class="model-card-name">T-Roc</div>
-        <div class="model-card-desc">Δυναμικό crossover με εντυπωσιακό σχεδιασμό. Ιδανική σύνθεση SUV και hatchback χαρακτηριστικών.</div>
-        <span class="model-card-cta">Μάθετε περισσότερα</span>
-      </div>
-    </a>
-    <a href="https://www.volkswagen.gr/el/models/id4.html" target="_blank" class="model-card">
-      <div class="model-card-img"><span class="model-placeholder-label">ID.4</span></div>
-      <div class="model-card-body">
-        <div class="model-card-type">Ηλεκτρικό SUV</div>
-        <div class="model-card-name">ID.4</div>
-        <div class="model-card-desc">Το ηλεκτρικό SUV της VW — πλατφόρμα MEB, μεγάλη αυτονομία, μηδενικοί ρύποι και άνεση πέντε αστέρων.</div>
-        <span class="model-card-cta">Μάθετε περισσότερα</span>
-      </div>
-    </a>
-    <a href="https://www.volkswagen.gr/el/models/passat.html" target="_blank" class="model-card">
-      <div class="model-card-img"><span class="model-placeholder-label">Passat</span></div>
-      <div class="model-card-body">
-        <div class="model-card-type">Business Estate</div>
-        <div class="model-card-name">Passat</div>
-        <div class="model-card-desc">Η επαγγελματική επιλογή — συνδυάζει κομψότητα, άνεση και τεχνολογία για ταξίδια χωρίς συμβιβασμούς.</div>
-        <span class="model-card-cta">Μάθετε περισσότερα</span>
-      </div>
-    </a>
-    <a href="https://www.volkswagen.gr/el/models/id-buzz.html" target="_blank" class="model-card">
-      <div class="model-card-img"><span class="model-placeholder-label">ID. Buzz</span></div>
-      <div class="model-card-body">
-        <div class="model-card-type">Ηλεκτρικό MPV</div>
-        <div class="model-card-name">ID. Buzz</div>
-        <div class="model-card-desc">Το εμβληματικό Bulli επιστρέφει ηλεκτρικό. Αναλογικό design, ψηφιακό μέλλον, 5 ή 7 θέσεις.</div>
-        <span class="model-card-cta">Μάθετε περισσότερα</span>
-      </div>
-    </a>
-  </div>
+<div class="section-header fade">
+<span></span>
+<a href="https://www.volkswagen.gr/el/models.html" target="_blank" class="section-link">Όλα τα μοντέλα στο volkswagen.gr →</a>
+</div>
+<div class="models-grid fade">
+<a href="https://www.volkswagen.gr/el/models/golf.html" target="_blank" class="model-card">
+<div class="model-card-img"><span class="model-placeholder-label">Golf</span></div>
+<div class="model-card-name">Golf</div>
+<div class="model-card-type">Hatchback · eHybrid</div>
+<div class="model-card-desc">Το εμβληματικό hatchback της VW με προηγμένη τεχνολογία και νέα eHybrid έκδοση.</div>
+<span class="model-card-cta">Μάθετε περισσότερα</span>
+</a>
+<a href="https://www.volkswagen.gr/el/models/tiguan.html" target="_blank" class="model-card">
+<span class="model-badge">Δημοφιλές</span>
+<div class="model-card-img"><span class="model-placeholder-label">Tiguan</span></div>
+<div class="model-card-name">Tiguan</div>
+<div class="model-card-type">Compact SUV · eHybrid</div>
+<div class="model-card-desc">Εξαιρετικός χώρος, premium εξοπλισμός και plug-in hybrid τεχνολογία.</div>
+<span class="model-card-cta">Μάθετε περισσότερα</span>
+</a>
+<a href="https://www.volkswagen.gr/el/models/t-roc.html" target="_blank" class="model-card">
+<div class="model-card-img"><span class="model-placeholder-label">T-Roc</span></div>
+<div class="model-card-name">T-Roc</div>
+<div class="model-card-type">Crossover SUV</div>
+<div class="model-card-desc">Δυναμικό crossover με εντυπωσιακό σχεδιασμό.</div>
+<span class="model-card-cta">Μάθετε περισσότερα</span>
+</a>
+<a href="https://www.volkswagen.gr/el/models/id4.html" target="_blank" class="model-card">
+<span class="model-badge">Ηλεκτρικό</span>
+<div class="model-card-img"><span class="model-placeholder-label">ID.4</span></div>
+<div class="model-card-name">ID.4</div>
+<div class="model-card-type">Ηλεκτρικό SUV</div>
+<div class="model-card-desc">Πλατφόρμα MEB, μεγάλη αυτονομία, μηδενικοί ρύποι.</div>
+<span class="model-card-cta">Μάθετε περισσότερα</span>
+</a>
+<a href="https://www.volkswagen.gr/el/models/passat.html" target="_blank" class="model-card">
+<div class="model-card-img"><span class="model-placeholder-label">Passat</span></div>
+<div class="model-card-name">Passat</div>
+<div class="model-card-type">Business Estate</div>
+<div class="model-card-desc">Η επαγγελματική επιλογή — κομψότητα, άνεση και τεχνολογία.</div>
+<span class="model-card-cta">Μάθετε περισσότερα</span>
+</a>
+<a href="https://www.volkswagen.gr/el/models/id-buzz.html" target="_blank" class="model-card">
+<span class="model-badge">Ηλεκτρικό</span>
+<div class="model-card-img"><span class="model-placeholder-label">ID. Buzz</span></div>
+<div class="model-card-name">ID. Buzz</div>
+<div class="model-card-type">Ηλεκτρικό MPV</div>
+<div class="model-card-desc">Το εμβληματικό Bulli επιστρέφει ηλεκτρικό. 5 ή 7 θέσεις.</div>
+<span class="model-card-cta">Μάθετε περισσότερα</span>
+</a>
+</div>
 </section>
 
-<!-- PHOTO STRIP -->
-<div class="photo-strip">
-  <div class="photo-box">
-    <img src="service-1.jpg" alt="Κεντρικός χώρος συνεργείου VW">
-    <div class="photo-label">Κεντρικός χώρος · Συνεργείο VW</div>
-  </div>
-  <div class="photo-box">
-    <img src="service-6.jpg" alt="Express Service">
-    <div class="photo-label">Express Service</div>
-  </div>
-  <div class="photo-box">
-    <img src="service-5.jpg" alt="Ράμπες ανύψωσης">
-    <div class="photo-label">Ράμπες Ανύψωσης</div>
-  </div>
+<!-- SPLIT 1: dealer -->
+<div class="split" id="dealer">
+<div class="split-photo"><img src="service-1.jpg" alt="Συνεργείο VW"></div>
+<div class="split-panel fade">
+<h2><strong>Αυτοκίνηση Μ.Ε.Π.Ε.</strong><br>Επίσημος Αντιπρόσωπος VW</h2>
+<p>Από το <strong>1999</strong> στο Κιλκίς, η εταιρεία του <strong>Κωνσταντίνου Σακαρίδη</strong> αποτελεί τον αξιόπιστο εξουσιοδοτημένο αντιπρόσωπο Volkswagen για την περιοχή.</p>
+<p>Στο ιδιόκτητο κτίριο <strong>1.250 τ.μ.</strong> στη Δυτική Περιφερειακή Οδό, στεγάζεται η σύγχρονη έκθεση, το εξουσιοδοτημένο συνεργείο VW και το πλήρως οργανωμένο τμήμα ανταλλακτικών.</p>
+<a href="index.html#contact" class="split-link">Επικοινωνία & Οδηγίες →</a>
+</div>
 </div>
 
-<!-- DEALER INFO -->
-<section class="dealer-section" id="dealer">
-  <div class="dealer-text fade">
-    <h2>Αυτοκίνηση Μ.Ε.Π.Ε.<br>Επίσημος Αντιπρόσωπος VW</h2>
-    <p>Από το <strong>1999</strong> στο Κιλκίς, η εταιρεία του <strong>Κωνσταντίνου Σακαρίδη</strong> αποτελεί τον αξιόπιστο εξουσιοδοτημένο αντιπρόσωπο Volkswagen για την περιοχή.</p>
-    <p>Στο ιδιόκτητο κτίριο <strong>1.250 τ.μ.</strong> στη Δυτική Περιφερειακή Οδό, στεγάζεται η σύγχρονη έκθεση, το εξουσιοδοτημένο συνεργείο VW, το πλήρως οργανωμένο τμήμα ανταλλακτικών και το υπερσύγχρονο φανοβαφείο.</p>
-    <div class="dealer-actions">
-      <a href="index.html#contact" class="btn-pill-white">Επικοινωνία & Οδηγίες</a>
-      <a href="https://maps.google.com/?q=Αυτοκίνηση+Κιλκίς+Σακαρίδης" target="_blank" class="btn-pill-outline">Χάρτης ↗</a>
-    </div>
-  </div>
-  <div class="dealer-features fade">
-    <div class="dealer-feat">
-      <div class="dealer-feat-icon">🏆</div>
-      <div class="dealer-feat-title">Επίσημη Αντιπροσωπεία</div>
-      <div class="dealer-feat-sub">Εξουσιοδοτημένος από VW Ελλάς από το 1999</div>
-    </div>
-    <div class="dealer-feat">
-      <div class="dealer-feat-icon">🔧</div>
-      <div class="dealer-feat-title">Εξουσιοδ. Συνεργείο</div>
-      <div class="dealer-feat-sub">Πιστοποιημένοι τεχνικοί, γνήσια ανταλλακτικά VW</div>
-    </div>
-    <div class="dealer-feat">
-      <div class="dealer-feat-icon">⚙️</div>
-      <div class="dealer-feat-title">ETKA Parts System</div>
-      <div class="dealer-feat-sub">Πλήρες γραφείο ανταλλακτικών με γνήσια VAG</div>
-    </div>
-    <div class="dealer-feat">
-      <div class="dealer-feat-icon">🎨</div>
-      <div class="dealer-feat-title">Φανοβαφείο</div>
-      <div class="dealer-feat-sub">Υπερσύγχρονο (Νοέμβριος 2025), όλες οι ασφαλιστικές</div>
-    </div>
-  </div>
-</section>
+<div class="photo-strip">
+<div class="photo-box"><img src="service-6.jpg" alt="Express Service"><div class="photo-label">Express Service</div></div>
+<div class="photo-box"><img src="service-5.jpg" alt="Ράμπες ανύψωσης"><div class="photo-label">Ράμπες Ανύψωσης</div></div>
+<div class="photo-box"><img src="parts-office.jpg" alt="ETKA Ανταλλακτικά"><div class="photo-label">ETKA Ανταλλακτικά</div></div>
+</div>
 
-<!-- SERVICES -->
+<!-- SPLIT 2 reversed: paintshop / etka -->
+<div class="split split-reverse">
+<div class="split-panel fade">
+<h2>Υπηρεσίες <strong>After Sales</strong></h2>
+<p>Από τον <strong>Νοέμβριο 2025</strong> λειτουργεί στις εγκαταστάσεις μας υπερσύγχρονο <strong>φανοβαφείο</strong>, για όλες τις μάρκες, σε συνεργασία με όλες τις ασφαλιστικές.</p>
+<p>Διαθέτουμε επίσημο γραφείο ανταλλακτικών με το σύστημα <strong>ETKA</strong> της Volkswagen, για άμεση και ακριβή αναζήτηση κάθε ανταλλακτικού.</p>
+<a href="index.html#contact" class="split-link">Δείτε το Φανοβαφείο →</a>
+</div>
+<div class="split-photo"><img src="paint-4.jpg" alt="Φανοβαφείο"></div>
+</div>
+
 <section class="services-strip" id="services">
-  <h2 class="services-title">Υπηρεσίες Volkswagen</h2>
-  <div class="services-row fade">
-    <div class="service-item">
-      <div class="service-item-icon">🛡️</div>
-      <div class="service-item-title">Εγγύηση VW</div>
-      <div class="service-item-desc">Επίσημη εργοστασιακή εγγύηση σε κάθε νέο αυτοκίνητο Volkswagen.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-item-icon">📅</div>
-      <div class="service-item-title">Service Plan</div>
-      <div class="service-item-desc">Προγραμματισμένα service με γνήσια VW ανταλλακτικά και πιστοποιημένους τεχνικούς.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-item-icon">💳</div>
-      <div class="service-item-title">Χρηματοδότηση</div>
-      <div class="service-item-desc">Λύσεις χρηματοδότησης και leasing σε συνεργασία με VW Financial Services.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-item-icon">🔄</div>
-      <div class="service-item-title">Ανταλλαγή Οχήματος</div>
-      <div class="service-item-desc">Αξιολόγηση και ανταλλαγή του μεταχειρισμένου σας με την καλύτερη δυνατή τιμή.</div>
-    </div>
-  </div>
+<h2 class="services-title">Υπηρεσίες Volkswagen</h2>
+<div class="services-row fade">
+<div class="service-item"><div class="service-item-icon">🛡️</div><div class="service-item-title">Εγγύηση VW</div><div class="service-item-desc">Επίσημη εργοστασιακή εγγύηση σε κάθε νέο VW.</div></div>
+<div class="service-item"><div class="service-item-icon">📅</div><div class="service-item-title">Service Plan</div><div class="service-item-desc">Προγραμματισμένα service με γνήσια VW ανταλλακτικά.</div></div>
+<div class="service-item"><div class="service-item-icon">💳</div><div class="service-item-title">Χρηματοδότηση</div><div class="service-item-desc">Λύσεις χρηματοδότησης και leasing.</div></div>
+<div class="service-item"><div class="service-item-icon">🔄</div><div class="service-item-title">Ανταλλαγή Οχήματος</div><div class="service-item-desc">Αξιολόγηση και ανταλλαγή μεταχειρισμένου.</div></div>
+</div>
 </section>
 
-<!-- FOOTER -->
 <footer class="page-footer">
-  <div class="footer-logo-text">Volkswagen · Αυτοκίνηση</div>
-  <div class="footer-copy">© 2025 Σακαρίδης Κωνσταντίνος Μ.Ε.Π.Ε. · Δυτική Περιφερειακή Οδός, Κιλκίς</div>
-  <a href="index.html" class="footer-back">← Επιστροφή στην Αρχική</a>
+<div class="footer-logo-text">Volkswagen · Αυτοκίνηση</div>
+<div class="footer-copy">© 2025 Σακαρίδης Κωνσταντίνος Μ.Ε.Π.Ε. · Δυτική Περιφερειακή Οδός, Κιλκίς</div>
+<a href="index.html" class="footer-back">← Επιστροφή στην Αρχική</a>
 </footer>
 
 <script>
-  const obs = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-  }), { threshold: 0.1 });
-  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>

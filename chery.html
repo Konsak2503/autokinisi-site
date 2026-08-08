@@ -4,320 +4,267 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chery | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --ch-red: #c8102e;
-      --ch-dark-red: #8a0b1f;
-      --ch-black: #0d0d0d;
-      --ch-dark: #151515;
-      --ch-card: #1c1c1c;
-      --ch-white: #f8f8f8;
-      --ch-gray: #888;
-      --ch-light-gray: #2a2a2a;
-      --ch-border: rgba(255,255,255,0.08);
+      --ch-black: #101010;
+      --ch-white: #ffffff;
+      --ch-light: #f4f3f1;
+      --ch-mid: #e6e4df;
+      --ch-gray: #6b6b6b;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { font-family:'Source Sans 3', sans-serif; background:var(--ch-black); color:var(--ch-white); }
+    body { font-family:'Source Sans 3', sans-serif; background:var(--ch-white); color:var(--ch-black); }
 
+    /* ── NAV — light/neutral like chery.gr ── */
     .ch-nav {
       position:fixed; top:0; left:0; right:0; z-index:300;
-      background:rgba(13,13,13,0.96); backdrop-filter:blur(12px);
+      background:var(--ch-light);
       height:68px; display:flex; align-items:center;
       justify-content:space-between; padding:0 48px;
-      border-bottom:1px solid rgba(200,16,46,0.3);
+      border-bottom:1px solid var(--ch-mid);
     }
     .ch-nav-left { display:flex; align-items:center; gap:0; }
     .ch-back {
       display:flex; align-items:center; gap:8px;
-      color:rgba(255,255,255,0.5); font-size:13px; text-decoration:none;
+      color:var(--ch-gray); font-size:13px; text-decoration:none;
       padding-right:20px; margin-right:20px;
-      border-right:1px solid rgba(255,255,255,0.1);
+      border-right:1px solid var(--ch-mid);
       transition:color 0.2s;
     }
-    .ch-back:hover { color:white; }
+    .ch-back:hover { color:var(--ch-black); }
     .ch-logo {
-      font-family:'Rajdhani',sans-serif;
-      font-size:22px; font-weight:700; letter-spacing:0.1em;
-      text-transform:uppercase; color:white;
+      font-size:20px; font-weight:800; letter-spacing:0.06em;
+      text-transform:uppercase; color:var(--ch-black);
     }
-    .ch-logo span { color:var(--ch-red); }
+    .ch-logo span { color:var(--ch-gray); font-weight:400; font-size:14px; letter-spacing:0.04em; margin-left:8px; text-transform:none; }
     .ch-nav-menu { display:flex; gap:0; }
     .ch-nav-menu a {
-      color:rgba(255,255,255,0.6); font-size:13px; font-weight:600;
+      color:var(--ch-black); font-size:13px; font-weight:600;
       text-decoration:none; padding:0 18px; height:68px;
       display:flex; align-items:center; gap:6px;
       border-bottom:2px solid transparent; margin-bottom:-1px;
       transition:color 0.2s, border-color 0.2s;
       white-space:nowrap;
     }
-    .ch-nav-menu a:hover { color:white; border-color:var(--ch-red); }
+    .ch-nav-menu a:hover { color:var(--ch-red); border-color:var(--ch-red); }
     .ch-nav-cta {
-      background:var(--ch-red); color:white;
-      font-family:'Rajdhani',sans-serif;
-      font-size:14px; font-weight:700; letter-spacing:0.08em;
-      padding:11px 24px; text-decoration:none;
-      transition:background 0.2s;
-      text-transform:uppercase;
+      background:var(--ch-black); color:white;
+      font-size:13px; font-weight:700;
+      padding:11px 24px; border-radius:999px;
+      text-decoration:none; transition:background 0.2s, transform 0.2s;
     }
-    .ch-nav-cta:hover { background:#e01535; }
+    .ch-nav-cta:hover { background:#2a2a2a; transform: translateY(-1px); }
 
+    /* ── HERO — light neutral, real-photo feel ── */
     .ch-hero {
       margin-top:68px; position:relative;
-      height:calc(100vh - 68px); min-height:560px;
+      min-height:560px;
       overflow:hidden; display:flex; align-items:center;
-      background:var(--ch-black);
-    }
-    .ch-hero-bg {
-      position:absolute; inset:0;
-      background:linear-gradient(130deg, #0a0005 0%, #1a0008 30%, #2e0010 60%, #420015 100%);
-    }
-    .ch-hero-bg::before {
-      content:'';
-      position:absolute; inset:0;
-      background: repeating-linear-gradient(
-        -55deg,
-        transparent,
-        transparent 80px,
-        rgba(200,16,46,0.03) 80px,
-        rgba(200,16,46,0.03) 81px
-      );
-    }
-    .ch-hero-glow {
-      position:absolute; right:-5%; top:50%;
-      transform:translateY(-50%);
-      width:600px; height:600px; border-radius:50%;
-      background:radial-gradient(circle, rgba(200,16,46,0.2) 0%, transparent 65%);
-    }
-    .ch-hero-circle {
-      position:absolute; right:8%; top:50%; transform:translateY(-50%);
-      width:480px; height:480px; border-radius:50%;
-      border:1px solid rgba(200,16,46,0.12);
-      box-shadow: 0 0 0 40px rgba(200,16,46,0.05), 0 0 0 90px rgba(200,16,46,0.03);
+      background: linear-gradient(120deg, #eeece7 0%, #e3e0d8 100%);
     }
     .ch-hero-inner {
-      position:relative; z-index:2; padding:0 56px; max-width:660px;
+      position:relative; z-index:2; padding:64px 56px; max-width:640px;
       animation:heroIn 0.9s ease both;
     }
     @keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     .ch-hero-tag {
       display:inline-flex; align-items:center; gap:10px;
-      font-family:'Rajdhani',sans-serif;
-      font-size:12px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
-      color:var(--ch-red); margin-bottom:18px;
+      font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+      color:var(--ch-red); background: rgba(200,16,46,0.08);
+      padding:6px 14px; border-radius:999px;
+      margin-bottom:20px;
     }
-    .ch-hero-tag::before { content:''; width:24px; height:2px; background:var(--ch-red); }
     .ch-hero-h1 {
-      font-family:'Rajdhani',sans-serif;
-      font-size:clamp(64px,10vw,116px); font-weight:700; line-height:0.88;
-      text-transform:uppercase; letter-spacing:0.02em;
-      color:white; margin-bottom:20px;
+      font-size:clamp(42px,7vw,76px); font-weight:800; line-height:1.0;
+      letter-spacing:-0.01em;
+      color:var(--ch-black); margin-bottom:20px;
     }
-    .ch-hero-h1 em { font-style:normal; color:var(--ch-red); }
     .ch-hero-tagline {
-      font-size:16px; font-weight:300; color:rgba(255,255,255,0.6);
-      line-height:1.65; max-width:480px; margin-bottom:40px;
+      font-size:16px; font-weight:400; color:#3a3a3a;
+      line-height:1.65; max-width:480px; margin-bottom:36px;
     }
     .ch-hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
-    .btn-ch-red {
-      background:var(--ch-red); color:white;
-      font-family:'Rajdhani',sans-serif;
-      font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-      padding:14px 28px; text-decoration:none; transition:background 0.2s;
+    .btn-ch-black {
+      background:var(--ch-black); color:white;
+      font-size:14px; font-weight:700;
+      padding:15px 30px; border-radius:999px; text-decoration:none; transition:background 0.2s, transform 0.2s;
       display:inline-flex; align-items:center; gap:8px;
     }
-    .btn-ch-red:hover { background:#e01535; }
+    .btn-ch-black:hover { background:#2a2a2a; transform: translateY(-1px); }
     .btn-ch-outline {
-      border:1.5px solid rgba(255,255,255,0.3); color:white;
-      font-family:'Rajdhani',sans-serif;
-      font-size:14px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
-      padding:13px 28px; text-decoration:none; transition:all 0.2s;
+      border:1.5px solid var(--ch-black); color:var(--ch-black);
+      font-size:14px; font-weight:600;
+      padding:14px 28px; border-radius:999px; text-decoration:none; transition:all 0.2s;
       display:inline-flex; align-items:center; gap:8px;
     }
-    .btn-ch-outline:hover { border-color:white; background:rgba(255,255,255,0.06); }
+    .btn-ch-outline:hover { background:var(--ch-black); color:white; }
     .ch-hero-stats {
-      position:absolute; bottom:40px; right:56px;
-      display:flex; gap:40px; z-index:2;
-      animation:heroIn 0.9s 0.3s ease both;
+      display:flex; gap:36px; margin-top:44px;
     }
-    .ch-stat { text-align:center; }
-    .ch-stat-n {
-      font-family:'Rajdhani',sans-serif; font-size:32px; font-weight:700;
-      color:white; line-height:1;
-    }
+    .ch-stat { }
+    .ch-stat-n { font-size:28px; font-weight:800; color:var(--ch-black); line-height:1; }
     .ch-stat-n span { color:var(--ch-red); }
-    .ch-stat-l { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--ch-gray); margin-top:4px; }
-    .ch-stat-divider { width:1px; background:rgba(255,255,255,0.1); align-self:stretch; }
+    .ch-stat-l { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ch-gray); margin-top:4px; }
 
+    /* ── SPANOS BAR ── */
     .ch-spanos-bar {
-      background:rgba(200,16,46,0.1);
-      border-top:1px solid rgba(200,16,46,0.25);
-      border-bottom:1px solid rgba(200,16,46,0.25);
+      background:var(--ch-light);
+      border-top:1px solid var(--ch-mid);
+      border-bottom:1px solid var(--ch-mid);
       padding:14px 56px;
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; gap: 8px;
     }
-    .ch-spanos-text { font-size:13px; color:rgba(255,255,255,0.55); }
+    .ch-spanos-text { font-size:13px; color:#444; }
     .ch-spanos-text strong { color:var(--ch-red); }
     .ch-spanos-link {
-      font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-      color:var(--ch-red); text-decoration:none;
+      font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+      color:var(--ch-black); text-decoration:none;
     }
     .ch-spanos-link:hover { text-decoration:underline; }
 
-    .ch-section { padding:72px 48px; }
+    /* ── MODELS ── */
+    .ch-section { padding:64px 48px; }
     .ch-sec-header {
       display:flex; align-items:flex-end; justify-content:space-between;
-      margin-bottom:48px;
+      margin-bottom:40px;
     }
     .ch-sec-title {
-      font-family:'Rajdhani',sans-serif;
-      font-size:32px; font-weight:700; text-transform:uppercase;
-      color:white; letter-spacing:0.04em;
+      font-size:28px; font-weight:800;
+      color:var(--ch-black); letter-spacing:-0.01em;
     }
     .ch-sec-title span { color:var(--ch-red); }
     .ch-sec-link {
-      font-size:13px; font-weight:600; color:var(--ch-red);
+      font-size:13px; font-weight:600; color:var(--ch-black);
       text-decoration:none; display:flex; align-items:center; gap:6px;
     }
     .ch-sec-link:hover { text-decoration:underline; }
 
-    .ch-models-list { display:flex; flex-direction:column; gap:2px; }
+    .ch-models-list { display:flex; flex-direction:column; gap:20px; }
     .ch-model-row {
       display:grid; grid-template-columns:1.2fr 1fr;
-      background:var(--ch-card);
+      background:var(--ch-light);
+      border-radius: 16px;
       text-decoration:none; color:inherit;
       overflow:hidden;
-      transition:background 0.2s;
-      border-left:3px solid transparent;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .ch-model-row:hover { background:#222; border-color:var(--ch-red); }
+    .ch-model-row:hover { box-shadow: 0 14px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
     .ch-model-row:nth-child(even) { grid-template-columns:1fr 1.2fr; }
     .ch-model-row:nth-child(even) .ch-model-img { order:2; }
     .ch-model-row:nth-child(even) .ch-model-text { order:1; }
     .ch-model-img {
-      min-height:300px; display:flex; align-items:center; justify-content:center;
+      min-height:280px; display:flex; align-items:center; justify-content:center;
       position:relative; overflow:hidden;
     }
-    .ch-model-img-inner {
-      position:absolute; inset:0;
-      transition:transform 0.5s ease;
-    }
-    .ch-model-row:hover .ch-model-img-inner { transform:scale(1.04); }
+    .ch-model-img-inner { position:absolute; inset:0; }
     .ch-model-img-label {
       position:relative; z-index:1;
-      font-family:'Rajdhani',sans-serif; font-size:14px; font-weight:600;
-      letter-spacing:0.12em; text-transform:uppercase;
-      color:rgba(255,255,255,0.3);
+      font-size:14px; font-weight:600;
+      letter-spacing:0.1em; text-transform:uppercase;
+      color:rgba(255,255,255,0.85);
     }
-    .bg-tiggo4 { background:linear-gradient(135deg,#200008,#3a000e,#5a0018,#800020); }
-    .bg-tiggo7 { background:linear-gradient(135deg,#1a0005,#2e0010,#500018,#720020); }
-    .bg-tiggo8 { background:linear-gradient(135deg,#150003,#260008,#400012,#60001a); }
+    .bg-tiggo4 { background:linear-gradient(135deg,#d8d3c8,#c3bcac,#a89f8b); }
+    .bg-tiggo7 { background:linear-gradient(135deg,#cfd0c9,#b4b6ac,#989b8e); }
+    .bg-tiggo8 { background:linear-gradient(135deg,#c7c9c0,#a9ac9f,#8c9081); }
 
     .ch-model-text {
-      padding:48px 44px; display:flex; flex-direction:column; justify-content:center;
+      padding:44px 40px; display:flex; flex-direction:column; justify-content:center;
     }
     .ch-model-badge {
-      display:inline-block; margin-bottom:16px;
-      font-family:'Rajdhani',sans-serif;
-      font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
-      color:var(--ch-red); border:1px solid rgba(200,16,46,0.4);
-      padding:4px 12px; width:fit-content;
+      display:inline-block; margin-bottom:14px;
+      font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+      color:var(--ch-red); background: rgba(200,16,46,0.08);
+      padding:5px 12px; border-radius: 999px; width:fit-content;
     }
     .ch-model-name {
-      font-family:'Rajdhani',sans-serif;
-      font-size:clamp(36px,4vw,56px); font-weight:700; text-transform:uppercase;
-      color:white; line-height:0.95; margin-bottom:8px; letter-spacing:0.04em;
+      font-size:clamp(32px,3.6vw,48px); font-weight:800;
+      color:var(--ch-black); line-height:1.0; margin-bottom:6px; letter-spacing:-0.01em;
     }
     .ch-model-subname {
-      font-family:'Rajdhani',sans-serif;
-      font-size:14px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
-      color:var(--ch-red); margin-bottom:20px;
+      font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+      color:var(--ch-red); margin-bottom:18px;
     }
     .ch-model-desc {
-      font-size:14px; font-weight:300; color:rgba(255,255,255,0.55);
-      line-height:1.65; margin-bottom:28px; max-width:360px;
+      font-size:14px; font-weight:400; color:#444;
+      line-height:1.65; margin-bottom:24px; max-width:360px;
     }
-    .ch-model-features { display:flex; gap:20px; margin-bottom:28px; flex-wrap:wrap; }
+    .ch-model-features { display:flex; gap:18px; margin-bottom:26px; flex-wrap:wrap; }
     .ch-model-feat {
-      font-family:'Rajdhani',sans-serif;
-      font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-      color:rgba(255,255,255,0.4); display:flex; align-items:center; gap:6px;
+      font-size:12px; font-weight:600; letter-spacing:0.02em;
+      color:#555; display:flex; align-items:center; gap:6px;
     }
     .ch-model-feat::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--ch-red); flex-shrink:0; }
     .ch-td-btn {
       display:inline-flex; align-items:center; gap:8px;
-      background:var(--ch-red); color:white;
-      font-family:'Rajdhani',sans-serif;
-      font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-      padding:12px 24px; width:fit-content; text-decoration:none;
+      background:var(--ch-black); color:white;
+      font-size:13px; font-weight:700;
+      padding:12px 24px; border-radius:999px; width:fit-content; text-decoration:none;
       transition:background 0.2s;
     }
-    .ch-td-btn:hover { background:#e01535; }
+    .ch-td-btn:hover { background:#2a2a2a; }
 
-    .ch-dealer { background:var(--ch-dark); padding:72px 48px; }
-    .ch-dealer-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    /* ── DEALER ── */
+    .ch-dealer { background:var(--ch-light); padding:64px 48px; }
+    .ch-dealer-inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
     .ch-dealer-img {
-      min-height:400px; background:linear-gradient(135deg,#1a0508,#2e0a12,#420d1a);
+      min-height:380px; border-radius: 16px;
+      background:linear-gradient(135deg,#d8d3c8,#c3bcac,#a89f8b);
       display:flex; align-items:center; justify-content:center;
-      font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
-      color:rgba(255,255,255,0.2); position:relative; overflow:hidden;
+      font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+      color:rgba(0,0,0,0.28);
     }
-    .ch-dealer-img::before {
-      content:'[ Φωτογραφία Έκθεσης ]';
-      position:relative; z-index:1;
-    }
-    .ch-dealer-text {}
     .ch-dealer-badge {
-      font-family:'Rajdhani',sans-serif;
-      font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase;
+      font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
       color:var(--ch-red); margin-bottom:16px;
     }
     .ch-dealer-h2 {
-      font-family:'Rajdhani',sans-serif;
-      font-size:clamp(28px,3.5vw,44px); font-weight:700; text-transform:uppercase;
-      color:white; line-height:1.05; margin-bottom:20px; letter-spacing:0.04em;
+      font-size:clamp(28px,3.2vw,40px); font-weight:800;
+      color:var(--ch-black); line-height:1.1; margin-bottom:18px; letter-spacing:-0.01em;
     }
-    .ch-red-line { width:40px; height:2px; background:var(--ch-red); margin-bottom:24px; }
-    .ch-dealer-text p { font-size:15px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:12px; }
-    .ch-dealer-text p strong { color:white; font-weight:600; }
-    .ch-dealer-feats { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:28px 0; }
-    .ch-dfeat { background:var(--ch-light-gray); padding:18px 20px; }
-    .ch-dfeat-title { font-family:'Rajdhani',sans-serif; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:white; margin-bottom:4px; }
-    .ch-dfeat-sub { font-size:12px; font-weight:300; color:var(--ch-gray); line-height:1.4; }
+    .ch-dealer-text p { font-size:15px; font-weight:400; color:#3a3a3a; line-height:1.7; margin-bottom:12px; }
+    .ch-dealer-text p strong { color:var(--ch-black); font-weight:700; }
+    .ch-dealer-feats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:26px 0; }
+    .ch-dfeat { background:white; border-radius: 12px; padding:16px 18px; }
+    .ch-dfeat-title { font-size:13px; font-weight:700; color:var(--ch-black); margin-bottom:4px; }
+    .ch-dfeat-sub { font-size:12px; font-weight:400; color:var(--ch-gray); line-height:1.4; }
     .ch-dealer-btns { display:flex; gap:12px; flex-wrap:wrap; }
 
+    /* ── FOOTER ── */
     .ch-footer {
-      background:var(--ch-black); padding:40px 56px;
+      background:var(--ch-white); padding:36px 56px;
       border-top:2px solid var(--ch-red);
       display:flex; align-items:center; justify-content:space-between;
       flex-wrap:wrap; gap:20px;
     }
     .ch-footer-brand {
-      font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700;
-      text-transform:uppercase; letter-spacing:0.1em; color:white;
+      font-size:16px; font-weight:800;
+      letter-spacing:0.06em; color:var(--ch-black);
     }
     .ch-footer-brand span { color:var(--ch-red); }
-    .ch-footer-copy { font-size:12px; color:rgba(255,255,255,0.3); text-align:center; line-height:1.6; }
-    .ch-footer-back { font-size:13px; font-weight:600; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .ch-footer-back:hover { color:white; }
+    .ch-footer-copy { font-size:12px; color:var(--ch-gray); text-align:center; line-height:1.6; }
+    .ch-footer-back { font-size:13px; font-weight:600; color:var(--ch-gray); text-decoration:none; transition:color 0.2s; }
+    .ch-footer-back:hover { color:var(--ch-black); }
 
     .fade{opacity:0;transform:translateY(16px);transition:opacity 0.65s,transform 0.65s;}
     .fade.visible{opacity:1;transform:translateY(0);}
 
     @media(max-width:900px){
       .ch-nav{padding:0 16px;} .ch-nav-menu{display:none;}
-      .ch-hero-inner{padding:0 20px;} .ch-hero-stats{display:none;}
-      .ch-section,.ch-dealer{padding:48px 20px;}
+      .ch-hero-inner{padding:48px 20px;} .ch-hero-stats{flex-wrap:wrap; gap:20px;}
+      .ch-section,.ch-dealer{padding:40px 20px;}
       .ch-spanos-bar{padding:12px 20px;flex-direction:column;gap:8px;text-align:center;}
       .ch-model-row,.ch-model-row:nth-child(even){grid-template-columns:1fr;}
       .ch-model-row:nth-child(even) .ch-model-img{order:0;}
       .ch-model-row:nth-child(even) .ch-model-text{order:0;}
-      .ch-model-img{min-height:220px;}
-      .ch-model-text{padding:32px 24px;}
+      .ch-model-img{min-height:200px;}
+      .ch-model-text{padding:28px 24px;}
       .ch-dealer-inner{grid-template-columns:1fr;}
-      .ch-dealer-img{min-height:220px;}
-      .ch-footer{padding:32px 20px;flex-direction:column;text-align:center;}
+      .ch-dealer-img{min-height:200px;}
+      .ch-dealer-feats{grid-template-columns:1fr;}
+      .ch-footer{padding:28px 20px;flex-direction:column;text-align:center;}
     }
   </style>
 </head>
@@ -330,7 +277,7 @@
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
       Αρχική
     </a>
-    <div class="ch-logo">CHERY <span>Κιλκίς</span></div>
+    <div class="ch-logo">CHERY<span>Κιλκίς</span></div>
   </div>
   <div class="ch-nav-menu">
     <a href="#models">Μοντέλα</a>
@@ -342,32 +289,18 @@
 
 <!-- HERO -->
 <section class="ch-hero">
-  <div class="ch-hero-bg"></div>
-  <div class="ch-hero-glow"></div>
-  <div class="ch-hero-circle"></div>
   <div class="ch-hero-inner">
     <div class="ch-hero-tag">Επίσημος Επισκευαστής · Spanos A.E. · Κιλκίς</div>
-    <h1 class="ch-hero-h1">CHERY.<br><em>A Better</em><br>Journey.</h1>
+    <h1 class="ch-hero-h1">CHERY.<br>A Better Journey.</h1>
     <p class="ch-hero-tagline">Η Νο.1 κινεζική αυτοκινητοβιομηχανία σε εξαγωγές είναι τώρα στο Κιλκίς. Επίσημος επισκευαστής μέσω Spanos A.E. — Tiggo 4, 7 & 8 διαθέσιμα για test drive.</p>
     <div class="ch-hero-btns">
-      <a href="#models" class="btn-ch-red">Δείτε τα μοντέλα</a>
+      <a href="#models" class="btn-ch-black">Δείτε τα μοντέλα</a>
       <a href="https://www.chery.gr" target="_blank" class="btn-ch-outline">chery.gr ↗</a>
     </div>
-  </div>
-  <div class="ch-hero-stats">
-    <div class="ch-stat">
-      <div class="ch-stat-n">80<span>+</span></div>
-      <div class="ch-stat-l">Χώρες</div>
-    </div>
-    <div class="ch-stat-divider"></div>
-    <div class="ch-stat">
-      <div class="ch-stat-n">2.6<span>M</span></div>
-      <div class="ch-stat-l">Πωλήσεις 2024</div>
-    </div>
-    <div class="ch-stat-divider"></div>
-    <div class="ch-stat">
-      <div class="ch-stat-n">7<span>Y</span></div>
-      <div class="ch-stat-l">Εγγύηση</div>
+    <div class="ch-hero-stats">
+      <div class="ch-stat"><div class="ch-stat-n">80<span>+</span></div><div class="ch-stat-l">Χώρες</div></div>
+      <div class="ch-stat"><div class="ch-stat-n">2.6<span>M</span></div><div class="ch-stat-l">Πωλήσεις 2024</div></div>
+      <div class="ch-stat"><div class="ch-stat-n">7<span>Y</span></div><div class="ch-stat-l">Εγγύηση</div></div>
     </div>
   </div>
 </section>
@@ -413,7 +346,7 @@
         <span class="ch-model-img-label">Tiggo 7</span>
       </div>
       <div class="ch-model-text">
-        <div class="ch-model-badge" style="color:#ffaaaa;border-color:rgba(255,170,170,0.35)">Bestseller · SUV Επιδόσεων</div>
+        <div class="ch-model-badge">Bestseller · SUV Επιδόσεων</div>
         <div class="ch-model-name">Tiggo 7</div>
         <div class="ch-model-subname">Plug-In Hybrid Available</div>
         <p class="ch-model-desc">Το πιο δημοφιλές μοντέλο Chery. Εντυπωσιακός εξωτερικός σχεδιασμός, μεγάλο εσωτερικό, προηγμένο infotainment και νέα Plug-In Hybrid έκδοση.</p>
@@ -452,11 +385,10 @@
 <!-- DEALER -->
 <section class="ch-dealer" id="dealer">
   <div class="ch-dealer-inner fade">
-    <div class="ch-dealer-img"></div>
+    <div class="ch-dealer-img">[ Φωτογραφία Έκθεσης ]</div>
     <div class="ch-dealer-text">
       <div class="ch-dealer-badge">Επίσημος Επισκευαστής · Κιλκίς</div>
-      <h2 class="ch-dealer-h2">Αυτοκίνηση<br>Μ.Ε.Π.Ε.<br>Chery Κιλκίς</h2>
-      <div class="ch-red-line"></div>
+      <h2 class="ch-dealer-h2">Αυτοκίνηση Μ.Ε.Π.Ε.<br>Chery Κιλκίς</h2>
       <p>Η <strong>Αυτοκίνηση Μ.Ε.Π.Ε.</strong> είναι ο επίσημος επισκευαστής Chery στο Κιλκίς μέσω της <strong>Spanos A.E.</strong>, αποκλειστικού εισαγωγέα Chery στην Ελλάδα.</p>
       <p>Στην έκθεσή μας μπορείτε να δείτε τα μοντέλα <strong>Tiggo 4, 7 & 8</strong> από κοντά και να τα οδηγήσετε με ραντεβού.</p>
       <div class="ch-dealer-feats">
@@ -478,7 +410,7 @@
         </div>
       </div>
       <div class="ch-dealer-btns">
-        <a href="index.html#contact" class="btn-ch-red">Κλείστε Test Drive</a>
+        <a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive</a>
         <a href="https://www.chery.gr/epikoinonia" target="_blank" class="btn-ch-outline">chery.gr →</a>
       </div>
     </div>

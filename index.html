@@ -57,6 +57,8 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 .brand-chip:hover{border-color:var(--gold);}
 .trust-item{border-top:1px solid rgba(245,244,240,.14);}
 
+.est-badge{color:var(--gold);white-space:nowrap;}
+
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ivory-dim);}
 .scroll-line{width:1px;height:34px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollLine 2s ease-in-out infinite;}
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
@@ -122,12 +124,14 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 
   <nav class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-14 py-6 reveal is-visible" style="transition-delay:150ms">
     <div class="font-tech font-extrabold text-lg tracking-wide text-[var(--ivory)] uppercase">Αυτο<span style="color:var(--gold)">κίνηση</span></div>
-    <div class="hidden md:flex gap-8 font-tech text-[12px] tracking-[0.16em] uppercase text-[var(--ivory-dim)]">
+    <div class="hidden md:flex items-center gap-8 font-tech text-[12px] tracking-[0.16em] uppercase text-[var(--ivory-dim)]">
       <a href="#brands" class="hover:text-[var(--gold)] transition-colors">Έκθεση</a>
       <a href="#services" class="hover:text-[var(--gold)] transition-colors">Υπηρεσίες</a>
       <a href="#about" class="hover:text-[var(--gold)] transition-colors">Η Εταιρεία</a>
       <a href="#contact" class="hover:text-[var(--gold)] transition-colors">Επικοινωνία</a>
+      <span class="est-badge pl-6 ml-1" style="border-left:1px solid rgba(245,244,240,.18)">Από το 1999</span>
     </div>
+    <span class="est-badge md:hidden font-tech text-[11px] tracking-[0.14em] uppercase">Από το 1999</span>
   </nav>
 
   <div class="relative z-10 px-6 md:px-14 pb-24 max-w-3xl">

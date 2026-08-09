@@ -37,8 +37,8 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;}
 .hero-bg{position:absolute;inset:-2%;background-size:cover;background-position:center 42%;transition:transform .4s cubic-bezier(.2,.7,.2,1);will-change:transform;}
 .hero-grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.98) 0%,rgba(10,10,10,.82) 30%,rgba(10,10,10,.35) 62%,rgba(10,10,10,.15) 100%);}
-.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,transparent 30%,rgba(10,10,10,.65) 100%);pointer-events:none;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.92) 0%,rgba(10,10,10,.62) 30%,rgba(10,10,10,.22) 62%,rgba(10,10,10,.08) 100%);}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,transparent 30%,rgba(10,10,10,.45) 100%);pointer-events:none;}
 .glow-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
 .glow-1{width:520px;height:520px;top:-10%;right:-6%;background:radial-gradient(circle,rgba(200,168,75,.14) 0%,transparent 70%);animation:breathe 8s ease-in-out infinite;}
 .glow-2{width:340px;height:340px;bottom:10%;left:-8%;background:radial-gradient(circle,rgba(200,168,75,.08) 0%,transparent 70%);animation:breathe 11s ease-in-out infinite 1.5s;}
@@ -229,14 +229,14 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <a href="fanovafeio.html" class="bento-card reveal md:col-span-2 md:row-span-2" style="min-height:380px">
+    <a href="fanovafeio.html" class="bento-card reveal md:col-span-2" style="min-height:340px">
       <div class="bento-inner relative flex flex-col justify-end p-8 md:p-10 h-full">
         <div class="absolute inset-0" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-3.jpg');background-size:cover;background-position:center"></div>
         <div class="absolute inset-0 tech-grid-overlay"></div>
-        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.72) 42%,rgba(10,10,10,.25) 75%,rgba(10,10,10,.15) 100%)"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.74) 45%,rgba(10,10,10,.3) 78%,rgba(10,10,10,.18) 100%)"></div>
         <div class="relative z-10">
           <div class="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] font-tech" style="border:1px solid var(--gold);color:var(--gold)">Νοέμβριος 2025</div>
-          <h3 class="mb-3 leading-[0.98]" style="font-size:clamp(30px,3.4vw,44px);color:var(--ivory)">
+          <h3 class="mb-3 leading-[0.98]" style="font-size:clamp(26px,3vw,38px);color:var(--ivory)">
             <span class="font-tech font-black uppercase">Υπερσύγχρονο </span><span class="font-voice italic" style="color:var(--gold)">Φανοβαφείο</span>
           </h3>
           <p class="mb-2 max-w-md text-[15px] font-light leading-relaxed" style="color:var(--ivory-dim)">Πλήρης ανακαίνιση χώρου 250 τ.μ., εξοπλισμένος για κάθε μάρκα αυτοκινήτου.</p>
@@ -255,28 +255,30 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
       </div>
     </a>
 
-    <a href="synergeio.html" class="bento-card reveal md:col-span-2" style="min-height:176px;transition-delay:140ms">
-      <div class="bento-inner flex flex-col justify-between p-7 h-full">
-        <div>
-          <div class="mb-3 text-[11px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Εξουσιοδοτημένο Συνεργείο</div>
-          <h3 class="mb-2 leading-tight font-voice" style="font-size:26px;color:var(--ivory)">Service &amp; Γνήσια Ανταλλακτικά</h3>
-          <p class="max-w-sm text-[14px] font-light leading-relaxed" style="color:var(--ivory-dim)">Επίσημο σύστημα <span style="color:var(--ivory)">ETKA</span> της Volkswagen για ακριβή αναζήτηση κάθε ανταλλακτικού, από εκπαιδευμένο προσωπικό.</p>
+    <a href="synergeio.html" class="bento-card reveal md:col-span-2" style="min-height:340px;transition-delay:140ms">
+      <div class="bento-inner relative flex flex-col justify-end p-8 md:p-10 h-full">
+        <div class="absolute inset-0" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/service-1.jpg');background-size:cover;background-position:center"></div>
+        <div class="absolute inset-0 tech-grid-overlay"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.74) 45%,rgba(10,10,10,.3) 78%,rgba(10,10,10,.18) 100%)"></div>
+        <div class="relative z-10">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] font-tech" style="border:1px solid var(--gold);color:var(--gold)">Εξουσιοδοτημένο Συνεργείο</div>
+          <h3 class="mb-3 leading-[0.98]" style="font-size:clamp(26px,3vw,38px);color:var(--ivory)">Service &amp; <span class="font-voice italic" style="color:var(--gold)">Γνήσια Ανταλλακτικά</span></h3>
+          <p class="mb-2 max-w-md text-[15px] font-light leading-relaxed" style="color:var(--ivory-dim)">Επίσημο σύστημα <span style="color:var(--ivory)">ETKA</span> της Volkswagen για ακριβή αναζήτηση κάθε ανταλλακτικού, από εκπαιδευμένο προσωπικό.</p>
           <span class="bento-cta">Δείτε το συνεργείο →</span>
         </div>
-        <div class="mt-4 h-px w-full" style="background:linear-gradient(90deg,rgba(200,168,75,.4),transparent)"></div>
       </div>
     </a>
 
-    <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:260ms">
+    <div class="bento-card reveal md:col-span-2" style="min-height:160px;transition-delay:260ms">
       <div class="bento-inner flex flex-col justify-center p-7 h-full">
         <div class="leading-none font-tech font-black" style="font-size:56px;color:var(--ivory)"><span data-counter="25">25</span><span style="color:var(--gold)">+</span></div>
         <div class="mt-2 text-[11px] uppercase tracking-[0.18em] font-tech" style="color:var(--ivory-dim)">Χρόνια Εμπιστοσύνης</div>
       </div>
     </div>
 
-    <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:340ms">
+    <div class="bento-card reveal md:col-span-2" style="min-height:160px;transition-delay:340ms">
       <div class="bento-inner flex flex-col justify-center p-7 h-full">
-        <h3 class="mb-2 leading-tight font-voice" style="font-size:20px;color:var(--ivory)">Ανταλλαγή &amp;<br>Χρηματοδότηση</h3>
+        <h3 class="mb-2 leading-tight font-voice" style="font-size:20px;color:var(--ivory)">Ανταλλαγή &amp; Χρηματοδότηση</h3>
         <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Αξιολόγηση παλιού &amp; ευέλικτα πλάνα.</p>
       </div>
     </div>
@@ -300,7 +302,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
       <div class="grid grid-cols-3 gap-8 border-t pt-6 reveal" style="border-color:rgba(245,244,240,.12);max-width:380px;transition-delay:460ms">
         <div><div class="font-tech font-black leading-none" style="font-size:40px;color:var(--ivory)">25<span style="color:var(--gold);font-size:20px">+</span></div><div class="mt-1 text-[10.5px] uppercase tracking-[0.14em] font-tech" style="color:var(--ivory-dim)">Χρόνια</div></div>
         <div><div class="font-tech font-black leading-none" style="font-size:40px;color:var(--ivory)">3</div><div class="mt-1 text-[10.5px] uppercase tracking-[0.14em] font-tech" style="color:var(--ivory-dim)">Μάρκες</div></div>
-        <div><div class="font-tech font-black leading-none" style="font-size:40px;color:var(--ivory)">1250<span style="color:var(--gold);font-size:20px">τμ</span></div><div class="mt-1 text-[10.5px] uppercase tracking-[0.14em] font-tech" style="color:var(--ivory-dim)">Εγκαταστάσεις</div></div>
+        <div><div class="font-tech font-black leading-none" style="font-size:40px;color:var(--ivory)">1000<span style="color:var(--gold);font-size:20px">τμ</span></div><div class="mt-1 text-[10.5px] uppercase tracking-[0.14em] font-tech" style="color:var(--ivory-dim)">Εγκαταστάσεις</div></div>
       </div>
     </div>
   </div>
@@ -320,7 +322,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     </div>
     <div class="relative flex gap-8 pb-12 reveal-left" style="transition-delay:130ms">
       <div class="relative flex flex-col items-center"><div class="tl-dot z-10"></div><div class="tl-line mt-1"></div></div>
-      <div><div class="mb-1 text-[13px] font-semibold tracking-[0.1em] font-tech" style="color:var(--gold)">2003</div><h3 class="mb-2 font-voice" style="font-size:22px;color:var(--ivory)">Ιδιόκτητες Εγκαταστάσεις</h3><p class="max-w-lg text-[14px] font-light leading-relaxed" style="color:rgba(245,244,240,.68)">Μεταφορά σε ολοκαίνουργιο ιδιόκτητο κτίριο 1.250 τ.μ. στη Δυτική Περιφερειακή Οδό Κιλκίς. Σύγχρονη έκθεση και εξουσιοδοτημένο συνεργείο.</p></div>
+      <div><div class="mb-1 text-[13px] font-semibold tracking-[0.1em] font-tech" style="color:var(--gold)">2003</div><h3 class="mb-2 font-voice" style="font-size:22px;color:var(--ivory)">Ιδιόκτητες Εγκαταστάσεις</h3><p class="max-w-lg text-[14px] font-light leading-relaxed" style="color:rgba(245,244,240,.68)">Μεταφορά σε ολοκαίνουργιο ιδιόκτητο κτίριο 1.000 τ.μ. στη Δυτική Περιφερειακή Οδό Κιλκίς. Σύγχρονη έκθεση και εξουσιοδοτημένο συνεργείο.</p></div>
     </div>
     <div class="relative flex gap-8 pb-12 reveal-left" style="transition-delay:260ms">
       <div class="relative flex flex-col items-center"><div class="tl-dot z-10"></div><div class="tl-line mt-1"></div></div>
@@ -328,15 +330,15 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     </div>
     <div class="relative flex gap-8 pb-12 reveal-left" style="transition-delay:390ms">
       <div class="relative flex flex-col items-center"><div class="tl-dot z-10"></div><div class="tl-line mt-1"></div></div>
-      <div><div class="mb-1 text-[13px] font-semibold tracking-[0.1em] font-tech" style="color:var(--gold)">2024</div><h3 class="mb-2 font-voice" style="font-size:22px;color:var(--ivory)">Chery</h3><p class="max-w-lg text-[14px] font-light leading-relaxed" style="color:rgba(245,244,240,.68)">Νέα συνεργασία με τη Spanos A.E. ως επίσημος επισκευαστής Chery. Στην έκθεσή μας: Tiggo 4, Tiggo 7 και Tiggo 8, διαθέσιμα για test drive.</p></div>
+      <div><div class="mb-1 text-[13px] font-semibold tracking-[0.1em] font-tech" style="color:var(--gold)">2025</div><h3 class="mb-2 font-voice" style="font-size:22px;color:var(--ivory)">Υπερσύγχρονο Φανοβαφείο</h3><p class="max-w-lg text-[14px] font-light leading-relaxed" style="color:rgba(245,244,240,.68)">Από τον Νοέμβριο λειτουργεί το νέο φανοβαφείο 250 τ.μ., για όλες τις μάρκες, σε συνεργασία με όλες τις ασφαλιστικές εταιρείες.</p></div>
     </div>
     <div class="relative flex gap-8 reveal-left" style="transition-delay:520ms">
       <div class="relative flex flex-col items-center"><div class="tl-dot pulse z-10"></div></div>
       <div>
         <span class="mb-2 inline-block rounded-full px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] font-tech" style="background:var(--gold);color:var(--ink)">Νέο</span>
-        <div class="mb-1 text-[13px] font-semibold tracking-[0.1em] font-tech" style="color:var(--gold)">2025</div>
-        <h3 class="mb-2 font-voice" style="font-size:22px;color:var(--ivory)">Υπερσύγχρονο Φανοβαφείο</h3>
-        <p class="max-w-lg text-[14px] font-light leading-relaxed" style="color:rgba(245,244,240,.68)">Από τον Νοέμβριο λειτουργεί το νέο φανοβαφείο 250 τ.μ., για όλες τις μάρκες, σε συνεργασία με όλες τις ασφαλιστικές εταιρείες.</p>
+        <div class="mb-1 text-[13px] font-semibold tracking-[0.1em] font-tech" style="color:var(--gold)">2026</div>
+        <h3 class="mb-2 font-voice" style="font-size:22px;color:var(--ivory)">Chery</h3>
+        <p class="max-w-lg text-[14px] font-light leading-relaxed" style="color:rgba(245,244,240,.68)">Νέα συνεργασία με τη Spanos A.E. ως επίσημος επισκευαστής Chery. Στην έκθεσή μας: Tiggo 4, Tiggo 7 και Tiggo 8, διαθέσιμα για test drive.</p>
       </div>
     </div>
   </div>
@@ -395,16 +397,21 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     <div class="mb-3 text-[11px] uppercase tracking-[0.3em] font-tech" style="color:var(--gold)">Επικοινωνία</div>
     <h2 class="font-voice" style="font-size:clamp(30px,3.6vw,46px);color:var(--ivory)">Βρείτε μας</h2>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="contact-card reveal">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <a href="tel:+302341075330" class="contact-card reveal">
+      <div class="mb-2 text-[10.5px] uppercase tracking-[0.22em] font-tech" style="color:var(--gold)">Τηλέφωνο</div>
+      <div class="contact-val font-voice" style="font-size:18px;color:var(--ivory)">23410 75330</div>
+      <div class="mt-1 text-[11px] font-tech" style="color:var(--ivory-dim)">εσωτ. 75331 / 75332</div>
+    </a>
+    <div class="contact-card reveal" style="transition-delay:130ms">
       <div class="mb-2 text-[10.5px] uppercase tracking-[0.22em] font-tech" style="color:var(--gold)">Διεύθυνση</div>
       <div class="contact-val font-voice" style="font-size:18px;color:var(--ivory)">Δυτική Περιφερειακή Οδός, Κιλκίς</div>
     </div>
-    <a href="https://maps.google.com/?q=Σακαρίδης+Κωνσταντίνος+Αυτοκίνηση+Κιλκίς" target="_blank" rel="noreferrer" class="contact-card reveal" style="transition-delay:130ms">
+    <a href="https://maps.google.com/?q=Σακαρίδης+Κωνσταντίνος+Αυτοκίνηση+Κιλκίς" target="_blank" rel="noreferrer" class="contact-card reveal" style="transition-delay:260ms">
       <div class="mb-2 text-[10.5px] uppercase tracking-[0.22em] font-tech" style="color:var(--gold)">Google My Business</div>
       <div class="contact-val font-voice" style="font-size:18px;color:var(--ivory)">Χάρτης Google</div>
     </a>
-    <a href="http://www.vwkilkis.gr" target="_blank" rel="noreferrer" class="contact-card reveal" style="transition-delay:260ms">
+    <a href="http://www.vwkilkis.gr" target="_blank" rel="noreferrer" class="contact-card reveal" style="transition-delay:390ms">
       <div class="mb-2 text-[10.5px] uppercase tracking-[0.22em] font-tech" style="color:var(--gold)">Ιστοσελίδα</div>
       <div class="contact-val font-voice" style="font-size:18px;color:var(--ivory)">www.vwkilkis.gr</div>
     </a>

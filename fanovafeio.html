@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Φανοβαφείο | Αυτοκίνηση Μ.Ε.Π.Ε. | Κιλκίς</title>
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Barlow+Condensed:wght@400;500;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;--ink-2:#121210;--gold:#c8a84b;--gold-soft:#e2bc5a;
+  --ivory:#f5f4f0;--ivory-dim:rgba(245,244,240,.62);
+  --font-voice:'DM Serif Display',serif;--font-tech:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidden;}
+.font-voice{font-family:var(--font-voice);}
+.font-tech{font-family:var(--font-tech);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+
+.page-hero{position:relative;min-height:56vh;display:flex;align-items:flex-end;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:-2%;background-size:cover;background-position:center;}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.97) 0%,rgba(10,10,10,.7) 40%,rgba(10,10,10,.3) 75%,rgba(10,10,10,.15) 100%);}
+
+.spec-card{border-radius:.75rem;padding:1.5rem;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);transition:border-color .3s ease;}
+.spec-card:hover{border-color:rgba(200,168,75,.4);}
+
+.gallery-tile{position:relative;overflow:hidden;border-radius:.75rem;min-height:200px;}
+.gallery-photo{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.78);transform:scale(1);transition:filter .5s ease,transform .6s cubic-bezier(.2,.7,.2,1);}
+.gallery-tile:hover .gallery-photo{filter:brightness(1);transform:scale(1.06);}
+.gallery-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.75) 0%,transparent 55%);opacity:.85;transition:opacity .4s ease;}
+.gallery-tile:hover .gallery-scrim{opacity:.45;}
+.gallery-label{position:absolute;bottom:0;left:0;padding:1rem;opacity:0;transform:translateY(6px);transition:all .35s ease;}
+.gallery-tile:hover .gallery-label{opacity:1;transform:translateY(0);}
+
+.contact-card{display:block;border-radius:.75rem;padding:1.5rem;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);text-decoration:none;transition:border-color .3s ease;}
+.contact-card:hover{border-color:rgba(200,168,75,.4);}
+.contact-card:hover .contact-val{color:var(--gold);}
+.contact-val{transition:color .3s ease;}
+
+.btn-gold{background:var(--gold);color:var(--ink);transition:background .25s ease;}
+.btn-gold:hover{background:var(--gold-soft);}
+</style>
+</head>
+<body>
+
+<nav class="flex items-center justify-between px-6 md:px-14 py-6" style="background:var(--ink)">
+  <a href="index.html" class="font-tech font-extrabold text-lg tracking-wide uppercase" style="color:var(--ivory)">Αυτο<span style="color:var(--gold)">κίνηση</span></a>
+  <a href="index.html" class="font-tech text-[12px] tracking-[0.16em] uppercase" style="color:var(--ivory-dim)">← Αρχική</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-3.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="relative z-10 px-6 md:px-14 pb-16 max-w-3xl">
+    <div class="mb-4 text-[12px] tracking-[0.3em] uppercase font-tech" style="color:var(--gold)">Νοέμβριος 2025 · 250 τ.μ.</div>
+    <h1 class="mb-4 leading-[0.98]" style="font-size:clamp(38px,6vw,68px);color:var(--ivory)">
+      <span class="font-tech font-black uppercase">Υπερσύγχρονο </span><span class="font-voice italic" style="color:var(--gold)">Φανοβαφείο</span>
+    </h1>
+    <p class="max-w-xl text-[16px] font-light leading-relaxed" style="color:var(--ivory-dim)">Πλήρης ανακαίνιση χώρου, εξοπλισμένου με σύγχρονη τεχνολογία βαφής και επισκευής, για κάθε μάρκα αυτοκινήτου — σε συνεργασία με όλες τις ασφαλιστικές εταιρείες.</p>
+  </div>
+</section>
+
+<!-- ============ SPECS ============ -->
+<section class="px-6 md:px-14 py-20" style="background:var(--ink)">
+  <div class="mb-10 reveal">
+    <div class="mb-3 text-[11px] uppercase tracking-[0.3em] font-tech" style="color:var(--gold)">Εξοπλισμός</div>
+    <h2 class="font-voice" style="font-size:clamp(26px,3.2vw,38px);color:var(--ivory)">Τεχνολογία αιχμής</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="spec-card reveal">
+      <div class="mb-2 text-[10.5px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Θάλαμος Βαφής</div>
+      <div class="font-voice mb-2" style="font-size:20px;color:var(--ivory)">FEA Spray Booth</div>
+      <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Ελεγχόμενη θερμοκρασία &amp; φιλτράρισμα αέρα για τέλειο φινίρισμα βαφής.</p>
+    </div>
+    <div class="spec-card reveal" style="transition-delay:100ms">
+      <div class="mb-2 text-[10.5px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Ευθυγράμμιση Σασί</div>
+      <div class="font-voice mb-2" style="font-size:20px;color:var(--ivory)">Car-O-Liner Speed3t</div>
+      <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Ακριβής μέτρηση &amp; επαναφορά σασί στις εργοστασιακές προδιαγραφές.</p>
+    </div>
+    <div class="spec-card reveal" style="transition-delay:200ms">
+      <div class="mb-2 text-[10.5px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Mixing Room</div>
+      <div class="font-voice mb-2" style="font-size:20px;color:var(--ivory)">Sikkens AkzoNobel</div>
+      <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Autowave MM, MIXIT &amp; Sartorius — ακριβής ανάμειξη χρωμάτων, τέλειο ταίριασμα απόχρωσης.</p>
+    </div>
+    <div class="spec-card reveal" style="transition-delay:300ms">
+      <div class="mb-2 text-[10.5px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Ασφαλιστικές</div>
+      <div class="font-voice mb-2" style="font-size:20px;color:var(--ivory)">Εκχώρηση Απαίτησης</div>
+      <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Συνεργασία με όλες τις ασφαλιστικές εταιρείες για αποζημιώσεις — αναλαμβάνουμε εμείς τη διαδικασία.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="px-6 md:px-14 py-20" style="background:var(--ink-2)">
+  <div class="mb-10 reveal">
+    <div class="mb-3 text-[11px] uppercase tracking-[0.3em] font-tech" style="color:var(--gold)">Φωτογραφίες</div>
+    <h2 class="font-voice" style="font-size:clamp(26px,3.2vw,38px);color:var(--ivory)">Ο χώρος &amp; ο εξοπλισμός</h2>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+    <div class="gallery-tile reveal">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-1.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Θάλαμος Βαφής</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:60ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-2.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Χώρος Βαφής</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:120ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-3.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Εγκαταστάσεις Φανοβαφείου</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:180ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-4.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Εργασίες Φανοποιίας</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:240ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-5.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Προετοιμασία Βαφής</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:300ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-6.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Φινίρισμα Βαφής</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:360ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/mixing-1.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Mixing Room</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:420ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/mixing-2.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Ανάμειξη Χρωμάτων · Autowave MM</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:480ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/mixing-3.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Ζύγιση Ακριβείας · Sartorius</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:540ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/mixing-4.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Ταίριασμα Απόχρωσης</span></div>
+    </div>
+    <div class="gallery-tile reveal" style="transition-delay:600ms">
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/mixing-5.jpg')"></div>
+      <div class="gallery-scrim"></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">MIXIT System</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="px-6 md:px-14 py-20 text-center" style="background:var(--ink)">
+  <h2 class="mb-6 font-voice reveal" style="font-size:clamp(24px,3vw,34px);color:var(--ivory)">Χρειάζεστε επισκευή ή βαφή;</h2>
+  <a href="index.html#contact" class="btn-gold font-tech font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full inline-block reveal">Επικοινωνήστε μαζί μας →</a>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="flex flex-col md:flex-row items-center justify-between gap-6 px-6 md:px-14 py-10 border-t" style="background:var(--ink);border-color:rgba(245,244,240,.08)">
+  <a href="index.html" class="font-tech font-extrabold text-lg tracking-wide uppercase" style="color:var(--ivory)">Αυτο<span style="color:var(--gold)">κίνηση</span> Μ.Ε.Π.Ε.</a>
+  <div class="text-center text-[12px] leading-relaxed font-body" style="color:var(--ivory-dim)">© 2026 Σακαρίδης Κωνσταντίνος Μονοπρόσωπη Ε.Π.Ε.<br>Δυτική Περιφερειακή Οδός, Κιλκίς</div>
+  <div class="flex gap-3">
+    <span class="rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] font-tech" style="border:1px solid rgba(245,244,240,.14);color:var(--ivory-dim)">VW</span>
+    <span class="rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] font-tech" style="border:1px solid rgba(245,244,240,.14);color:var(--ivory-dim)">SKODA</span>
+    <span class="rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] font-tech" style="border:1px solid rgba(245,244,240,.14);color:var(--ivory-dim)">Chery</span>
+  </div>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+</script>
+
+</body>
+</html>

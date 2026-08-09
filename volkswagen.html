@@ -83,7 +83,8 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 .services-strip{background:var(--vw-light-gray);padding:64px 48px;}
 .services-title{font-size:22px;font-weight:700;color:var(--vw-black);margin-bottom:28px;}
 .services-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--vw-mid-gray);border:1px solid var(--vw-mid-gray);}
-.service-item{background:#fff;padding:26px 22px;}
+.service-item{background:#fff;padding:26px 22px;text-decoration:none;color:inherit;display:block;transition:box-shadow .2s,transform .2s;}
+.service-item:hover{box-shadow:0 12px 28px rgba(0,0,0,0.08);transform:translateY(-2px);position:relative;z-index:2;}
 .service-item-icon{font-size:24px;margin-bottom:12px;}
 .service-item-title{font-size:14.5px;font-weight:700;color:var(--vw-black);margin-bottom:6px;}
 .service-item-desc{font-size:13px;font-weight:300;color:var(--vw-gray);line-height:1.5;}
@@ -338,10 +339,10 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 <section class="services-strip" id="services">
 <h2 class="services-title">Υπηρεσίες Volkswagen</h2>
 <div class="services-row fade">
-<div class="service-item"><div class="service-item-icon">🛡️</div><div class="service-item-title">Εγγύηση VW</div><div class="service-item-desc">Επίσημη εργοστασιακή εγγύηση σε κάθε νέο VW.</div></div>
-<div class="service-item"><div class="service-item-icon">📅</div><div class="service-item-title">Service Plan</div><div class="service-item-desc">Προγραμματισμένα service με γνήσια VW ανταλλακτικά.</div></div>
-<div class="service-item"><div class="service-item-icon">💳</div><div class="service-item-title">Χρηματοδότηση</div><div class="service-item-desc">Λύσεις χρηματοδότησης και leasing.</div></div>
-<div class="service-item"><div class="service-item-icon">🔄</div><div class="service-item-title">Ανταλλαγή Οχήματος</div><div class="service-item-desc">Αξιολόγηση και ανταλλαγή μεταχειρισμένου.</div></div>
+<a href="https://www.volkswagen.gr/el/owners-and-services/warranties.html" target="_blank" rel="noreferrer" class="service-item"><div class="service-item-icon">🛡️</div><div class="service-item-title">Εγγύηση VW</div><div class="service-item-desc">Επίσημη εργοστασιακή εγγύηση σε κάθε νέο VW.</div></a>
+<a href="https://myservicenow-vw.kosmocar.gr/home" target="_blank" rel="noreferrer" class="service-item"><div class="service-item-icon">📅</div><div class="service-item-title">Service Plan</div><div class="service-item-desc">Προγραμματισμένα service με γνήσια VW ανταλλακτικά.</div></a>
+<a href="index.html#contact" class="service-item"><div class="service-item-icon">💳</div><div class="service-item-title">Χρηματοδότηση</div><div class="service-item-desc">Λύσεις χρηματοδότησης και leasing.</div></a>
+<a href="index.html#contact" class="service-item"><div class="service-item-icon">🔄</div><div class="service-item-title">Ανταλλαγή Οχήματος</div><div class="service-item-desc">Αξιολόγηση και ανταλλαγή μεταχειρισμένου.</div></a>
 </div>
 </section>
 

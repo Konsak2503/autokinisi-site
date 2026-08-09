@@ -61,11 +61,12 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
 
 /* BENTO */
-.bento-card{position:relative;overflow:hidden;border-radius:1rem;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);transition:border-color .35s ease,box-shadow .35s ease;}
+.bento-card{position:relative;overflow:hidden;border-radius:1rem;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);transition:border-color .35s ease,box-shadow .35s ease;text-decoration:none;color:inherit;display:block;}
 .bento-card:hover{border-color:rgba(200,168,75,.45);box-shadow:0 0 0 1px rgba(200,168,75,.12),0 20px 44px rgba(0,0,0,.45);}
 .bento-inner{transition:transform .35s cubic-bezier(.2,.7,.2,1);height:100%;}
 .bento-card:hover .bento-inner{transform:translateY(-3px);}
 .tech-grid-overlay{background-image:repeating-linear-gradient(0deg,rgba(245,244,240,.05) 0px,rgba(245,244,240,.05) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(245,244,240,.05) 0px,rgba(245,244,240,.05) 1px,transparent 1px,transparent 40px);}
+.bento-cta{display:inline-block;margin-top:14px;font-family:var(--font-tech);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
 
 /* BRAND SHOWROOM */
 .brand-card{position:relative;display:block;overflow:hidden;border-radius:1rem;min-height:440px;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);text-decoration:none;transition:border-color .4s ease;}
@@ -121,9 +122,9 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
   <nav class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-14 py-6 reveal is-visible" style="transition-delay:150ms">
     <div class="font-tech font-extrabold text-lg tracking-wide text-[var(--ivory)] uppercase">Αυτο<span style="color:var(--gold)">κίνηση</span></div>
     <div class="hidden md:flex gap-8 font-tech text-[12px] tracking-[0.16em] uppercase text-[var(--ivory-dim)]">
-      <a href="#about" class="hover:text-[var(--gold)] transition-colors">Η Εταιρεία</a>
-      <a href="#brands" class="hover:text-[var(--gold)] transition-colors">Μάρκες</a>
+      <a href="#brands" class="hover:text-[var(--gold)] transition-colors">Έκθεση</a>
       <a href="#services" class="hover:text-[var(--gold)] transition-colors">Υπηρεσίες</a>
+      <a href="#about" class="hover:text-[var(--gold)] transition-colors">Η Εταιρεία</a>
       <a href="#contact" class="hover:text-[var(--gold)] transition-colors">Επικοινωνία</a>
     </div>
   </nav>
@@ -158,8 +159,8 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
     </div>
 
     <div class="flex flex-wrap items-center gap-4 reveal is-visible" style="transition-delay:720ms">
-      <a href="#about" class="mag-btn btn-gold font-tech font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full inline-block" data-magnetic>
-        <span class="shine"></span><span class="relative">Η ιστορία μας →</span>
+      <a href="#brands" class="mag-btn btn-gold font-tech font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full inline-block" data-magnetic>
+        <span class="shine"></span><span class="relative">Δείτε την έκθεση →</span>
       </a>
       <a href="#contact" class="mag-btn btn-ghost font-tech font-semibold text-[13px] tracking-[0.14em] uppercase px-8 py-4 rounded-full inline-block" data-magnetic>
         <span class="shine"></span><span class="relative">Επικοινωνία</span>
@@ -170,66 +171,6 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
   <div class="scroll-cue reveal is-visible" style="transition-delay:900ms">
     <span class="font-tech text-[10px] tracking-[0.2em] uppercase">Scroll</span>
     <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ============ SERVICES BENTO ============ -->
-<section class="px-6 md:px-14 py-24" style="background:var(--ink)" id="services">
-  <div class="mb-10">
-    <div class="mb-3 text-[11px] uppercase tracking-[0.3em] font-tech" style="color:var(--gold)">Τι προσφέρουμε</div>
-    <h2 class="font-voice" style="font-size:clamp(30px,3.6vw,46px);color:var(--ivory)">Υπηρεσίες</h2>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <div class="bento-card reveal md:col-span-2 md:row-span-2" style="min-height:380px">
-      <div class="bento-inner relative flex flex-col justify-end p-8 md:p-10 h-full">
-        <div class="absolute inset-0" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-3.jpg');background-size:cover;background-position:center"></div>
-        <div class="absolute inset-0 tech-grid-overlay"></div>
-        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.72) 42%,rgba(10,10,10,.25) 75%,rgba(10,10,10,.15) 100%)"></div>
-        <div class="relative z-10">
-          <div class="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] font-tech" style="border:1px solid var(--gold);color:var(--gold)">Νοέμβριος 2025</div>
-          <h3 class="mb-3 leading-[0.98]" style="font-size:clamp(30px,3.4vw,44px);color:var(--ivory)">
-            <span class="font-tech font-black uppercase">Υπερσύγχρονο </span><span class="font-voice italic" style="color:var(--gold)">Φανοβαφείο</span>
-          </h3>
-          <p class="mb-6 max-w-md text-[15px] font-light leading-relaxed" style="color:var(--ivory-dim)">Πλήρης ανακαίνιση χώρου 250 τ.μ., εξοπλισμένος για κάθε μάρκα αυτοκινήτου.</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="rounded-lg px-4 py-3" style="background:rgba(245,244,240,.05);border:1px solid rgba(245,244,240,.1)">
-              <div class="text-[10px] uppercase tracking-[0.14em] font-tech" style="color:var(--gold)">Θάλαμος Βαφής</div>
-              <div class="text-sm font-medium" style="color:var(--ivory)">FEA Spray Booth</div>
-            </div>
-            <div class="rounded-lg px-4 py-3" style="background:rgba(245,244,240,.05);border:1px solid rgba(245,244,240,.1)">
-              <div class="text-[10px] uppercase tracking-[0.14em] font-tech" style="color:var(--gold)">Ευθυγράμμιση Σασί</div>
-              <div class="text-sm font-medium" style="color:var(--ivory)">Car-O-Liner Speed3t</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-card reveal md:col-span-2" style="min-height:176px;transition-delay:140ms">
-      <div class="bento-inner flex flex-col justify-between p-7 h-full">
-        <div>
-          <div class="mb-3 text-[11px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Εξουσιοδοτημένο Συνεργείο</div>
-          <h3 class="mb-2 leading-tight font-voice" style="font-size:26px;color:var(--ivory)">Service &amp; Γνήσια Ανταλλακτικά</h3>
-          <p class="max-w-sm text-[14px] font-light leading-relaxed" style="color:var(--ivory-dim)">Επίσημο σύστημα <span style="color:var(--ivory)">ETKA</span> της Volkswagen για ακριβή αναζήτηση κάθε ανταλλακτικού, από εκπαιδευμένο προσωπικό.</p>
-        </div>
-        <div class="mt-4 h-px w-full" style="background:linear-gradient(90deg,rgba(200,168,75,.4),transparent)"></div>
-      </div>
-    </div>
-
-    <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:260ms">
-      <div class="bento-inner flex flex-col justify-center p-7 h-full">
-        <div class="leading-none font-tech font-black" style="font-size:56px;color:var(--ivory)"><span data-counter="25">25</span><span style="color:var(--gold)">+</span></div>
-        <div class="mt-2 text-[11px] uppercase tracking-[0.18em] font-tech" style="color:var(--ivory-dim)">Χρόνια Εμπιστοσύνης</div>
-      </div>
-    </div>
-
-    <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:340ms">
-      <div class="bento-inner flex flex-col justify-center p-7 h-full">
-        <h3 class="mb-2 leading-tight font-voice" style="font-size:20px;color:var(--ivory)">Ανταλλαγή &amp;<br>Χρηματοδότηση</h3>
-        <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Αξιολόγηση παλιού &amp; ευέλικτα πλάνα.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -276,6 +217,68 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
         <span class="relative inline-block text-[12px] font-semibold uppercase tracking-[0.14em] font-tech" style="color:var(--ivory)">Δείτε τη γκάμα →<span class="brand-cta-underline"></span></span>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- ============ SERVICES BENTO ============ -->
+<section class="px-6 md:px-14 py-24" style="background:var(--ink)" id="services">
+  <div class="mb-10">
+    <div class="mb-3 text-[11px] uppercase tracking-[0.3em] font-tech" style="color:var(--gold)">Τι προσφέρουμε</div>
+    <h2 class="font-voice" style="font-size:clamp(30px,3.6vw,46px);color:var(--ivory)">Υπηρεσίες</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <a href="fanovafeio.html" class="bento-card reveal md:col-span-2 md:row-span-2" style="min-height:380px">
+      <div class="bento-inner relative flex flex-col justify-end p-8 md:p-10 h-full">
+        <div class="absolute inset-0" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-3.jpg');background-size:cover;background-position:center"></div>
+        <div class="absolute inset-0 tech-grid-overlay"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.72) 42%,rgba(10,10,10,.25) 75%,rgba(10,10,10,.15) 100%)"></div>
+        <div class="relative z-10">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] font-tech" style="border:1px solid var(--gold);color:var(--gold)">Νοέμβριος 2025</div>
+          <h3 class="mb-3 leading-[0.98]" style="font-size:clamp(30px,3.4vw,44px);color:var(--ivory)">
+            <span class="font-tech font-black uppercase">Υπερσύγχρονο </span><span class="font-voice italic" style="color:var(--gold)">Φανοβαφείο</span>
+          </h3>
+          <p class="mb-2 max-w-md text-[15px] font-light leading-relaxed" style="color:var(--ivory-dim)">Πλήρης ανακαίνιση χώρου 250 τ.μ., εξοπλισμένος για κάθε μάρκα αυτοκινήτου.</p>
+          <div class="flex flex-wrap gap-3 mb-1">
+            <div class="rounded-lg px-4 py-3" style="background:rgba(245,244,240,.05);border:1px solid rgba(245,244,240,.1)">
+              <div class="text-[10px] uppercase tracking-[0.14em] font-tech" style="color:var(--gold)">Θάλαμος Βαφής</div>
+              <div class="text-sm font-medium" style="color:var(--ivory)">FEA Spray Booth</div>
+            </div>
+            <div class="rounded-lg px-4 py-3" style="background:rgba(245,244,240,.05);border:1px solid rgba(245,244,240,.1)">
+              <div class="text-[10px] uppercase tracking-[0.14em] font-tech" style="color:var(--gold)">Ευθυγράμμιση Σασί</div>
+              <div class="text-sm font-medium" style="color:var(--ivory)">Car-O-Liner Speed3t</div>
+            </div>
+          </div>
+          <span class="bento-cta">Δείτε το φανοβαφείο &amp; mixing room →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="synergeio.html" class="bento-card reveal md:col-span-2" style="min-height:176px;transition-delay:140ms">
+      <div class="bento-inner flex flex-col justify-between p-7 h-full">
+        <div>
+          <div class="mb-3 text-[11px] uppercase tracking-[0.2em] font-tech" style="color:var(--gold)">Εξουσιοδοτημένο Συνεργείο</div>
+          <h3 class="mb-2 leading-tight font-voice" style="font-size:26px;color:var(--ivory)">Service &amp; Γνήσια Ανταλλακτικά</h3>
+          <p class="max-w-sm text-[14px] font-light leading-relaxed" style="color:var(--ivory-dim)">Επίσημο σύστημα <span style="color:var(--ivory)">ETKA</span> της Volkswagen για ακριβή αναζήτηση κάθε ανταλλακτικού, από εκπαιδευμένο προσωπικό.</p>
+          <span class="bento-cta">Δείτε το συνεργείο →</span>
+        </div>
+        <div class="mt-4 h-px w-full" style="background:linear-gradient(90deg,rgba(200,168,75,.4),transparent)"></div>
+      </div>
+    </a>
+
+    <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:260ms">
+      <div class="bento-inner flex flex-col justify-center p-7 h-full">
+        <div class="leading-none font-tech font-black" style="font-size:56px;color:var(--ivory)"><span data-counter="25">25</span><span style="color:var(--gold)">+</span></div>
+        <div class="mt-2 text-[11px] uppercase tracking-[0.18em] font-tech" style="color:var(--ivory-dim)">Χρόνια Εμπιστοσύνης</div>
+      </div>
+    </div>
+
+    <div class="bento-card reveal md:col-span-1" style="min-height:176px;transition-delay:340ms">
+      <div class="bento-inner flex flex-col justify-center p-7 h-full">
+        <h3 class="mb-2 leading-tight font-voice" style="font-size:20px;color:var(--ivory)">Ανταλλαγή &amp;<br>Χρηματοδότηση</h3>
+        <p class="text-[13px] font-light leading-relaxed" style="color:var(--ivory-dim)">Αξιολόγηση παλιού &amp; ευέλικτα πλάνα.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -343,6 +346,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
   <div class="mb-10 text-center">
     <div class="mb-3 text-[11px] uppercase tracking-[0.3em] font-tech" style="color:var(--gold)">Οι εγκαταστάσεις μας</div>
     <h2 class="font-voice" style="font-size:clamp(30px,3.6vw,46px);color:var(--ivory)">Μια ματιά στο συνεργείο</h2>
+    <p class="mt-4 text-[14px] font-light" style="color:var(--ivory-dim)">Περισσότερες φωτογραφίες στις σελίδες <a href="synergeio.html" class="underline" style="color:var(--gold)">Συνεργείου</a> &amp; <a href="fanovafeio.html" class="underline" style="color:var(--gold)">Φανοβαφείου</a></p>
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:auto-rows-[180px] gap-3">
@@ -362,14 +366,14 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
       <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Τμήμα Ανταλλακτικών</span></div>
     </div>
     <div class="gallery-tile reveal" style="transition-delay:270ms">
-      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/service-9.jpg')"></div>
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/paint-1.jpg')"></div>
       <div class="gallery-scrim"></div>
-      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Αεριοκίνηση · SKODA</span></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Φανοβαφείο</span></div>
     </div>
     <div class="gallery-tile reveal md:col-span-2" style="transition-delay:360ms">
-      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/service-8.jpg')"></div>
+      <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/mixing-1.jpg')"></div>
       <div class="gallery-scrim"></div>
-      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Πρέσα &amp; Ελαστικά</span></div>
+      <div class="gallery-label"><span class="text-[12px] font-semibold uppercase tracking-[0.1em] font-tech" style="color:var(--ivory)">Mixing Room · Sikkens AkzoNobel</span></div>
     </div>
     <div class="gallery-tile reveal" style="transition-delay:450ms">
       <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/service-5.jpg')"></div>
@@ -460,15 +464,10 @@ if (counterEl) {
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     counterObs.observe(counterEl);
 
-    // Safety net: if the observer never fires (e.g. element already
-    // in view on load but before observe() attaches), force the
-    // correct value after a short delay so it never gets stuck at 0.
     setTimeout(() => {
       if (counterEl.textContent === '0') counterEl.textContent = String(target);
     }, 2500);
   }
-  // If IntersectionObserver isn't supported at all, the hardcoded
-  // "25" already in the markup stands as the fallback — no action needed.
 }
 
 // Hero parallax

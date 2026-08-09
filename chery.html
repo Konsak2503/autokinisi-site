@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Chery στο Κιλκίς — Αυτοκίνηση Μ.Ε.Π.Ε., επίσημος επισκευαστής Chery μέσω Spanos A.E. Tiggo 4, 7 & 8 διαθέσιμα για test drive, εγγύηση 7 ετών.">
+<meta name="description" content="Chery στο Κιλκίς — Αυτοκίνηση Μ.Ε.Π.Ε., επίσημος επισκευαστής Chery μέσω Spanos A.E. Tiggo 4, 7, 8 & 9 διαθέσιμα για test drive, εγγύηση 7 ετών.">
 <title>Chery | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -50,9 +50,11 @@ nav[class="ch-hero-stats"]{}
 .ch-spanos-link:hover{text-decoration:underline;}
 
 .ch-section{padding:56px 48px;}
-.ch-sec-header{margin-bottom:32px;}
+.ch-sec-header{margin-bottom:32px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .ch-sec-title{font-size:26px;font-weight:800;color:var(--ch-black);letter-spacing:-0.01em;}
 .ch-sec-title span{color:var(--ch-red);}
+.ch-sec-link{font-size:13px;font-weight:600;color:var(--ch-black);text-decoration:none;}
+.ch-sec-link:hover{text-decoration:underline;}
 
 .ch-models-wrap{display:grid;grid-template-columns:160px 1fr;gap:40px;}
 .ch-model-sidebar{display:flex;flex-direction:column;gap:4px;position:sticky;top:88px;align-self:start;}
@@ -71,6 +73,9 @@ nav[class="ch-hero-stats"]{}
 .ch-model-features{display:flex;gap:16px;margin-bottom:22px;flex-wrap:wrap;}
 .ch-model-feat{font-size:12px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
 .ch-model-feat::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ch-red);flex-shrink:0;}
+.ch-model-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-ch-outline-sm{border:1.5px solid var(--ch-black);color:var(--ch-black);font-size:13px;font-weight:600;padding:12px 22px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
+.btn-ch-outline-sm:hover{background:var(--ch-black);color:#fff;}
 
 .ch-lifestyle{position:relative;min-height:380px;display:flex;align-items:center;background:linear-gradient(135deg,#2a2620,#4a4436);overflow:hidden;}
 .ch-lifestyle::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.15));}
@@ -137,7 +142,7 @@ nav[class="ch-hero-stats"]{}
 <div class="ch-hero-inner">
 <div class="ch-hero-tag">Επίσημος Επισκευαστής · Spanos A.E. · Κιλκίς</div>
 <h1 class="ch-hero-h1">CHERY.<br>A Better Journey.</h1>
-<p class="ch-hero-tagline">Η Νο.1 κινεζική αυτοκινητοβιομηχανία σε εξαγωγές είναι τώρα στο Κιλκίς. Tiggo 4, 7 & 8 διαθέσιμα για test drive.</p>
+<p class="ch-hero-tagline">Η Νο.1 κινεζική αυτοκινητοβιομηχανία σε εξαγωγές είναι τώρα στο Κιλκίς. Tiggo 4, 7, 8 & 9 διαθέσιμα για test drive.</p>
 <div class="ch-hero-btns">
 <a href="#models" class="btn-ch-black">Δείτε τα μοντέλα</a>
 <a href="https://www.chery.gr" target="_blank" class="btn-ch-outline">chery.gr ↗</a>
@@ -158,12 +163,14 @@ nav[class="ch-hero-stats"]{}
 <section class="ch-section" id="models">
 <div class="ch-sec-header fade">
 <h2 class="ch-sec-title">Μοντέλα <span>Chery</span></h2>
+<a href="https://www.chery.gr/wp-content/uploads/2026/07/Chery-Pricelist.pdf" target="_blank" class="ch-sec-link">Επίσημος τιμοκατάλογος (PDF) →</a>
 </div>
 <div class="ch-models-wrap fade">
 <div class="ch-model-sidebar">
 <a href="#tiggo4">Tiggo 4</a>
 <a href="#tiggo7">Tiggo 7</a>
 <a href="#tiggo8">Tiggo 8</a>
+<a href="#tiggo9">Tiggo 9</a>
 </div>
 <div class="ch-model-cards">
 <div class="ch-model-card" id="tiggo4">
@@ -171,10 +178,13 @@ nav[class="ch-hero-stats"]{}
 <div class="ch-model-body">
 <div class="ch-model-badge">Compact SUV · Hybrid</div>
 <div class="ch-model-name">Tiggo 4</div>
-<div class="ch-model-subname">Hybrid — Compact SUV</div>
-<p class="ch-model-desc">Το πιο προσιτό SUV της γκάμας Chery. Υβριδική τεχνολογία, σύγχρονο σχεδιασμό και πλούσιο εξοπλισμό.</p>
-<div class="ch-model-features"><span class="ch-model-feat">Hybrid Κινητήρας</span><span class="ch-model-feat">ADAS Safety</span><span class="ch-model-feat">7 Χρόνια Εγγύηση</span></div>
+<div class="ch-model-subname">Hybrid 1.5 204PS — Από 22.990€</div>
+<p class="ch-model-desc">Το πιο προσιτό υβριδικό SUV της γκάμας Chery. Σύγχρονος σχεδιασμός, πλούσιος εξοπλισμός ασφαλείας και κατανάλωση από 5,3 lt/100km.</p>
+<div class="ch-model-features"><span class="ch-model-feat">Hybrid 204PS</span><span class="ch-model-feat">ADAS Safety</span><span class="ch-model-feat">7 Χρόνια Εγγύηση</span></div>
+<div class="ch-model-btns">
 <a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+<a href="https://www.chery.gr/tiggo-4" target="_blank" rel="noreferrer" class="btn-ch-outline-sm">Δείτε το μοντέλο ↗</a>
+</div>
 </div>
 </div>
 <div class="ch-model-card" id="tiggo7">
@@ -182,10 +192,13 @@ nav[class="ch-hero-stats"]{}
 <div class="ch-model-body">
 <div class="ch-model-badge">Bestseller · SUV Επιδόσεων</div>
 <div class="ch-model-name">Tiggo 7</div>
-<div class="ch-model-subname">Plug-In Hybrid Available</div>
-<p class="ch-model-desc">Το πιο δημοφιλές μοντέλο Chery. Εντυπωσιακός σχεδιασμός, μεγάλο εσωτερικό, προηγμένο infotainment.</p>
-<div class="ch-model-features"><span class="ch-model-feat">Plug-In Hybrid</span><span class="ch-model-feat">360° Κάμερα</span><span class="ch-model-feat">Panoramic Roof</span></div>
+<div class="ch-model-subname">Hybrid & Plug-in Hybrid — Από 26.180€</div>
+<p class="ch-model-desc">Το πιο δημοφιλές μοντέλο Chery. Διαθέσιμο σε Hybrid 224PS ή Plug-in Hybrid 279PS με κατανάλωση από μόλις 2,4 lt/100km.</p>
+<div class="ch-model-features"><span class="ch-model-feat">Hybrid ή Plug-in Hybrid</span><span class="ch-model-feat">360° Κάμερα</span><span class="ch-model-feat">Panoramic Roof</span></div>
+<div class="ch-model-btns">
 <a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+<a href="https://www.chery.gr/tiggo-7-hev" target="_blank" rel="noreferrer" class="btn-ch-outline-sm">Δείτε το μοντέλο ↗</a>
+</div>
 </div>
 </div>
 <div class="ch-model-card" id="tiggo8">
@@ -193,10 +206,27 @@ nav[class="ch-hero-stats"]{}
 <div class="ch-model-body">
 <div class="ch-model-badge">Flagship · 7 Θέσεις</div>
 <div class="ch-model-name">Tiggo 8</div>
-<div class="ch-model-subname">Plug-In Hybrid Available</div>
-<p class="ch-model-desc">Το κορυφαίο μοντέλο Chery. 7 θέσεις, premium εσωτερικό και CSH Super Hybrid τεχνολογία.</p>
-<div class="ch-model-features"><span class="ch-model-feat">7 Θέσεις</span><span class="ch-model-feat">CSH Super Hybrid</span><span class="ch-model-feat">5★ NCAP</span></div>
+<div class="ch-model-subname">1.6 TGDI & Plug-in Hybrid — Από 32.990€</div>
+<p class="ch-model-desc">Κορυφαίο 7θέσιο SUV της γκάμας. Διαθέσιμο σε βενζινοκίνητη έκδοση 147PS ή Plug-in Hybrid 279PS με premium εσωτερικό.</p>
+<div class="ch-model-features"><span class="ch-model-feat">7 Θέσεις</span><span class="ch-model-feat">Plug-in Hybrid Διαθέσιμο</span><span class="ch-model-feat">5★ NCAP</span></div>
+<div class="ch-model-btns">
 <a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+<a href="https://www.chery.gr/tiggo-8" target="_blank" rel="noreferrer" class="btn-ch-outline-sm">Δείτε το μοντέλο ↗</a>
+</div>
+</div>
+</div>
+<div class="ch-model-card" id="tiggo9">
+<div class="ch-model-img"><span class="ch-model-img-label">Tiggo 9</span></div>
+<div class="ch-model-body">
+<div class="ch-model-badge">Νέο · Flagship SUV</div>
+<div class="ch-model-name">Tiggo 9</div>
+<div class="ch-model-subname">Plug-in Hybrid AWD 428PS — 52.490€</div>
+<p class="ch-model-desc">Η κορυφή της γκάμας Chery. Τετρακίνητο CSH plug-in hybrid σύστημα με 428PS συνδυαστική ισχύ και κατανάλωση από 1,7 lt/100km.</p>
+<div class="ch-model-features"><span class="ch-model-feat">AWD</span><span class="ch-model-feat">428PS Συνδυαστική Ισχύς</span><span class="ch-model-feat">CSH Plug-in Hybrid</span></div>
+<div class="ch-model-btns">
+<a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive →</a>
+<a href="https://www.chery.gr/tiggo-9-csh" target="_blank" rel="noreferrer" class="btn-ch-outline-sm">Δείτε το μοντέλο ↗</a>
+</div>
 </div>
 </div>
 </div>
@@ -218,7 +248,7 @@ nav[class="ch-hero-stats"]{}
 <div class="ch-dealer-badge">Επίσημος Επισκευαστής · Κιλκίς</div>
 <h2 class="ch-dealer-h2">Αυτοκίνηση Μ.Ε.Π.Ε.<br>Chery Κιλκίς</h2>
 <p>Η <strong>Αυτοκίνηση Μ.Ε.Π.Ε.</strong> είναι ο επίσημος επισκευαστής Chery στο Κιλκίς μέσω της <strong>Spanos A.E.</strong></p>
-<p>Στην έκθεσή μας μπορείτε να δείτε τα μοντέλα <strong>Tiggo 4, 7 & 8</strong> από κοντά.</p>
+<p>Στην έκθεσή μας μπορείτε να δείτε τα μοντέλα <strong>Tiggo 4, 7, 8 & 9</strong> από κοντά.</p>
 <div class="ch-dealer-feats">
 <div class="ch-dfeat"><div class="ch-dfeat-title">Test Drive</div><div class="ch-dfeat-sub">Με ραντεβού</div></div>
 <div class="ch-dfeat"><div class="ch-dfeat-title">7 Χρόνια Εγγύηση</div><div class="ch-dfeat-sub">Ή 150.000 χλμ.</div></div>

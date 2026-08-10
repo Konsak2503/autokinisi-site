@@ -160,9 +160,66 @@
 <div class="ch-dfeat"><div class="ch-dfeat-title">Επίσ. Επισκευαστής</div><div class="ch-dfeat-sub">Spanos A.E.</div></div>
 <div class="ch-dfeat"><div class="ch-dfeat-title">After-Sales</div><div class="ch-dfeat-sub">Πλήρες service</div></div>
 </div>
-<a href="index.html#contact" class="btn-ch-black">Κλείστε Test Drive</a>
+<a href="#booking" class="btn-ch-black">Κλείστε Test Drive</a>
 </div>
 </div>
+</section>
+
+
+<section class="ch-section" id="booking" style="background:var(--ch-cream)">
+<div class="ch-sec-header">
+<div class="ch-sec-title">Ζητήστε <span>Ραντεβού</span></div>
+</div>
+<p class="ch-form-intro">Συμπληρώστε τη φόρμα για test drive ή ραντεβού service — θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό. Μπορείτε επίσης να μας καλέσετε στο <a href="tel:+302341075330">23410 75330</a>.</p>
+
+<form id="chery-booking-form" class="ch-form fade" action="https://formspree.io/f/xgawkwnv" method="POST" novalidate>
+<div class="ch-form-grid">
+<div class="ch-form-field">
+<label for="cf-name">Ονοματεπώνυμο *</label>
+<input type="text" id="cf-name" name="name" autocomplete="name">
+<span class="ch-form-error" data-error-for="cf-name"></span>
+</div>
+<div class="ch-form-field">
+<label for="cf-phone">Τηλέφωνο *</label>
+<input type="tel" id="cf-phone" name="phone" autocomplete="tel">
+<span class="ch-form-error" data-error-for="cf-phone"></span>
+</div>
+<div class="ch-form-field">
+<label for="cf-email">Email</label>
+<input type="email" id="cf-email" name="email" autocomplete="email">
+<span class="ch-form-error" data-error-for="cf-email"></span>
+</div>
+<div class="ch-form-field">
+<label for="cf-model">Μοντέλο ενδιαφέροντος *</label>
+<select id="cf-model" name="model">
+<option value="">Επιλέξτε...</option>
+<option>Tiggo 4</option>
+<option>Tiggo 7</option>
+<option>Tiggo 8</option>
+<option>Tiggo 9</option>
+<option>Δεν είμαι σίγουρος/η</option>
+</select>
+<span class="ch-form-error" data-error-for="cf-model"></span>
+</div>
+<div class="ch-form-field">
+<label for="cf-type">Τι θέλετε; *</label>
+<select id="cf-type" name="request_type">
+<option value="">Επιλέξτε...</option>
+<option>Test Drive</option>
+<option>Ραντεβού Service</option>
+<option>Γενική ερώτηση</option>
+</select>
+<span class="ch-form-error" data-error-for="cf-type"></span>
+</div>
+<div class="ch-form-field ch-form-field-wide">
+<label for="cf-message">Μήνυμα / Επιθυμητή ημερομηνία</label>
+<textarea id="cf-message" name="message" rows="3"></textarea>
+</div>
+</div>
+<input type="hidden" name="_subject" value="Νέο αίτημα Chery - autokinisi-site">
+<button type="submit" class="btn-ch-black" id="cf-submit-btn">Αποστολή Αιτήματος</button>
+</form>
+<div class="ch-form-status" id="cf-status" aria-live="polite"></div>
 </section>
 
 </main>

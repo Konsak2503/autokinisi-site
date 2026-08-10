@@ -1,0 +1,18 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test / scratch files
+*.txt
+*.mhtml
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# OS / temp
+*.bak
+*.tmp
+~$*

@@ -6,116 +6,7 @@
 <meta name="description" content="Volkswagen στο Κιλκίς — Αυτοκίνηση Μ.Ε.Π.Ε., επίσημος αντιπρόσωπος VW από το 1999. Νέα αυτοκίνητα, εξουσιοδοτημένο συνεργείο, γνήσια ανταλλακτικά ETKA.">
 <title>Volkswagen | Αυτοκίνηση Μ.Ε.Π.Ε. Κιλκίς</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--vw-black:#0a0a0a;--vw-navy:#0a1e3d;--vw-white:#fff;--vw-dark:#1a1a1a;--vw-gray:#6a767d;--vw-light-gray:#f6f6f6;--vw-mid-gray:#e2e2e2;}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var(--vw-dark);}
-
-.top-bar{background:var(--vw-black);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;position:fixed;top:0;left:0;right:0;z-index:300;}
-.top-bar-left{display:flex;align-items:center;gap:8px;}
-.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;border-right:1px solid rgba(255,255,255,0.15);padding-right:16px;margin-right:8px;transition:color 0.2s;}
-.back-link:hover{color:#fff;}
-.back-link svg{width:14px;height:14px;}
-.vw-wordmark{font-weight:700;font-size:15px;letter-spacing:0.02em;color:#fff;}
-.top-nav-links{display:flex;align-items:center;gap:28px;}
-.top-nav-link{color:rgba(255,255,255,0.75);font-size:13px;text-decoration:none;transition:color 0.2s;white-space:nowrap;}
-.top-nav-link:hover{color:#fff;}
-.top-nav-cta{background:#fff;color:var(--vw-black);font-size:13px;font-weight:600;padding:10px 22px;border-radius:999px;text-decoration:none;transition:background 0.2s,transform 0.2s;white-space:nowrap;}
-.top-nav-cta:hover{background:var(--vw-mid-gray);transform:translateY(-1px);}
-
-.hero{margin-top:64px;position:relative;height:calc(100vh - 64px);min-height:520px;overflow:hidden;display:flex;align-items:flex-end;background:var(--vw-black);}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,#1c1c1c 0%,#0a0a0a 60%);}
-.hero-car-img{position:absolute;top:0;right:0;bottom:0;width:75%;background-size:cover;background-position:center;}
-.hero-car-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--vw-black) 0%,rgba(10,10,10,.88) 24%,rgba(10,10,10,.35) 46%,rgba(10,10,10,0) 62%);}
-.hero-content{position:relative;z-index:10;padding:0 48px 64px;max-width:720px;animation:heroFadeIn .9s ease .2s both;}
-@keyframes heroFadeIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-.hero-eyebrow{display:inline-block;color:rgba(255,255,255,0.55);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
-.hero-title{font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.05;color:#fff;margin-bottom:18px;letter-spacing:-0.02em;}
-.hero-title .thin{font-weight:300;color:rgba(255,255,255,0.85);}
-.hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,0.68);line-height:1.6;margin-bottom:32px;max-width:500px;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-pill-white{background:#fff;color:var(--vw-black);font-size:14px;font-weight:600;padding:15px 30px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:10px;}
-.btn-pill-white:hover{background:var(--vw-mid-gray);transform:translateY(-1px);}
-.btn-pill-outline{border:1.5px solid rgba(255,255,255,0.4);color:#fff;font-size:14px;font-weight:500;padding:14px 28px;border-radius:999px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:10px;}
-.btn-pill-outline:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
-
-.util-bar{background:var(--vw-white);border-bottom:1px solid var(--vw-mid-gray);padding:13px 48px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;}
-.util-bar a{color:var(--vw-dark);text-decoration:none;}
-.util-bar a:hover{text-decoration:underline;}
-
-.centered-head{text-align:center;padding:64px 48px 8px;}
-.centered-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:300;color:#444;letter-spacing:-0.01em;}
-.centered-head h2 strong{font-weight:700;color:var(--vw-black);}
-
-.section{padding:40px 48px 72px;}
-.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;}
-.section-link{font-size:13px;font-weight:600;color:var(--vw-black);text-decoration:none;display:flex;align-items:center;gap:6px;}
-.section-link:hover{text-decoration:underline;}
-
-.models-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--vw-mid-gray);border:1px solid var(--vw-mid-gray);}
-.model-card{background:#fff;text-decoration:none;color:inherit;display:flex;flex-direction:column;padding:24px 24px 28px;position:relative;transition:box-shadow .2s;}
-.model-card:hover{box-shadow:0 12px 28px rgba(0,0,0,0.08);z-index:2;}
-.model-badge{position:absolute;top:20px;left:20px;background:#6b4fd6;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.04em;padding:4px 12px;border-radius:999px;}
-.model-card-img{background:linear-gradient(180deg,#f6f6f6 0%,#ececec 100%);background-size:cover;background-position:center;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;margin-bottom:18px;border-radius:4px;}
-.model-placeholder-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--vw-gray);}
-.model-card-name{font-size:19px;font-weight:700;color:var(--vw-black);margin-bottom:4px;}
-.model-card-type{font-size:13px;font-weight:400;color:var(--vw-gray);margin-bottom:14px;}
-.model-card-desc{font-size:13.5px;font-weight:300;color:#444;line-height:1.55;flex:1;margin-bottom:16px;}
-.model-card-cta{font-size:13px;font-weight:700;color:var(--vw-black);text-decoration:underline;}
-
-/* alternating split feature sections */
-.split{display:grid;grid-template-columns:1fr 1fr;min-height:440px;}
-.split-photo{background:var(--vw-light-gray);position:relative;overflow:hidden;}
-.split-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-.split-panel{background:var(--vw-navy);padding:64px 64px;display:flex;flex-direction:column;justify-content:center;}
-.split-panel h2{font-size:clamp(26px,3vw,36px);font-weight:300;color:rgba(255,255,255,0.85);line-height:1.25;margin-bottom:18px;}
-.split-panel h2 strong{font-weight:700;color:#fff;}
-.split-panel p{font-size:14.5px;font-weight:300;color:rgba(255,255,255,0.68);line-height:1.7;margin-bottom:12px;max-width:440px;}
-.split-panel p strong{color:#fff;font-weight:600;}
-.split-link{color:#fff;font-size:14px;font-weight:600;text-decoration:underline;margin-top:14px;display:inline-block;width:fit-content;}
-.split-reverse .split-photo{order:2;}
-.split-reverse .split-panel{order:1;background:var(--vw-black);}
-
-.photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2px;height:320px;background:var(--vw-mid-gray);}
-.photo-box{background:var(--vw-light-gray);position:relative;overflow:hidden;}
-.photo-box img{width:100%;height:100%;object-fit:cover;display:block;}
-.photo-label{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,0.72);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.05em;padding:10px 16px;}
-
-.services-strip{background:var(--vw-light-gray);padding:64px 48px;}
-.services-title{font-size:22px;font-weight:700;color:var(--vw-black);margin-bottom:28px;}
-.services-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--vw-mid-gray);border:1px solid var(--vw-mid-gray);}
-.service-item{background:#fff;padding:26px 22px;text-decoration:none;color:inherit;display:block;transition:box-shadow .2s,transform .2s;}
-.service-item:hover{box-shadow:0 12px 28px rgba(0,0,0,0.08);transform:translateY(-2px);position:relative;z-index:2;}
-.service-item-icon{font-size:24px;margin-bottom:12px;}
-.service-item-title{font-size:14.5px;font-weight:700;color:var(--vw-black);margin-bottom:6px;}
-.service-item-desc{font-size:13px;font-weight:300;color:var(--vw-gray);line-height:1.5;}
-
-.page-footer{background:var(--vw-black);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
-.footer-logo-text{font-size:14px;font-weight:700;color:#fff;letter-spacing:0.06em;}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.4);text-align:center;line-height:1.6;}
-.footer-back{font-size:13px;font-weight:600;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;}
-.footer-back:hover{color:#fff;}
-
-.fade{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;}
-.fade.visible{opacity:1;transform:translateY(0);}
-
-@media(max-width:900px){
-.top-bar{padding:0 16px;}.top-nav-links{display:none;}.util-bar{display:none;}
-.hero-content{padding:0 20px 48px;}
-.hero-car-img{opacity:.28;}
-.centered-head{padding:40px 20px 4px;}
-.section,.services-strip,.page-footer{padding:40px 20px;}
-.models-grid,.services-row{grid-template-columns:1fr;}
-.split,.split-reverse{grid-template-columns:1fr;}
-.split-reverse .split-photo,.split-reverse .split-panel{order:0;}
-.split-photo{min-height:220px;}
-.split-panel{padding:40px 24px;}
-.photo-strip{grid-template-columns:1fr;height:auto;}
-.photo-box{height:200px;}
-.page-footer{flex-direction:column;text-align:center;}
-}
-</style>
+<link rel="stylesheet" href="assets/css/volkswagen.css">
 </head>
 <body>
 
@@ -357,9 +248,6 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 <a href="index.html" class="footer-back">← Επιστροφή στην Αρχική</a>
 </footer>
 
-<script>
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
-document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
-</script>
+<script src="assets/js/volkswagen.js"></script>
 </body>
 </html>

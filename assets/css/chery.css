@@ -5,6 +5,11 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--ch-white);color:var
 
 .ch-nav{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--ch-cream);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid var(--ch-mid);}
 .ch-nav-left{display:flex;align-items:center;gap:0;}
+.ch-nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.ch-nav-toggle span{display:block;width:100%;height:2px;background:var(--ch-black);border-radius:2px;transition:transform .25s ease,opacity .25s ease;}
+.ch-nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ch-nav-toggle.open span:nth-child(2){opacity:0;}
+.ch-nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .ch-back{display:flex;align-items:center;gap:8px;color:var(--ch-gray);font-size:13px;text-decoration:none;padding-right:20px;margin-right:20px;border-right:1px solid var(--ch-mid);transition:color .2s;}
 .ch-back:hover{color:var(--ch-black);}
 .ch-logo{font-size:19px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--ch-black);}
@@ -101,7 +106,11 @@ nav[class="ch-hero-stats"]{}
 .fade.visible{opacity:1;transform:translateY(0);}
 
 @media(max-width:900px){
-.ch-nav{padding:0 16px;}.ch-nav-menu{display:none;}
+.ch-nav{padding:0 16px;}
+.ch-nav-toggle{display:flex;}
+.ch-nav-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--ch-cream);flex-direction:column;align-items:stretch;padding:8px 20px 24px;border-top:1px solid var(--ch-mid);max-height:calc(100vh - 64px);overflow-y:auto;z-index:299;}
+.ch-nav-menu.open{display:flex;}
+.ch-nav-menu a{width:100%;box-sizing:border-box;padding:14px 4px;min-height:48px;display:flex;align-items:center;border-bottom:1px solid var(--ch-mid);white-space:normal;}
 .ch-hero-inner{padding:40px 20px;}.ch-hero-stats{flex-wrap:wrap;gap:18px;}
 .ch-section,.ch-dealer{padding:36px 20px;}
 .ch-spanos-bar{padding:12px 20px;flex-direction:column;text-align:center;}

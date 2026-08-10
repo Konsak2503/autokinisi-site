@@ -67,3 +67,22 @@ document.querySelectorAll('[data-magnetic]').forEach(btn => {
   });
   btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
 });
+
+// ===== MOBILE NAV TOGGLE =====
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var panel = document.getElementById('mobileNavPanel');
+  if(!toggle || !panel) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = panel.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      panel.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();

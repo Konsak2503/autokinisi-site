@@ -12,3 +12,20 @@ const cats=(c.dataset.cat||'').split(' ');
 c.style.display=(f==='all'||cats.includes(f))?'':'none';
 });
 }));
+
+// ===== MOBILE NAV TOGGLE =====
+(function(){
+  var toggle = document.getElementById('skNavToggle');
+  var links = document.getElementById('skNavLinks');
+  if(!toggle || !links) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();

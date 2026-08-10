@@ -63,8 +63,12 @@ nav[class="ch-hero-stats"]{}
 
 .ch-model-cards{display:flex;flex-direction:column;gap:20px;}
 .ch-model-card{display:grid;grid-template-columns:1fr 1.3fr;background:var(--ch-cream);border-radius:14px;overflow:hidden;scroll-margin-top:88px;}
-.ch-model-img{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#e4ddc9,#d2c8ac);min-height:220px;}
-.ch-model-img-label{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.28);}
+.ch-model-img{position:relative;overflow:hidden;background:linear-gradient(180deg,#e4ddc9,#d2c8ac);min-height:220px;}
+.ch-model-img-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .7s ease;}
+.ch-model-img-slide.active{opacity:1;}
+.ch-model-img-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2;}
+.ch-model-img-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer;transition:background .2s,transform .2s;border:none;padding:0;}
+.ch-model-img-dot.active{background:#fff;transform:scale(1.3);}
 .ch-model-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;}
 .ch-model-badge{display:inline-block;margin-bottom:12px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ch-red);background:rgba(200,16,46,0.08);padding:5px 12px;border-radius:999px;width:fit-content;}
 .ch-model-name{font-size:28px;font-weight:800;color:var(--ch-black);line-height:1;margin-bottom:6px;}
@@ -174,7 +178,12 @@ nav[class="ch-hero-stats"]{}
 </div>
 <div class="ch-model-cards">
 <div class="ch-model-card" id="tiggo4">
-<div class="ch-model-img" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%204%20FRONT%20CLOSE%20UP.jpg');background-size:cover;background-position:center"></div>
+<div class="ch-model-img ch-carousel" data-interval="4500">
+<div class="ch-model-img-slide active" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%204%20FRONT%20CLOSE%20UP.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%204%20REAR.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo4.jpg')"></div>
+<div class="ch-model-img-dots"><span class="ch-model-img-dot active"></span><span class="ch-model-img-dot"></span><span class="ch-model-img-dot"></span></div>
+</div>
 <div class="ch-model-body">
 <div class="ch-model-badge">Compact SUV · Hybrid</div>
 <div class="ch-model-name">Tiggo 4</div>
@@ -188,7 +197,11 @@ nav[class="ch-hero-stats"]{}
 </div>
 </div>
 <div class="ch-model-card" id="tiggo7">
-<div class="ch-model-img" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%207%20front.jpg');background-size:cover;background-position:center"></div>
+<div class="ch-model-img ch-carousel" data-interval="4500">
+<div class="ch-model-img-slide active" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%207%20front.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/TIGGO%207%20BACK.jpg')"></div>
+<div class="ch-model-img-dots"><span class="ch-model-img-dot active"></span><span class="ch-model-img-dot"></span></div>
+</div>
 <div class="ch-model-body">
 <div class="ch-model-badge">Bestseller · SUV Επιδόσεων</div>
 <div class="ch-model-name">Tiggo 7</div>
@@ -202,7 +215,12 @@ nav[class="ch-hero-stats"]{}
 </div>
 </div>
 <div class="ch-model-card" id="tiggo8">
-<div class="ch-model-img" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo8%20side.jpg');background-size:cover;background-position:center"></div>
+<div class="ch-model-img ch-carousel" data-interval="4500">
+<div class="ch-model-img-slide active" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo8%20side.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo8%20inside%20view.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo8%20infotainment.jpg')"></div>
+<div class="ch-model-img-dots"><span class="ch-model-img-dot active"></span><span class="ch-model-img-dot"></span><span class="ch-model-img-dot"></span></div>
+</div>
 <div class="ch-model-body">
 <div class="ch-model-badge">Flagship · 7 Θέσεις</div>
 <div class="ch-model-name">Tiggo 8</div>
@@ -216,7 +234,12 @@ nav[class="ch-hero-stats"]{}
 </div>
 </div>
 <div class="ch-model-card" id="tiggo9">
-<div class="ch-model-img" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo-9-front.jpg');background-size:cover;background-position:center"></div>
+<div class="ch-model-img ch-carousel" data-interval="4500">
+<div class="ch-model-img-slide active" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo-9-front.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo-9-titanium-matt.jpg')"></div>
+<div class="ch-model-img-slide" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/tiggo9-left%20side.jpg')"></div>
+<div class="ch-model-img-dots"><span class="ch-model-img-dot active"></span><span class="ch-model-img-dot"></span><span class="ch-model-img-dot"></span></div>
+</div>
 <div class="ch-model-body">
 <div class="ch-model-badge">Νέο · Flagship SUV</div>
 <div class="ch-model-name">Tiggo 9</div>
@@ -269,6 +292,27 @@ nav[class="ch-hero-stats"]{}
 <script>
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.08});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.ch-carousel').forEach(car=>{
+  const slides=car.querySelectorAll('.ch-model-img-slide');
+  const dots=car.querySelectorAll('.ch-model-img-dot');
+  if(slides.length<2) return;
+  let idx=0;
+  const interval=parseInt(car.dataset.interval,10)||4500;
+  function show(i){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active');
+    if(dots[i]) dots[i].classList.add('active');
+    idx=i;
+  }
+  let timer=setInterval(()=>show((idx+1)%slides.length),interval);
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{
+    show(i);
+    clearInterval(timer);
+    timer=setInterval(()=>show((idx+1)%slides.length),interval);
+  }));
+});
 </script>
 </body>
 </html>

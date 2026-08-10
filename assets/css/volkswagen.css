@@ -17,7 +17,8 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 
 .hero{margin-top:64px;position:relative;height:calc(100vh - 64px);min-height:520px;overflow:hidden;display:flex;align-items:flex-end;background:var(--vw-black);}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,#1c1c1c 0%,#0a0a0a 60%);}
-.hero-car-img{position:absolute;top:0;right:0;bottom:0;width:75%;background-size:cover;background-position:center;}
+.hero-car-img{position:absolute;top:0;right:0;bottom:0;width:75%;overflow:hidden;}
+.hero-car-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .hero-car-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--vw-black) 0%,rgba(10,10,10,.88) 24%,rgba(10,10,10,.35) 46%,rgba(10,10,10,0) 62%);}
 .hero-content{position:relative;z-index:10;padding:0 48px 64px;max-width:720px;animation:heroFadeIn .9s ease .2s both;}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
@@ -48,7 +49,8 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 .model-card{background:#fff;text-decoration:none;color:inherit;display:flex;flex-direction:column;padding:24px 24px 28px;position:relative;transition:box-shadow .2s;}
 .model-card:hover{box-shadow:0 12px 28px rgba(0,0,0,0.08);z-index:2;}
 .model-badge{position:absolute;top:20px;left:20px;background:#6b4fd6;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.04em;padding:4px 12px;border-radius:999px;}
-.model-card-img{background:linear-gradient(180deg,#f6f6f6 0%,#ececec 100%);background-size:cover;background-position:center;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;margin-bottom:18px;border-radius:4px;}
+.model-card-img{background:linear-gradient(180deg,#f6f6f6 0%,#ececec 100%);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;margin-bottom:18px;border-radius:4px;overflow:hidden;}
+.model-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .model-placeholder-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--vw-gray);}
 .model-card-name{font-size:19px;font-weight:700;color:var(--vw-black);margin-bottom:4px;}
 .model-card-type{font-size:13px;font-weight:400;color:var(--vw-gray);margin-bottom:14px;}

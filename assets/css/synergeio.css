@@ -30,3 +30,15 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 .btn-gold:hover{background:var(--gold-soft);}
 
 .section-tag{color:var(--gold);}
+
+/* ===== FAQ ACCORDION ===== */
+.faq-item{border-bottom:1px solid rgba(245,244,240,.12);}
+.faq-question{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 4px;font-family:var(--font-voice);font-size:17px;color:var(--ivory);transition:color .2s ease;}
+.faq-question:hover{color:var(--gold);}
+.faq-icon{flex-shrink:0;width:20px;height:20px;position:relative;}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);transition:opacity .25s ease,transform .3s ease;}
+.faq-icon::before{width:14px;height:2px;}
+.faq-icon::after{width:2px;height:14px;}
+.faq-item.open .faq-icon::after{opacity:0;transform:translate(-50%,-50%) rotate(90deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.7,.2,1);}
+.faq-answer-inner{padding:0 28px 22px 4px;font-size:14px;line-height:1.7;color:var(--ivory-dim);font-weight:300;}

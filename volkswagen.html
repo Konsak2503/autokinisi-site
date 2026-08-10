@@ -26,6 +26,8 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 
 .hero{margin-top:64px;position:relative;height:calc(100vh - 64px);min-height:520px;overflow:hidden;display:flex;align-items:flex-end;background:var(--vw-black);}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,#1c1c1c 0%,#0a0a0a 60%);}
+.hero-car-img{position:absolute;top:0;right:0;bottom:0;width:75%;background-size:cover;background-position:center;}
+.hero-car-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--vw-black) 0%,rgba(10,10,10,.88) 24%,rgba(10,10,10,.35) 46%,rgba(10,10,10,0) 62%);}
 .hero-content{position:relative;z-index:10;padding:0 48px 64px;max-width:720px;animation:heroFadeIn .9s ease .2s both;}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .hero-eyebrow{display:inline-block;color:rgba(255,255,255,0.55);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
@@ -101,6 +103,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 @media(max-width:900px){
 .top-bar{padding:0 16px;}.top-nav-links{display:none;}.util-bar{display:none;}
 .hero-content{padding:0 20px 48px;}
+.hero-car-img{opacity:.28;}
 .centered-head{padding:40px 20px 4px;}
 .section,.services-strip,.page-footer{padding:40px 20px;}
 .models-grid,.services-row{grid-template-columns:1fr;}
@@ -131,6 +134,8 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--vw-white);color:var
 
 <section class="hero">
 <div class="hero-bg"></div>
+<div class="hero-car-img" style="background-image:url('https://raw.githubusercontent.com/Konsak2503/autokinisi-site/main/promo-vw-joy.jpg')"></div>
+<div class="hero-car-fade"></div>
 <div class="hero-content">
 <span class="hero-eyebrow">Επίσημη Αντιπροσωπεία · Κιλκίς · Από το 1999</span>
 <h1 class="hero-title">Volkswagen<br><span class="thin">στο Κιλκίς</span></h1>

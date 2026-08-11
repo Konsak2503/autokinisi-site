@@ -152,3 +152,7 @@ a.sk-srv:hover{background:#e4e6df;}
 .sk-srv-grid{grid-template-columns:1fr 1fr;}
 .sk-footer{padding:24px 20px;flex-direction:column;text-align:center;}
 }
+
+@media(max-width:480px){
+.sk-srv-grid{grid-template-columns:1fr;}
+}

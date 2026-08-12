@@ -42,3 +42,13 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 .faq-item.open .faq-icon::after{opacity:0;transform:translate(-50%,-50%) rotate(90deg);}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.7,.2,1);}
 .faq-answer-inner{padding:0 28px 22px 4px;font-size:14px;line-height:1.7;color:var(--ivory-dim);font-weight:300;}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -106,6 +106,7 @@ body{margin:0;background:var(--ink);font-family:var(--font-body);overflow-x:hidd
 @media (max-width: 767px){
   .bento-card{min-height:0 !important;}
   .brand-card{min-height:380px;}
+  .hero-content-pad{padding-top:96px;}
 }
 
 /* ===== MOBILE NAV TOGGLE ===== */

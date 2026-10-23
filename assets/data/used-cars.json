@@ -1,4 +1,59 @@
 {
-  "updated": "",
-  "cars": []
+  "updated": "2026-10-23",
+  "cars": [
+    {
+      "title": "Volkswagen Polo LIFE",
+      "year": "2024",
+      "km": "22.689",
+      "fuel": "Βενζίνη",
+      "price": "16.500 €",
+      "image": "https://static.car.gr/55602821_a_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/55602821/"
+    },
+    {
+      "title": "Skoda Fabia",
+      "year": "2025",
+      "km": "14.818",
+      "fuel": "Βενζίνη",
+      "price": "18.300 €",
+      "image": "https://static.car.gr/55895020_6_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/55895020/"
+    },
+    {
+      "title": "Volkswagen Polo LIFE DSG",
+      "year": "2024",
+      "km": "27.978",
+      "fuel": "Βενζίνη",
+      "price": "18.900 €",
+      "image": "https://static.car.gr/55605696_0_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/55605696/"
+    },
+    {
+      "title": "Audi A3",
+      "year": "2024",
+      "km": "29.471",
+      "fuel": "Βενζίνη",
+      "price": "20.900 €",
+      "image": "https://static.car.gr/55603112_8_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/55603112/"
+    },
+    {
+      "title": "Skoda Fabia",
+      "year": "2026",
+      "km": "80",
+      "fuel": "Βενζίνη",
+      "price": "20.950 €",
+      "image": "https://static.car.gr/55254366_1_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/55254366/"
+    },
+    {
+      "title": "Chery Tiggo 7 PREMIUM",
+      "year": "2026",
+      "km": "8.605",
+      "fuel": "Βενζίνη",
+      "price": "26.000 €",
+      "image": "https://static.car.gr/54954765_8_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/54954765/"
+    }
+  ]
 }

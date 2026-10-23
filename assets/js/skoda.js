@@ -29,3 +29,6 @@ c.style.display=(f==='all'||cats.includes(f))?'':'none';
     });
   });
 })();
+
+/* Cloudflare Web Analytics */
+(function(){var s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "ebf0d0dcce444033ac67c5993255b577"}');document.body.appendChild(s)})();

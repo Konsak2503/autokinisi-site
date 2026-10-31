@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TODO-VERIFY (Kosmocar): η διατύπωση «επίσημος αντιπρόσωπος/Αντιπροσωπεία» στα meta/title/og/twitter/alt/hero/split παρακάτω ΔΕΝ άλλαξε. Να ελεγχθεί μετά την απάντηση του επιθεωρητή. -->
 <meta name="description" content="Volkswagen στο Κιλκίς — Αυτοκίνηση Μ.Ε.Π.Ε., επίσημος αντιπρόσωπος VW από το 1999. Νέα αυτοκίνητα, εξουσιοδοτημένο συνεργείο, γνήσια ανταλλακτικά ETKA.">
 <title>Volkswagen Κιλκίς – Αντιπροσωπεία, Service &amp; Ανταλλακτικά | Αυτοκίνηση Μ.Ε.Π.Ε.</title>
 <link rel="canonical" href="https://www.sakaridis.gr/volkswagen.html">
@@ -42,10 +43,43 @@
   ]
 }
 </script>
+<style>
+.top-nav-links{gap:20px}.vw-wordmark{margin-right:16px}
+@media(max-width:900px){.top-nav-links{gap:0}}
+/* Draft redesign: προσθήκες δομής (ίδια παλέτα/γραμματοσειρά με την υπάρχουσα σελίδα) */
+.hero-biz{color:rgba(255,255,255,.85);font-size:15px;font-weight:600;margin:-6px 0 12px}
+.hero-rating{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-size:14px;margin-bottom:22px;padding:6px 14px;border:1px solid rgba(255,255,255,.3);border-radius:999px}
+.hero-rating:hover{background:rgba(255,255,255,.1)}
+.hero-rating .stars{color:#f5b301;letter-spacing:1px}
+.contact-block{background:var(--vw-light-gray);border-bottom:1px solid var(--vw-mid-gray);padding:24px 48px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;scroll-margin-top:64px}
+.contact-grid{display:flex;flex-wrap:wrap;gap:16px 40px}
+.contact-item{display:flex;flex-direction:column;gap:4px}
+.contact-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--vw-gray)}
+.contact-val{font-size:15px;font-weight:600;color:var(--vw-black);text-decoration:none}
+a.contact-val:hover{text-decoration:underline}
+.contact-actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn-dark{background:var(--vw-black);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:999px;text-decoration:none;transition:background .2s}
+.btn-dark:hover{background:#333}
+.btn-dark-alt{background:var(--vw-navy)}
+.services-list{padding:56px 48px 8px}
+.check-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 40px;max-width:980px}
+.check-list li{position:relative;padding-left:28px;font-size:15px;line-height:1.5;color:#333}
+.check-list li::before{content:"✓";position:absolute;left:0;color:var(--vw-navy);font-weight:700}
+.info-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--vw-mid-gray);border:1px solid var(--vw-mid-gray);margin:40px 48px 64px;scroll-margin-top:64px}
+.info-block{background:#fff;padding:26px 24px;display:flex;flex-direction:column;gap:10px}
+.info-block h3{font-size:17px;color:var(--vw-black)}
+.info-block p{font-size:13.5px;font-weight:300;line-height:1.55;color:#444;flex:1}
+.info-block a{font-size:13px;font-weight:700;color:var(--vw-black)}
+@media(max-width:900px){
+.contact-block{padding:24px 20px}.services-list{padding:40px 20px 0}.check-list{grid-template-columns:1fr}
+.info-blocks{grid-template-columns:1fr;margin:32px 20px 40px}
+.contact-actions .btn-dark{flex:1 1 100%;text-align:center}
+}
+</style>
 </head>
 <body>
 
-<nav class="top-bar">
+<nav class="top-bar" aria-label="Κύριο μενού">
 <div class="top-bar-left">
 <a href="index.html" class="back-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>Αρχική</a>
 <span class="vw-wordmark">Volkswagen</span>
@@ -53,9 +87,15 @@
 <button type="button" class="nav-toggle" id="navToggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
 <div class="top-nav-links" id="topNavLinks">
 <a href="#models" class="top-nav-link">Μοντέλα</a>
-<a href="#services" class="top-nav-link">Service</a>
-<a href="https://www.volkswagen.gr/el.html" target="_blank" class="top-nav-link">volkswagen.gr ↗</a>
-<a href="index.html#contact" class="top-nav-cta">Επικοινωνία</a>
+<a href="#services" class="top-nav-link">Υπηρεσίες</a>
+<a href="#aftersales" class="top-nav-link">After Sales</a>
+<a href="skoda.html" class="top-nav-link">ŠKODA</a>
+<a href="chery.html" class="top-nav-link">Chery</a>
+<a href="fanovafeio.html" class="top-nav-link">Φανοβαφείο</a>
+<a href="faq.html" class="top-nav-link">Συχνές Ερωτήσεις</a>
+<a href="https://www.volkswagen.gr/el/models.html" target="_blank" rel="noreferrer" class="top-nav-link">volkswagen.gr ↗</a>
+<a href="https://www.volkswagen.gr/el/owners-and-services.html" target="_blank" rel="noreferrer" class="top-nav-link">After Sales VW ↗</a>
+<a href="#contact" class="top-nav-cta">Επικοινωνία</a>
 </div>
 </nav>
 <main>
@@ -67,6 +107,8 @@
 <div class="hero-content">
 <span class="hero-eyebrow">Επίσημη Αντιπροσωπεία · Κιλκίς · Από το 1999</span>
 <h1 class="hero-title">Volkswagen<br><span class="thin">στο Κιλκίς</span></h1>
+<p class="hero-biz">Αυτοκίνηση Μ.Ε.Π.Ε. · Εξουσιοδοτημένο συνεργείο Volkswagen</p>
+<a class="hero-rating" href="https://www.google.com/maps/place/%CE%9A%CF%89%CE%BD%CF%83%CF%84%CE%B1%CE%BD%CF%84%CE%AF%CE%BD%CE%BF%CF%82+%CE%A3%CE%B1%CE%BA%CE%B1%CF%81%CE%AF%CE%B4%CE%B7%CF%82+%CE%9C+%CE%95.%CE%A0.%CE%95+-%CE%91%CE%BD%CF%84%CE%B9%CF%80%CF%81%CE%BF%CF%83%CF%89%CF%80%CE%B5%CE%AF%CE%B1+VW+-+SKODA/@40.989447,22.8579541,17z" target="_blank" rel="noreferrer" aria-label="Βαθμολογία Google 4,8 από 116 αξιολογήσεις"><span class="stars" aria-hidden="true">★★★★★</span><strong>4,8</strong><span>· 116 αξιολογήσεις στην Google</span></a>
 <p class="hero-sub">Επίσημοι αντιπρόσωποι Volkswagen για 27 χρόνια. Νέα αυτοκίνητα, εξουσιοδοτημένο συνεργείο και γνήσια ανταλλακτικά VW.</p>
 <div class="hero-actions">
 <a href="#models" class="btn-pill-white">Δείτε τα μοντέλα →</a>
@@ -75,12 +117,19 @@
 </div>
 </section>
 
-<div class="util-bar">
-<a href="index.html#contact">📍 Δείτε το κατάστημα</a>
-<a href="https://myservicenow-vw.kosmocar.gr/home" target="_blank" rel="noreferrer">🔧 Κλείστε ραντεβού για service</a>
-<a href="index.html#contact">🚗 Κλείστε Test Drive</a>
-<a href="index.html#contact">💬 Ζητήστε Προσφορά</a>
+<!-- TODO(ωράριο): Το ωράριο παραμένει ΑΣΑΦΕΣ. VW/ŠKODA locators: Δευ–Παρ 08:30–16:30 · Google: κλείνει 14:30. Η σελίδα δεν είχε ωράριο, δεν εφευρέθηκε· παραπέμπει στο index.html#contact. Συμπληρώστε όταν επιβεβαιωθεί. -->
+<section class="contact-block" id="contact" aria-label="Στοιχεία επικοινωνίας">
+<div class="contact-grid">
+<div class="contact-item"><span class="contact-label">Διεύθυνση</span><span class="contact-val">Δυτική Περιφερειακή Οδός, Κιλκίς 611 00</span></div>
+<div class="contact-item"><span class="contact-label">Τηλέφωνο</span><a class="contact-val" href="tel:+302341075330">23410 75330</a></div>
+<div class="contact-item"><span class="contact-label">Ωράριο</span><a class="contact-val" href="index.html#contact">Δείτε το ωράριο λειτουργίας →</a></div>
 </div>
+<div class="contact-actions">
+<a href="index.html#contact" class="btn-dark">Ζητήστε προσφορά</a>
+<a href="index.html#contact" class="btn-dark">Test drive</a>
+<a href="https://myservicenow-vw.kosmocar.gr/home" target="_blank" rel="noreferrer" class="btn-dark btn-dark-alt">Κλείστε ραντεβού service</a>
+</div>
+</section>
 
 <div class="centered-head fade">
 <h2>Διαθέσιμα <strong>Μοντέλα</strong></h2>
@@ -269,6 +318,24 @@
 <div class="split-photo"><img src="assets/images/services/paint-4.jpg" alt="Φανοβαφείο" loading="lazy"></div>
 </div>
 
+<section class="services-list" id="services-list">
+<h2 class="services-title">Οι υπηρεσίες μας</h2>
+<ul class="check-list">
+<li>Έκθεση &amp; πωλήσεις νέων και μεταχειρισμένων αυτοκινήτων</li>
+<li>Εξουσιοδοτημένο συνεργείο Volkswagen &amp; ŠKODA</li>
+<li>Πλήρες τμήμα γνήσιων ανταλλακτικών (σύστημα ETKA)</li>
+<li>Υπερσύγχρονο φανοβαφείο για όλες τις μάρκες</li>
+<li>Συνεργασία με όλες τις ασφαλιστικές και αποδοχή εκχώρησης απαίτησης αποζημίωσης</li>
+<li>Παροχή υπηρεσιών ασφάλισης αυτοκινήτου</li>
+</ul>
+</section>
+
+<section class="info-blocks" id="aftersales">
+<div class="info-block"><h3>Ηλεκτρικά μοντέλα ID.</h3><p>Γνωρίστε τη γκάμα των ηλεκτρικών Volkswagen ID. και τις λύσεις ηλεκτροκίνησης.</p><a href="https://www.volkswagen.gr/el/e-mobility-and-id/electric-cars.html" target="_blank" rel="noreferrer">Ηλεκτρικά στο volkswagen.gr ↗</a></div>
+<div class="info-block"><h3>After Sales</h3><p>Service, γνήσια ανταλλακτικά και αξεσουάρ για το Volkswagen σας.</p><a href="https://www.volkswagen.gr/el/owners-and-services.html" target="_blank" rel="noreferrer">After Sales στο volkswagen.gr ↗</a></div>
+<div class="info-block"><h3>Ανακλήσεις ασφαλείας</h3><p>Ελέγξτε αν το όχημά σας περιλαμβάνεται σε ανάκληση ή τεχνικό μέτρο.</p><a href="https://www.volkswagen.gr/el/owners-and-services/customer-information/recall-campaigns.html" target="_blank" rel="noreferrer">Ανακλήσεις στο volkswagen.gr ↗</a></div>
+</section>
+
 <section class="services-strip" id="services">
 <h2 class="services-title">Υπηρεσίες Volkswagen</h2>
 <div class="services-row fade">
@@ -284,6 +351,7 @@
 <div class="footer-logo-text">Volkswagen · Αυτοκίνηση</div>
 <div class="footer-copy">© 2026 Σακαρίδης Κωνσταντίνος Μ.Ε.Π.Ε. · Δυτική Περιφερειακή Οδός, Κιλκίς</div>
 <span style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px"><span class="footer-back" style="font-weight:400">Ακολουθήστε μας:</span><a href="https://www.facebook.com/profile.php?id=100094061461125" target="_blank" rel="noreferrer" class="footer-back">Facebook →</a><a href="https://www.instagram.com/autokinisi_kilkis" target="_blank" rel="noreferrer" class="footer-back">Instagram →</a></span>
+<a href="cookies.html" class="footer-back">Πολιτική Cookies</a>
 <a href="index.html" class="footer-back">← Επιστροφή στην Αρχική</a>
 </footer>
 

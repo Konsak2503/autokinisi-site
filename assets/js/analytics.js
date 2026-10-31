@@ -131,3 +131,6 @@
   if (document.body) init();
   else document.addEventListener('DOMContentLoaded', init);
 })();
+
+/* Εικονίδια social στο footer */
+(function(){var s=document.createElement('script');s.src='assets/js/social-icons.js';s.defer=true;document.head.appendChild(s)})();

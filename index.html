@@ -184,15 +184,39 @@
 </head>
 <body>
 
-<!-- ============ BLACK FRIDAY BAR ============ -->
+<!-- ============ BAR ΕΠΑΝΩ ΕΠΑΝΩ: teaser έως 14/11/2026, Black Friday από 15/11/2026 (ώρα Ελλάδας) ============ -->
+<style>
+  .bf-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 16px;background:#e8b84b;color:#0b1f3a;text-decoration:none;padding:12px 20px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;position:relative;z-index:30}
+  .bf-bar:hover{background:#f0c866}
+  .bf-bar .bf-big{font-weight:900;font-size:20px}
+  .bf-bar .bf-cta{border:1.5px solid #0b1f3a;border-radius:999px;padding:4px 16px;font-size:13px;letter-spacing:.12em}
+  .bf-teaser-bar{display:none;overflow:hidden;background:#e8b84b;color:#0b1f3a;position:relative;z-index:30;padding:11px 0;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .bf-track{display:flex;width:max-content;animation:bf-scroll 30s linear infinite}
+  .bf-half{display:flex;flex:0 0 auto}
+  .bf-item{padding:0 8px}
+  .bf-item i{font-style:normal;margin:0 26px;opacity:.55}
+  @keyframes bf-scroll{to{transform:translateX(-50%)}}
+  .bf-teaser .bf-teaser-bar{display:block}
+  .bf-teaser .bf-bar{display:none}
+  .bf-teaser [data-bf]{display:none!important}
+  @media(max-width:640px){.bf-bar{font-size:13px;padding:10px 12px}.bf-bar .bf-big{font-size:16px}.bf-teaser-bar{font-size:15px;padding:9px 0}}
+  @media(prefers-reduced-motion:reduce){.bf-track{animation:none;width:auto;justify-content:center}.bf-half+.bf-half{display:none}.bf-half .bf-item:nth-child(n+2){display:none}}
+</style>
+<script>
+  (function(){
+    var today;
+    try{today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens'}).format(new Date());}
+    catch(e){today=new Date().toISOString().slice(0,10);}
+    if(today<'2026-11-15'){document.documentElement.classList.add('bf-teaser');}
+  })();
+</script>
+<div class="bf-teaser-bar" role="note" aria-label="27 Νοεμβρίου, 27 χρόνια λειτουργίας. Κάτι μεγάλο έρχεται!">
+  <div class="bf-track" aria-hidden="true">
+    <div class="bf-half"><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span></div>
+    <div class="bf-half"><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span><span class="bf-item">27 Νοεμβρίου<i>·</i>27 Χρόνια λειτουργίας<i>·</i>Κάτι μεγάλο έρχεται!<i>·</i></span></div>
+  </div>
+</div>
 <a href="blackfriday.html" class="bf-bar" aria-label="Black Friday: 54% έκπτωση σε ανταλλακτικά τακτικής συντήρησης">
-  <style>
-    .bf-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 16px;background:#e8b84b;color:#0b1f3a;text-decoration:none;padding:12px 20px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;position:relative;z-index:30}
-    .bf-bar:hover{background:#f0c866}
-    .bf-bar .bf-big{font-weight:900;font-size:20px}
-    .bf-bar .bf-cta{border:1.5px solid #0b1f3a;border-radius:999px;padding:4px 16px;font-size:13px;letter-spacing:.12em}
-    @media(max-width:640px){.bf-bar{font-size:13px;padding:10px 12px}.bf-bar .bf-big{font-size:16px}}
-  </style>
   <span class="bf-big">Black Friday -54%</span>
   <span>σε ανταλλακτικά τακτικής συντήρησης · 27 &amp; 30 Νοεμβρίου</span>
   <span class="bf-cta">Κλείστε ραντεβού →</span>
@@ -214,7 +238,7 @@
       <a href="#services" class="hover:text-[var(--gold)] transition-colors">Υπηρεσίες</a>
       <a href="#about" class="hover:text-[var(--gold)] transition-colors">Η Εταιρεία</a>
       <a href="faq.html" class="hover:text-[var(--gold)] transition-colors">Συχνές Ερωτήσεις</a>
-      <a href="blackfriday.html" class="hover:text-[var(--gold)] transition-colors">Black Friday</a>
+      <a data-bf href="blackfriday.html" class="hover:text-[var(--gold)] transition-colors">Black Friday</a>
       <a href="#contact" class="hover:text-[var(--gold)] transition-colors">Επικοινωνία</a>
       <span class="est-badge pl-6 ml-1" style="border-left:1px solid rgba(245,244,240,.18);font-size:24px;font-weight:700">Από το 1999</span>
     </div>
@@ -228,7 +252,7 @@
     <a href="#services">Υπηρεσίες</a>
     <a href="#about">Η Εταιρεία</a>
     <a href="faq.html">Συχνές Ερωτήσεις</a>
-    <a href="blackfriday.html">Black Friday</a>
+    <a data-bf href="blackfriday.html">Black Friday</a>
     <a href="#contact">Επικοινωνία</a>
   </div>
 <main>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.sakaridis.gr/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-08</lastmod>
   </url>
   <url>
     <loc>https://www.sakaridis.gr/volkswagen.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://www.sakaridis.gr/chery.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-08</lastmod>
   </url>
   <url>
     <loc>https://www.sakaridis.gr/synergeio.html</loc>
@@ -27,5 +27,9 @@
   <url>
     <loc>https://www.sakaridis.gr/faq.html</loc>
     <lastmod>2026-10-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sakaridis.gr/blackfriday.html</loc>
+    <lastmod>2026-11-08</lastmod>
   </url>
 </urlset>

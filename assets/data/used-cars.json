@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-11-09",
   "cars": [
     {
       "title": "Volkswagen Polo LIFE",
@@ -54,6 +54,15 @@
       "price": "26.000 €",
       "image": "https://static.car.gr/54954765_8_n.jpg",
       "url": "https://vwkilkis.car.gr/cars/view/54954765/"
+    },
+    {
+      "title": "Audi Q2 35 TFSI S TRONIC",
+      "year": "2024",
+      "km": "26.496",
+      "fuel": "Βενζίνη",
+      "price": "26.300 €",
+      "image": "https://static.car.gr/58047929_0_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/58047929/"
     }
   ]
 }

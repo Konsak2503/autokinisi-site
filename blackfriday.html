@@ -46,6 +46,17 @@ a{color:inherit}
 .tel{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--gold);text-decoration:none}
 
 .hero{text-align:center;padding:72px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+.hero-video{display:none;justify-self:center;position:relative;width:100%;max-width:340px}
+.hero-video video{display:block;width:100%;aspect-ratio:9/16;background:#06142a;border-radius:18px;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.hero-video button{position:absolute;right:12px;bottom:56px;background:rgba(11,31,58,.82);color:var(--cream);border:1px solid var(--gold);border-radius:999px;padding:8px 14px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.hero-video button:hover{background:var(--gold);color:var(--navy)}
+.hero-grid.has-video .hero-video{display:block}
+@media(min-width:900px){
+  .hero-grid.has-video{grid-template-columns:1.15fr .85fr;gap:56px;text-align:left}
+  .hero-grid.has-video .dates,.hero-grid.has-video .btns{justify-content:flex-start}
+  .hero-grid.has-video .hero .sub,.hero-grid.has-video .sub{margin-left:0}
+}
 .kicker{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;line-height:.92;font-size:clamp(44px,9vw,104px)}
 .hero h1 em{font-style:normal;color:var(--gold);display:block;font-size:1.25em}
@@ -122,6 +133,8 @@ footer a{color:var(--gold);text-decoration:none}
 
 <section class="hero">
   <div class="wrap">
+   <div class="hero-grid" id="hero-grid">
+    <div class="hero-text">
     <div class="kicker">Black Friday 2026 · 27 χρόνια Αυτοκίνηση</div>
     <h1>Αυτό το Νοέμβριο<em>-54%</em></h1>
     <p class="sub">Γιορτάζουμε 27 χρόνια λειτουργίας και σας ευχαριστούμε για την εμπιστοσύνη σας με έκπτωση 54% σε ανταλλακτικά τακτικής συντήρησης.</p>
@@ -133,6 +146,14 @@ footer a{color:var(--gold);text-decoration:none}
       <a href="#booking" class="btn btn-gold" id="cta-form">Κλείστε ραντεβού online</a>
       <a href="tel:+302341075330" class="btn btn-ghost">Καλέστε 23410 75330</a>
     </div>
+    </div>
+    <div class="hero-video" id="hero-video">
+      <video id="bf-video" muted loop playsinline preload="metadata" controls aria-label="Βίντεο: 27 χρόνια Αυτοκίνηση, Black Friday 2026">
+        <source src="assets/video/blackfriday.mp4" type="video/mp4">
+      </video>
+      <button type="button" id="bf-sound" aria-pressed="false">Ήχος</button>
+    </div>
+   </div>
   </div>
 </section>
 
@@ -266,6 +287,23 @@ footer a{color:var(--gold);text-decoration:none}
 </footer>
 
 <script>
+(function(){
+  var grid=document.getElementById('hero-grid'),vid=document.getElementById('bf-video'),snd=document.getElementById('bf-sound');
+  if(vid&&grid){
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    vid.addEventListener('loadeddata',function(){
+      grid.classList.add('has-video');
+      if(!reduce){var p=vid.play(); if(p&&p.catch){p.catch(function(){});}}
+    });
+    if(vid.readyState>=2){grid.classList.add('has-video'); if(!reduce){var p0=vid.play(); if(p0&&p0.catch){p0.catch(function(){});}}}
+    snd.addEventListener('click',function(){
+      vid.muted=!vid.muted;
+      snd.textContent=vid.muted?'Ήχος':'Σίγαση';
+      snd.setAttribute('aria-pressed',vid.muted?'false':'true');
+      if(vid.paused){var q=vid.play(); if(q&&q.catch){q.catch(function(){});}}
+    });
+  }
+})();
 (function(){
   var form=document.getElementById('bf-form'),btn=document.getElementById('bf-submit'),status=document.getElementById('bf-status');
   document.getElementById('cta-form').addEventListener('click',function(e){

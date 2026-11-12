@@ -1,0 +1,16 @@
+/* recall.html: brand boxes linking to importer recall pages */
+.recall-intro p{margin:0 0 1rem;font-size:16px;font-weight:300;line-height:1.75;color:var(--ivory-dim);}
+.recall-intro p:last-child{margin-bottom:0;}
+.recall-intro strong{color:var(--ivory);font-weight:500;}
+.recall-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.recall-box{display:flex;flex-direction:column;justify-content:space-between;min-height:260px;padding:1.75rem;border-radius:.75rem;background:var(--ink-2);border:1px solid rgba(245,244,240,.09);text-decoration:none;transition:border-color .3s ease,transform .3s ease;}
+.recall-box:hover,.recall-box:focus-visible{border-color:rgba(200,168,75,.55);transform:translateY(-4px);outline:none;}
+.recall-box-brand{font-size:34px;font-weight:900;letter-spacing:.02em;text-transform:uppercase;color:var(--ivory);line-height:1;margin-bottom:.9rem;}
+.recall-box-text{font-size:14px;font-weight:300;line-height:1.65;color:var(--ivory-dim);margin:0;}
+.recall-box-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(245,244,240,.1);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.recall-box-host{display:block;margin-top:.35rem;font-size:11px;letter-spacing:.08em;text-transform:none;color:var(--ivory-dim);}
+.recall-box-arrow{font-size:20px;transition:transform .3s ease;}
+.recall-box:hover .recall-box-arrow{transform:translate(3px,-3px);}
+.recall-note{max-width:48rem;font-size:13px;line-height:1.7;color:var(--ivory-dim);}
+.recall-note a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+@media (max-width:900px){.recall-grid{grid-template-columns:1fr;}.recall-box{min-height:0;}}

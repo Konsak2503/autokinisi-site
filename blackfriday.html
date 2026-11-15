@@ -47,16 +47,27 @@ a{color:inherit}
 
 .hero{text-align:center;padding:72px 0 56px}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
-.hero-video{display:none;justify-self:center;position:relative;width:100%;max-width:340px}
-.hero-video video{display:block;width:100%;aspect-ratio:9/16;background:#06142a;border-radius:18px;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.45)}
-.hero-video button{position:absolute;right:12px;bottom:56px;background:rgba(11,31,58,.82);color:var(--cream);border:1px solid var(--gold);border-radius:999px;padding:8px 14px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.hero-media{display:flex;gap:14px;justify-content:center;align-items:flex-start;width:100%}
+.hero-video{display:none;position:relative;flex:1 1 0;min-width:0;max-width:280px}
+.hero-video video{display:block;width:100%;aspect-ratio:9/16;background:#06142a;border-radius:18px;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.45);object-fit:cover}
+.hero-video button{position:absolute;right:10px;bottom:52px;background:rgba(11,31,58,.82);color:var(--cream);border:1px solid var(--gold);border-radius:999px;padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .hero-video button:hover{background:var(--gold);color:var(--navy)}
 .hero-grid.has-video .hero-video{display:block}
+.carousel{position:relative;flex:1 1 0;min-width:0;max-width:280px}
+.carousel-frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#06142a;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.carousel-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
+.carousel-slide.active{opacity:1}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.carousel-dots span{width:8px;height:8px;border-radius:50%;background:rgba(245,240,230,.3);transition:background .2s}
+.carousel-dots span.active{background:var(--gold)}
+@media (prefers-reduced-motion:reduce){.carousel-slide{transition:none}}
 @media(min-width:900px){
-  .hero-grid.has-video{grid-template-columns:1.15fr .85fr;gap:56px;text-align:left}
-  .hero-grid.has-video .dates,.hero-grid.has-video .btns{justify-content:flex-start}
-  .hero-grid.has-video .hero .sub,.hero-grid.has-video .sub{margin-left:0}
+  .hero-grid{grid-template-columns:1fr 1.1fr;gap:48px;text-align:left}
+  .hero-grid .dates,.hero-grid .btns{justify-content:flex-start}
+  .hero-grid .sub{margin-left:0}
+  .hero-media{gap:20px}
 }
+@media(max-width:899px){.hero-media{max-width:480px;margin:0 auto}}
 .kicker{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;line-height:.92;font-size:clamp(44px,9vw,104px)}
 .hero h1 em{font-style:normal;color:var(--gold);display:block;font-size:1.25em}
@@ -98,6 +109,7 @@ input::placeholder{color:rgba(245,240,230,.4)}
 input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
 input.invalid,select.invalid{border-color:var(--err)}
 .err{min-height:18px;font-size:13px;color:var(--err)}
+.opt{text-transform:none;letter-spacing:0;font-weight:400;color:var(--dim);font-size:12px}
 .hint{font-size:12.5px;color:var(--dim);font-weight:300}
 .consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--dim);font-weight:300}
 .consent input{width:20px;height:20px;margin-top:3px;flex:0 0 auto;accent-color:var(--gold)}
@@ -147,11 +159,21 @@ footer a{color:var(--gold);text-decoration:none}
       <a href="tel:+302341075330" class="btn btn-ghost">Καλέστε 23410 75330</a>
     </div>
     </div>
-    <div class="hero-video" id="hero-video">
-      <video id="bf-video" muted loop playsinline preload="metadata" controls aria-label="Βίντεο: 27 χρόνια Αυτοκίνηση, Black Friday 2026">
-        <source src="assets/video/blackfriday.mp4" type="video/mp4">
-      </video>
-      <button type="button" id="bf-sound" aria-pressed="false">Ήχος</button>
+    <div class="hero-media">
+      <div class="hero-video" id="hero-video">
+        <video id="bf-video" muted loop playsinline preload="metadata" controls aria-label="Βίντεο: 27 χρόνια Αυτοκίνηση, Black Friday 2026">
+          <source src="assets/video/blackfriday.mp4" type="video/mp4">
+        </video>
+        <button type="button" id="bf-sound" aria-pressed="false">Ήχος</button>
+      </div>
+    <div class="carousel" id="bf-carousel" role="region" aria-roledescription="καρουζέλ" aria-label="Προγράμματα εγγύησης Volkswagen JOY και ŠKODA ZEN">
+      <div class="carousel-frame">
+        <img class="carousel-slide active" src="assets/images/slide-1-vw-joy.jpg" alt="Volkswagen JOY: 10 χρόνια εγγύηση σε όλα τα μοντέλα Volkswagen" width="720" height="1280">
+        <img class="carousel-slide" src="assets/images/slide-2-free-warranty.jpg" alt="Δωρεάν εγγύηση 2 ετών μέσω προγραμμάτων VW JOY και ŠKODA ZEN" width="720" height="1280" loading="lazy">
+        <img class="carousel-slide" src="assets/images/slide-3-skoda-zen.jpg" alt="ŠKODA ZEN: 10 χρόνια εγγύηση σε όλα τα μοντέλα ŠKODA" width="720" height="1280" loading="lazy">
+      </div>
+      <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+    </div>
     </div>
    </div>
   </div>
@@ -193,7 +215,7 @@ footer a{color:var(--gold);text-decoration:none}
 <section class="block" id="booking">
   <div class="wrap">
     <h2 class="title">Αίτηση <span>ραντεβού</span></h2>
-    <p class="lead">Συμπληρώστε τα στοιχεία σας και την ημέρα και ώρα που σας εξυπηρετεί. Θα επικοινωνήσουμε μαζί σας για να επιβεβαιώσουμε το ραντεβού.</p>
+    <p class="lead">Συμπληρώστε τα στοιχεία σας και την ημέρα και ώρα που σας εξυπηρετεί. Θα επικοινωνήσουμε μαζί σας για να επιβεβαιώσουμε το ραντεβού. Υποχρεωτικά είναι μόνο το όνομα, το επώνυμο, το κινητό και ο αριθμός κυκλοφορίας.</p>
 
     <form id="bf-form" action="https://formspree.io/f/mbggvjqo" method="POST" novalidate>
       <div class="grid">
@@ -213,13 +235,13 @@ footer a{color:var(--gold);text-decoration:none}
           <span class="err" data-for="f-phone"></span>
         </div>
         <div class="field">
-          <label for="f-model">Μοντέλο αυτοκινήτου *</label>
-          <input type="text" id="f-model" name="car_model" placeholder="π.χ. VW Golf, ŠKODA Octavia" required>
+          <label for="f-model">Μοντέλο αυτοκινήτου <span class="opt">(προαιρετικό)</span></label>
+          <input type="text" id="f-model" name="car_model" placeholder="π.χ. VW Golf, ŠKODA Octavia">
           <span class="err" data-for="f-model"></span>
         </div>
         <div class="field">
-          <label for="f-year">Έτος πρώτης άδειας *</label>
-          <input type="text" id="f-year" name="first_registration_year" inputmode="numeric" maxlength="4" placeholder="π.χ. 2018" required>
+          <label for="f-year">Έτος πρώτης άδειας <span class="opt">(προαιρετικό)</span></label>
+          <input type="text" id="f-year" name="first_registration_year" inputmode="numeric" maxlength="4" placeholder="π.χ. 2018">
           <span class="err" data-for="f-year"></span>
         </div>
         <div class="field">
@@ -228,14 +250,14 @@ footer a{color:var(--gold);text-decoration:none}
           <span class="err" data-for="f-plate"></span>
         </div>
         <div class="field wide">
-          <label for="f-vin">Αριθμός πλαισίου (VIN) *</label>
-          <input type="text" id="f-vin" name="vin" autocapitalize="characters" maxlength="17" placeholder="17 χαρακτήρες" required>
+          <label for="f-vin">Αριθμός πλαισίου (VIN) <span class="opt">(προαιρετικό)</span></label>
+          <input type="text" id="f-vin" name="vin" autocapitalize="characters" maxlength="17" placeholder="17 χαρακτήρες">
           <span class="hint">Βρίσκεται στην άδεια κυκλοφορίας του αυτοκινήτου.</span>
           <span class="err" data-for="f-vin"></span>
         </div>
         <div class="field">
-          <label for="f-date">Επιθυμητή ημέρα *</label>
-          <select id="f-date" name="appointment_date" required>
+          <label for="f-date">Επιθυμητή ημέρα <span class="opt">(προαιρετικό)</span></label>
+          <select id="f-date" name="appointment_date">
             <option value="">Επιλέξτε...</option>
             <option value="Παρασκευή 27/11/2026">Παρασκευή 27/11/2026</option>
             <option value="Δευτέρα 30/11/2026">Δευτέρα 30/11/2026</option>
@@ -243,8 +265,8 @@ footer a{color:var(--gold);text-decoration:none}
           <span class="err" data-for="f-date"></span>
         </div>
         <div class="field">
-          <label for="f-time">Επιθυμητή ώρα *</label>
-          <select id="f-time" name="appointment_time" required>
+          <label for="f-time">Επιθυμητή ώρα <span class="opt">(προαιρετικό)</span></label>
+          <select id="f-time" name="appointment_time">
             <option value="">Επιλέξτε...</option>
             <option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option>
             <option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option>
@@ -305,6 +327,15 @@ footer a{color:var(--gold);text-decoration:none}
   }
 })();
 (function(){
+  var root=document.getElementById('bf-carousel'); if(!root) return;
+  var slides=root.querySelectorAll('.carousel-slide'),dots=root.querySelectorAll('.carousel-dots span'),i=0;
+  function show(n){
+    slides[i].classList.remove('active'); dots[i].classList.remove('active');
+    i=n; slides[i].classList.add('active'); dots[i].classList.add('active');
+  }
+  setInterval(function(){ show((i+1)%slides.length); },1000);
+})();
+(function(){
   var form=document.getElementById('bf-form'),btn=document.getElementById('bf-submit'),status=document.getElementById('bf-status');
   document.getElementById('cta-form').addEventListener('click',function(e){
     var t=document.getElementById('booking'); if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
@@ -318,15 +349,13 @@ footer a{color:var(--gold);text-decoration:none}
   function validate(){
     var ok=true;
     function need(id,msg,test){var v=val(id); var bad=!v||(test&&!test(v)); setErr(id,bad?msg:''); if(bad) ok=false;}
+    function opt(id,msg,test){var v=val(id); var bad=!!v&&!test(v); setErr(id,bad?msg:''); if(bad) ok=false;}
     need('f-first','Συμπληρώστε το όνομά σας.');
     need('f-last','Συμπληρώστε το επώνυμό σας.');
     need('f-phone','Συμπληρώστε έγκυρο κινητό τηλέφωνο.',function(v){return /^(\+?30)?\s?6\d{9}$/.test(v.replace(/[\s-]/g,''))||/^\+?\d{10,14}$/.test(v.replace(/[\s-]/g,''));});
-    need('f-model','Συμπληρώστε το μοντέλο του αυτοκινήτου.');
-    need('f-year','Συμπληρώστε έτος πρώτης άδειας (π.χ. 2018).',function(v){var y=+v;return /^\d{4}$/.test(v)&&y>=1950&&y<=2026;});
     need('f-plate','Συμπληρώστε τον αριθμό κυκλοφορίας.',function(v){return v.replace(/[\s-]/g,'').length>=4;});
-    need('f-vin','Ο αριθμός πλαισίου έχει 17 χαρακτήρες (γράμματα και ψηφία).',function(v){return /^[A-Za-z0-9]{17}$/.test(v);});
-    need('f-date','Επιλέξτε ημέρα.');
-    need('f-time','Επιλέξτε ώρα.');
+    opt('f-year','Συμπληρώστε έτος πρώτης άδειας με 4 ψηφία (π.χ. 2018).',function(v){var y=+v;return /^\d{4}$/.test(v)&&y>=1950&&y<=2026;});
+    opt('f-vin','Ο αριθμός πλαισίου έχει 17 χαρακτήρες (γράμματα και ψηφία).',function(v){return /^[A-Za-z0-9]{17}$/.test(v);});
     var c=document.getElementById('f-consent'); setErr('f-consent',c.checked?'':'Η συναίνεση είναι απαραίτητη για να στείλετε την αίτηση.'); if(!c.checked) ok=false;
     return ok;
   }

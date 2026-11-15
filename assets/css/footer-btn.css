@@ -1,0 +1,15 @@
+/* Κουμπιά στο footer (Ανακλήσεις οχημάτων, Συχνές Ερωτήσεις) */
+.footer-btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px;}
+.footer-btn{display:inline-block;padding:11px 22px;border:2px solid #c8a84b;border-radius:8px;background:transparent;color:#c8a84b;font-family:inherit;font-size:14px;font-weight:700;letter-spacing:.08em;line-height:1.2;text-transform:uppercase;text-decoration:none;text-align:center;transition:background .2s ease,color .2s ease;}
+.footer-btn:hover,.footer-btn:focus-visible{background:#c8a84b;color:#0a0a0a;outline:none;}
+.footer-btn:focus-visible{box-shadow:0 0 0 3px rgba(200,168,75,.45);}
+/* Volkswagen: σκούρο footer */
+.footer-btn--vw{border-color:#fff;color:#fff;}
+.footer-btn--vw:hover,.footer-btn--vw:focus-visible{background:#fff;color:#000;}
+/* ŠKODA: λευκό footer, πράσινη μάρκα */
+.footer-btn--sk{border-color:var(--sk-green,#4ba82e);color:var(--sk-black,#0e3a2f);}
+.footer-btn--sk:hover,.footer-btn--sk:focus-visible{background:var(--sk-green,#4ba82e);color:#fff;}
+/* Chery: λευκό footer, κόκκινη μάρκα */
+.footer-btn--ch{border-color:var(--ch-red,#c8102e);color:var(--ch-black,#111);}
+.footer-btn--ch:hover,.footer-btn--ch:focus-visible{background:var(--ch-red,#c8102e);color:#fff;}
+@media (max-width:640px){.footer-btn{width:100%;max-width:320px;font-size:15px;padding:13px 22px;}}

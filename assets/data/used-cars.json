@@ -1,6 +1,15 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-16",
   "cars": [
+    {
+      "title": "Volkswagen Polo LIFE",
+      "year": "2024",
+      "km": "23.420",
+      "fuel": "Βενζίνη",
+      "price": "16.500 €",
+      "image": "https://static.car.gr/58208512_0_n.jpg",
+      "url": "https://vwkilkis.car.gr/cars/view/58208512/"
+    },
     {
       "title": "Volkswagen Polo LIFE",
       "year": "2024",
@@ -36,15 +45,6 @@
       "price": "20.900 €",
       "image": "https://static.car.gr/55603112_8_n.jpg",
       "url": "https://vwkilkis.car.gr/cars/view/55603112/"
-    },
-    {
-      "title": "Skoda Fabia",
-      "year": "2026",
-      "km": "80",
-      "fuel": "Βενζίνη",
-      "price": "20.950 €",
-      "image": "https://static.car.gr/55254366_1_n.jpg",
-      "url": "https://vwkilkis.car.gr/cars/view/55254366/"
     },
     {
       "title": "Chery Tiggo 7 PREMIUM",
